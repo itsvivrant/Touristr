@@ -67,7 +67,10 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   User.associate = function(models) {
-    // associations can be defined here
+    // User.hasMany(models.Photo, {foreignKey: 'userId'});
+    // User.hasMany(models.Album, {foreignKey: 'userId'});
+    // User.hasMany(models.Comment, {foreignKey: 'userId'});
+    // User.hasMany(models.Favorite)
   };
   //return an object with only the User instance info that's safe to save to a JWT
   User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
