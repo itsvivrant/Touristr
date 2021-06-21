@@ -9,12 +9,22 @@ const { User } = require('../../db/models');
 
 
 //validations for signup route that expec the body of the request to have a key of username, email,
-//and password with the password of the user being created 
+//and password with the password of the user being created
 const validateSignup = [
   check('email')
     .exists({ checkFalsy: true })
     .isEmail()
     .withMessage('Please provide a valid email.'),
+  check('firstName')
+    .exists({checkFalsy: true})
+    .withMessage('Please provide your First Name.'),
+  check('firstName')
+    .not()
+    .isEmail()
+    .withMessage('First Name cannot be an email.'),
+  check('lastName')
+    .exists({checkFalsy: true})
+    .withMessage('Please provide your Last Name.'),
   check('username')
     .exists({ checkFalsy: true })
     .isLength({ min: 4 })
@@ -35,8 +45,8 @@ router.post(
     '/',
     validateSignup,
     asyncHandler(async (req, res) => {
-      const { email, password, username } = req.body;
-      const user = await User.signup({ email, username, password });
+      const { email, password, firstName, lastName, username } = req.body;
+      const user = await User.signup({ email, firstName, lastName, username, password });
 
       await setTokenCookie(res, user);
 
