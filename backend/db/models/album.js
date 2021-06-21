@@ -3,15 +3,14 @@ module.exports = (sequelize, DataTypes) => {
   const Album = sequelize.define('Album', {
     tite: {
       allowNull: false,
-      type: Sequelize.STRING
+      type: DataTypes.STRING,
     },
     description: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING,
     },
     userId: {
       allowNull: false,
-      type: Sequelize.INTEGER,
-      references: {model: 'Users'}
+      type: DataTypes.INTEGER
     },
   }, {});
   Album.associate = function(models) {
