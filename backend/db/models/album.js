@@ -15,14 +15,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Album.associate = function(models) {
     Album.belongsTo(models.User, {foreignKey: 'userId'})
-
+    
     const columnMapping = {
       through: 'AlbumPhoto',
-      otherKey: 'photoId',
-      foreignKey: 'albumId'
+      otherKey: 'albumId',
+      foriegnKey: 'photoId'
     }
-
     Album.belongsToMany(models.Photo, columnMapping)
+
   };
   return Album;
 };

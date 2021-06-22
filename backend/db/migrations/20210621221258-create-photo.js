@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      locationId : {
+      locationId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {model: 'Locations'}
@@ -28,7 +28,7 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model: "Users"}
+        references: {model: 'Users'}
       },
       createdAt: {
         allowNull: false,

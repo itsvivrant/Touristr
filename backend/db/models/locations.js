@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Location = sequelize.define('Location', {
+  const Locations = sequelize.define('Location', {
     name: {
       type: DataTypes.STRING,
     },
@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.FLOAT,
     }
   }, {});
-  Location.associate = function(models) {
+  Locations.associate = function(models) {
     Location.hasMany(models.Photo, {foreignKey: 'locationId'})
   };
-  return Location;
+  return Locations;
 };
