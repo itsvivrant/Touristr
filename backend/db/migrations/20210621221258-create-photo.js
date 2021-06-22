@@ -8,6 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      locationId : {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {model: 'Locations'}
+      },
       title: {
         allowNull: false,
         type: Sequelize.STRING
