@@ -17,6 +17,25 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 50],
+        isNotEmail(value) {
+          if (Validator.isEmail(value)) {
+            throw new Error('Cannot be an email.');
+          }
+        },
+      },
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 50],
+      },
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -48,7 +67,10 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Photo, {foreignKey: 'userId'});
+    User.hasMany(models.Album, {foreignKey: 'userId'});
+    User.hasMany(models.Comment, {foreignKey: 'userId'});
+    // User.hasMany(models.Favorite, {foreignKey: 'userId'})
   };
   //return an object with only the User instance info that's safe to save to a JWT
   User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
@@ -77,12 +99,14 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope('currentUser').findByPk(user.id);
     }
   };
-  User.signup = async function ({ username, email, password }) {
+  User.signup = async function ({ username, email, password, firstName, lastName}) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
       username,
       email,
       hashedPassword,
+      firstName,
+      lastName
     });
     return await User.scope('currentUser').findByPk(user.id);
   };
