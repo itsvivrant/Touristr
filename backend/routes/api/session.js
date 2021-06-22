@@ -47,19 +47,14 @@ router.post(
 
 // Log out:  this remove the token cookie rom the response and return a JSON
 //success message. AsyncHandler is not wrapped bc this route handler is not async
-router.delete(
-    '/',
-    (_req, res) => {
+router.delete('/', (req, res) => {
       res.clearCookie('token');
       return res.json({ message: 'success' });
     }
 );
 
 //Get session user route: wil return the session user as JSON under the key of user aka restore session user
-router.get(
-    '/',
-    restoreUser,
-    (req, res) => {
+router.get('/', restoreUser, (req, res) => {
       const { user } = req;
       if (user) {
         return res.json({
