@@ -12,7 +12,7 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
         <ProfileButton user={sessionUser} />
-        <NavLink to='/explorephotos'>Explore</NavLink>
+        <NavLink to='/explore-photos'>Explore</NavLink>
       </>
     );
   } else {

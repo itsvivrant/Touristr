@@ -22,10 +22,12 @@ function App() {
           <Route path="/login">
             <LoginFormPage />
           </Route>
+
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/explorephotos'>
+
+          <Route path='/explore-photos'>
             <ExplorePage />
           </Route>
         </Switch>

@@ -10,8 +10,6 @@ const ExplorePage = () => {
 
     //grabs the current state object of photos
     let photos = useSelector(state =>  Object.values(state.photos)); //this is the from the root reducer in store index.js
-    // photos = Object.values(photos)
-
 
     useEffect(() => {
         dispatch(getPhotos()) //use the thunk action creator
@@ -20,12 +18,12 @@ const ExplorePage = () => {
     if(!photos) return null
 
     return (
-        <div>
-            {photos.map((photo) => {
-                return (
-                    <img src={photo.imgURL} />
-                )
-            })}
+        <div class='photo-container'>
+            {photos.map((photo) => (
+                <div class='photo-card'>
+                    <img class='each-photo' src={photo.imgURL} />
+                </div>
+            ))}
         </div>
     )
 }

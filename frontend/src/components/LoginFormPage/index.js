@@ -11,7 +11,7 @@ function LoginFormPage() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return (
-    <Redirect to="/" />
+    <Redirect to="/explore-photos" />
   );
 
   const handleSubmit = (e) => {
@@ -36,7 +36,7 @@ function LoginFormPage() {
       <label> Password
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       </label>
-      
+
       <button type="submit">Log In</button>
     </form>
   );

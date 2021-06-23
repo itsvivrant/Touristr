@@ -1,0 +1,12 @@
+.photo-container{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center
+  }
+  .photo-card{
+    height: 200px;
+    width: 200px;
+  }
+  .each-photo{
+    height: 95%;
+  }
