@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import {Link} from 'react-router-dom'
 import * as sessionActions from '../../store/session';
+
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+
   };
 
   return (
@@ -38,7 +41,9 @@ function ProfileButton({ user }) {
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button onClick={logout}>
+              <Link to='/'> Logout </Link>
+            </button>
           </li>
         </ul>
       )}
