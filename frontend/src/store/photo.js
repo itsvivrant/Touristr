@@ -15,6 +15,7 @@ export const getPhotos = () => async dispatch => {
     if (response.ok) {
         const photos = await response.json();
         dispatch(loadPhotos(photos))
+        return photos
     }
 }
 
@@ -24,12 +25,13 @@ const initialState = {}
 const photoReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_PHOTOS: {
-            const allPhotos = {};
+            const allPhotos = {}; //doesn't modify the existing state aka new state
             action.photos.forEach(photo => {
-                allPhotos[photo.id] = photo
+                allPhotos[photo.id] = photo //setting all photos at photo at id and giving its value
             });
+            // console.log(allPhotos)
             return {
-                ...allPhotos, ...state
+                ...state, ...allPhotos //returning new state and existing state
             }
         }
         default:

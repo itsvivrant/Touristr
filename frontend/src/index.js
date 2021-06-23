@@ -7,6 +7,7 @@ import App from "./App";
 import configureStore from "./store";
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from "./store/session";
+import * as photoActions from "./store/photo"
 
 const store = configureStore();
 
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV !== "production") {
   window.csrfFetch = csrfFetch;
   window.store = store;
   window.sessionActions = sessionActions;
+  window.photoActions = photoActions
 }
 
 function Root() {

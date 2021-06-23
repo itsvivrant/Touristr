@@ -6,7 +6,7 @@ import photoReducer from './photo'
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  photo: photoReducer
+  photos: photoReducer
 
 });
 
