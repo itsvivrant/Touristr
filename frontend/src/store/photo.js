@@ -81,11 +81,15 @@ const photoReducer = (state = initialState, action) => {
         }
 
         case ADD_PHOTO: {
-            const addPhoto = {
-                ...state,
-                [action.photo.id]: action.photo
-            }
+            // const addPhoto = {
+            //     ...state,
+            //     [action.photo.id]: action.photo
+            // }
+            // return addPhoto
+            const addPhoto = {...state}
+            addPhoto[action.photo.id] = action.photo
             return addPhoto
+
         }
         default:
             return state;
