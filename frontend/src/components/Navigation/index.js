@@ -13,6 +13,7 @@ function Navigation({ isLoaded }){
       <>
         <ProfileButton user={sessionUser} />
         <NavLink to='/explore-photos'>Explore</NavLink>
+        <NavLink to='/upload'>Upload Photo</NavLink>
       </>
     );
   } else {
