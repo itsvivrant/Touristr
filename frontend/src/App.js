@@ -6,6 +6,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import ExplorePage from "./components/ExplorePage";
+import PhotoPage from "./components/PhotoPage";
+import UploadPhotoPage from "./components/UploadPhotoPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +32,15 @@ function App() {
           <Route path='/explore-photos'>
             <ExplorePage />
           </Route>
+
+          <Route path='/photos/:id'>
+            <PhotoPage />
+          </Route>
+
+          <Route path='/upload'>
+            <UploadPhotoPage />
+          </Route>
+
         </Switch>
       )}
     </>

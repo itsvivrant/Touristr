@@ -24,8 +24,10 @@ router.get('/', asyncHandler(async(req, res) => {
 // }
 
 //GET one photo
-router.get('/:id(\\d+)', asyncHandler(async(req,res,next) => {
-    const photo = await Photo.findByPk(req.params.id)
+router.get('/:id(\\d+)', asyncHandler(async(req,res) => {
+    const photo = await Photo.findByPk(req.params.id, {
+        include: [User]
+    })
     res.json(photo)
 }));
 
@@ -48,7 +50,7 @@ router.put('/:id', asyncHandler(async(req, res) => {
     const photo = await Photo.findOne({
         where: {
             id: req.params.id
-        }
+        },
     })
 
     await photo.update({title, caption, locationId});

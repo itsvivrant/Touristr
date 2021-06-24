@@ -11,27 +11,29 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <>
+        <NavLink className='nav-link' to='/explore-photos'>Explore</NavLink>
+        <NavLink className='nav-link' to='/upload'>Upload Photo</NavLink>
         <ProfileButton user={sessionUser} />
-        <NavLink to='/explore-photos'>Explore</NavLink>
       </>
     );
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink className='nav-link' to="/login">Log In</NavLink>
+        <NavLink className='nav-link' to="/signup">Sign Up</NavLink>
       </>
     );
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
+    <div className='nav-container'>
+      <NavLink className='nav-link' exact to="/explore-photos">Touristr</NavLink>
+      {isLoaded && sessionLinks}
+    </div>
 
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+
+
+
   );
 }
 

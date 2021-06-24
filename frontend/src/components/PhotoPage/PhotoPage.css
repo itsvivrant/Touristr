@@ -1,0 +1,14 @@
+/* flex works on the direct children only of a parent container*/
+.photo-container {
+    display: flex;
+    justify-content: center;
+    background-color: #292b2c;
+    width: 100%;
+    height: 530px;
+}
+
+.img {
+    height: 400px;
+    width: auto;
+    margin-top: 90px;
+}
