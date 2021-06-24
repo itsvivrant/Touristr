@@ -1,0 +1,23 @@
+.nav-container {
+    background-color: rgb(19, 17, 17);
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    align-items: center;
+    /* position: fixed; */
+    width:100%;
+}
+/* align-tem :for vertical and up /down*/
+/* justify: for horizonatal left/right */
+
+.nav-link {
+    /* take away underline */
+    text-decoration: none;
+    color: white;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    font-weight: 700;
+}
+
+.profile-dropdown {
+    color: white;
+}
