@@ -3,6 +3,8 @@ import {csrfFetch} from './csrf';
 const LOAD_PHOTOS = 'photos/LOAD_PHOTOS';
 const LOAD_SINGLE_PHOTO = 'photos/LOAD_SINGLE_PHOTO';
 const ADD_PHOTO = 'photos/ADD_PHOTO';
+const EDIT_PHOTO = 'photos/EDIT_PHOTO';
+const DELETE_PHOTO = 'photos/DELETE_PHOTO'
 
 // action creator
 const loadPhotos = photos => ({
@@ -18,6 +20,16 @@ const loadSinglePhoto = photo => ({
 
 const addPhoto = photo => ({
     type: ADD_PHOTO,
+    photo
+})
+
+const editPhoto = photo => ({
+    type: EDIT_PHOTO,
+    photo
+})
+
+const deletePhoto = photo => ({
+    type: DELETE_PHOTO,
     photo
 })
 
@@ -57,6 +69,29 @@ export const uploadPhoto = (photoData) => async dispatch => {
     }
 }
 
+export const editUserPhoto = (photoData) => async dispatch => {
+    const response = await fetch(`/api/photos/${photoData.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(photoData)
+    })
+    if (response.ok){
+        const editedPhotoData = await response.json();
+        dispatch(editPhoto(editedPhotoData))
+        return editedPhotoData
+    }
+}
+
+export const deleteUserPhoto = (photoId) => async dispatch => {
+    const response = await csrfFetch(`/api/photos/${photoId}`, {
+        method: 'DELETE',
+    })
+    if (response.ok) {
+        dispatch(deletePhoto(photoId))
+    }
+}
 
 //reducer
 const initialState = {}
@@ -81,12 +116,25 @@ const photoReducer = (state = initialState, action) => {
         }
 
         case ADD_PHOTO: {
-            const addPhoto = {
+            const addPhoto = {...state}
+            addPhoto[action.photo.id] = action.photo;
+            return addPhoto
+        }
+
+        case EDIT_PHOTO: {
+            const editPhoto = {
                 ...state,
                 [action.photo.id]: action.photo
             }
-            return addPhoto
+            return editPhoto
         }
+
+        case DELETE_PHOTO: {
+            const deletePhoto = {...state}
+            delete deletePhoto[action.photo]
+            return deletePhoto
+        }
+
         default:
             return state;
     }
