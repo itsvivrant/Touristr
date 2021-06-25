@@ -37,12 +37,12 @@ const EditPhotoForm = ({photo}) => {
             //location
         }
 
-        await dispatch(editUserPhoto(photoData))
-        // if (editedPhoto) {
-        //     // setTitle('');
-        //     // setCaption('')
-        //     history.push(`/photos/${photo.id}`)
-        // }
+        const updatedPhoto = await dispatch(editUserPhoto(photoData))
+        if (updatedPhoto) {
+            setTitle('');
+            setCaption('')
+            history.push(`/photos/${photo.id}`)
+        }
 
     }
 
