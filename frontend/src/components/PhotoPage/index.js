@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams , Redirect} from 'react-router-dom'
+import { Link, useHistory, useParams , Redirect} from 'react-router-dom'
 import { getSinglePhoto } from '../../store/photo';
+import EditPhotoForm from '../EditPhotoForm'
 import './PhotoPage.css'
 
 
@@ -39,7 +40,9 @@ const PhotoPage = () => {
             <div className='comment-container'>
                 <p>Comment section</p>
             </div>
-
+            <div>
+                <EditPhotoForm  photo={photo}/>
+            </div>
         </div>
     )
 

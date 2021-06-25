@@ -37,6 +37,13 @@ const UploadPhotoPage = () => {
 
     }
 
+    const getFile = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setImgURL(file);
+        }
+    };
+
     const handleCancelClick = (e) => {
         e.preventDefault();
         history.push(`/explore-photos`)
@@ -49,7 +56,7 @@ const UploadPhotoPage = () => {
                 <div>
                     <div className='upload-photo-box'>
                         <p>Click to select a file to upload</p>
-                        <input type='file' accept="image/*" autocomplete="off" size="60"></input>
+                        <input type='file' accept="image/*" onChange={getFile}></input>
                     </div>
                     <span>Or</span>
                     <div className='upload-imgURL-box'>
@@ -67,6 +74,7 @@ const UploadPhotoPage = () => {
         </div>
     )
 }
+
 
 
 
