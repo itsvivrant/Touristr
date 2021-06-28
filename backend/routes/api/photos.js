@@ -46,10 +46,11 @@ router.post('/', requireAuth, asyncHandler(async(req, res) => {
 
 //PUT update picture info
 router.put('/:id', asyncHandler(async(req, res) => {
+    const photoId = parseInt(req.params.id, 10)
     const {title, caption, locationId} = req.body
     const photo = await Photo.findOne({
         where: {
-            id: req.params.id
+            id: photoId
         },
     })
 

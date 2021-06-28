@@ -79,7 +79,7 @@ export const editUserPhoto = (photoData) => async dispatch => {
     })
     if (response.ok){
         const editedPhotoData = await response.json();
-        dispatch(editPhoto(editedPhotoData))
+        dispatch(editPhoto(editedPhotoData.photo))
         return editedPhotoData
     }
 }

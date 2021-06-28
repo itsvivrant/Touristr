@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory, useParams, Redirect} from 'react-router-dom'
-import {editUserPhoto, getPhotos} from '../../store/photo';
+import {editUserPhoto, getPhotos, deleteUserPhoto} from '../../store/photo';
 import './EditPhotoForm.css'
 
 
@@ -9,8 +9,8 @@ const EditPhotoForm = ({photo}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
-    const [title, setTitle] = useState(photo.title);
-    const [caption, setCaption] = useState(photo.caption);
+    const [title, setTitle] = useState('');
+    const [caption, setCaption] = useState('');
     // const [location, setLocation] = useState('')
 
     useEffect(() => {
@@ -52,17 +52,21 @@ const EditPhotoForm = ({photo}) => {
     };
 
       return (
-        <div className='photo-edit-form'>
-            <form onSubmit={handleSubmit}>
+        <div className='edit-page-container'>
+            <div className='photo-edit-form'>
+                <form onSubmit={handleSubmit}>
 
-                <div className='photo-input-container'>
-                    <input type='text' placeholder='title' value={title} onChange={updateTitle}></input>
-                    <input type='text' placeholder='caption' value={caption} onChange={updateCaption}></input>
-                </div>
-                <button type="submit">Update Photo</button>
-                <button type="button" onClick={handleCancelClick}>Cancel</button>
-            </form>
+                    <div className='photo-input-container'>
+                        <input type='text' placeholder='title' value={title} onChange={updateTitle}></input>
+                        <input type='text' placeholder='caption' value={caption} onChange={updateCaption}></input>
+                    </div>
+                    <button type="submit">Update Photo</button>
+                    <button type="button" onClick={handleCancelClick}>Cancel</button>
+                </form>
+            </div>
+            
         </div>
+
       )
 }
 

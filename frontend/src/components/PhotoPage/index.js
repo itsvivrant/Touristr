@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory, useParams , Redirect} from 'react-router-dom'
+import { useHistory, useParams , Redirect} from 'react-router-dom'
 import { getSinglePhoto } from '../../store/photo';
-import EditPhotoForm from '../EditPhotoForm'
 import './PhotoPage.css'
 
 
 const PhotoPage = () => {
     const dispatch = useDispatch();
+    const history = useHistory()
 
     const {id} = useParams()
 
@@ -28,6 +28,10 @@ const PhotoPage = () => {
         return null
     }
 
+    const directToEditPage = () => {
+        history.push(`/edit/${photo.id}`)
+    }
+
     return (
         <div className='photo-page'>
             <div className='photo-container'>
@@ -40,9 +44,10 @@ const PhotoPage = () => {
             <div className='comment-container'>
                 <p>Comment section</p>
             </div>
-            <div>
+            {/* <div>
                 <EditPhotoForm  photo={photo}/>
-            </div>
+            </div> */}
+            <button onClick={directToEditPage}>Edit Photo</button>
         </div>
     )
 

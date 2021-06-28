@@ -42,6 +42,10 @@ function App() {
             <UploadPhotoPage />
           </Route>
 
+          <Route path='/edit/:id'>
+            <EditPhotoForm />
+          </Route>
+
         </Switch>
       )}
     </>
