@@ -25,14 +25,18 @@ const ExplorePage = () => {
     if(!photos) return null
 
     return (
-        <div class='photo-container'>
-            {photos.map((photo) => (
-                <a href={`/photos/${photo.id}`} onClick={showPhoto}>
-                    <div class='photo-card'>
-                        <img class='each-photo' src={photo.imgURL} />
-                    </div>
-                </a>
-            ))}
+        <div className='photo-container'>
+            <div className='show-pics'>
+                <div className='pics'>
+                    {photos.map((photo) => (
+                        <a href={`/photos/${photo.id}`} onClick={showPhoto}>
+                            <div key={photo.id} class='pics'>
+                                <img class='each-photo' src={photo.imgURL} />
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }

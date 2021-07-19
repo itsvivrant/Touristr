@@ -5,13 +5,16 @@ import {editUserPhoto, getPhotos, deleteUserPhoto} from '../../store/photo';
 import './EditPhotoForm.css'
 
 
-const EditPhotoForm = ({photo}) => {
+const EditPhotoForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
     const [title, setTitle] = useState('');
     const [caption, setCaption] = useState('');
     // const [location, setLocation] = useState('')
+
+    const {id} = useParams();
+    const photo = useSelector(state => state.photos[id])
 
     useEffect(() => {
         dispatch(getPhotos())
@@ -25,6 +28,7 @@ const EditPhotoForm = ({photo}) => {
           <Redirect to='/login' />
         )
     }
+
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -51,9 +55,14 @@ const EditPhotoForm = ({photo}) => {
         history.push(`/explore-photos`)
     };
 
+    const redirectToHomePage = () =>{
+        history.push(`/photos/${photo.id}`)
+    }
+
       return (
         <div className='edit-page-container'>
             <div className='photo-edit-form'>
+             <button className='edit-page-button'onClick={redirectToHomePage}>Redirect to Photo Page</button>
                 <form onSubmit={handleSubmit}>
 
                     <div className='photo-input-container'>
@@ -63,8 +72,16 @@ const EditPhotoForm = ({photo}) => {
                     <button type="submit">Update Photo</button>
                     <button type="button" onClick={handleCancelClick}>Cancel</button>
                 </form>
+              <div>
+                  <h3>Title: {photo.title}</h3>
+                  <h4>Caption: {photo.caption}</h4>
+              </div>
             </div>
-            
+            <div className='edit-photo-container'>
+                <img className='edit-photo'src={photo.imgURL}></img>
+            </div>
+
+
         </div>
 
       )

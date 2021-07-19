@@ -51,25 +51,27 @@ const UploadPhotoPage = () => {
 
 
     return (
-        <div className='photo-form'>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <div className='upload-photo-box'>
-                        <p>Click to select a file to upload</p>
-                        <input type='file' accept="image/*" onChange={getFile}></input>
+        <div className='upload-form-page'>
+            <div className='photo-form-container'>
+                <form className='upload-form' onSubmit={handleSubmit}>
+                    <div>
+                        <div className='upload-photo-box'>
+                            <p>Click to select a file to upload</p>
+                            <input type='file' accept="image/*" onChange={getFile}></input>
+                        </div>
+                        <span>Or</span>
+                        <div className='upload-imgURL-box'>
+                            <input type='text' placeholder='Image URL' onChange={updateImgURL}></input>
+                        </div>
                     </div>
-                    <span>Or</span>
-                    <div className='upload-imgURL-box'>
-                        <input type='text' placeholder='Image URL' onChange={updateImgURL}></input>
+                    <div className='photo-input-container'>
+                        <input type='text' placeholder='title' onChange={updateTitle}></input>
+                        <input type='text' placeholder='caption' onChange={updateCaption}></input>
                     </div>
-                </div>
-                <div className='photo-input-container'>
-                    <input type='text' placeholder='title' onChange={updateTitle}></input>
-                    <input type='text' placeholder='caption' onChange={updateCaption}></input>
-                </div>
-                <button type="submit">Upload Photo</button>
-                <button type="button" onClick={handleCancelClick}>Cancel</button>
-            </form>
+                    <button type="submit">Upload Photo</button>
+                    <button type="button" onClick={handleCancelClick}>Cancel</button>
+                </form>
+            </div>
 
         </div>
     )

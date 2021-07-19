@@ -9,6 +9,7 @@ import ExplorePage from "./components/ExplorePage";
 import PhotoPage from "./components/PhotoPage";
 import UploadPhotoPage from "./components/UploadPhotoPage";
 import EditPhotoForm from "./components/EditPhotoForm";
+import SplashPage from "./components/SplashPage"
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,10 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path='/'>
+            <SplashPage />
+          </Route>
+
           <Route path="/login">
             <LoginFormPage />
           </Route>
@@ -45,6 +50,10 @@ function App() {
           <Route path='/edit/:id'>
             <EditPhotoForm />
           </Route>
+
+          {/* <Route exact path={`/:username/:userId`}>
+            <UserProfilePage />
+          </Route> */}
 
         </Switch>
       )}

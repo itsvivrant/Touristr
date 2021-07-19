@@ -50,6 +50,7 @@ export const getSinglePhoto = (photoId) => async dispatch => {
     if (response.ok) {
         const photo = await response.json();
         dispatch(loadSinglePhoto(photo))
+        return photo
     }
 }
 
@@ -79,7 +80,7 @@ export const editUserPhoto = (photoData) => async dispatch => {
     })
     if (response.ok){
         const editedPhotoData = await response.json();
-        dispatch(editPhoto(editedPhotoData.photo))
+        dispatch(editPhoto(editedPhotoData))
         return editedPhotoData
     }
 }
@@ -122,10 +123,12 @@ const photoReducer = (state = initialState, action) => {
         }
 
         case EDIT_PHOTO: {
-            const editPhoto = {
-                ...state,
-                [action.photo.id]: action.photo
-            }
+            // const editPhoto = {
+            //     ...state,
+            //     [action.photo.id]: action.photo
+            // }
+            const editPhoto = {...state}
+            editPhoto[action.photo.id] = action.photo
             return editPhoto
         }
 

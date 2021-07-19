@@ -1,12 +1,26 @@
 .photo-container{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.show-pics{
+  columns: 150px 3;
+  grid-column-gap: 1rem;
+  column-gap: 1rem;
+  width: 70%;
+  margin-top: 800px;
+}
+
+  .pics {
+    position: relative;
   }
-  .photo-card{
-    height: 200px;
-    width: 200px;
-  }
+
   .each-photo{
-    height: 95%;
+    margin: 0 1rem 1rem 0;
+    display: inline-block;
+    width: 100%;
+    border-radius: 2px;
   }
