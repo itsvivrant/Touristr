@@ -55,14 +55,36 @@ export const getSinglePhoto = (photoId) => async dispatch => {
 }
 
 
-export const uploadPhoto = (photoData) => async dispatch => {
+export const uploadPhoto = (photo) => async dispatch => {
+    const { imgFile, imgURL, title, caption, userId, locationId} = photo;
+    const formData = new FormData();
+    formData.append("imgFile", imgFile);
+    formData.append("imgURL", imgURL);
+    formData.append("title", title);
+    formData.append("caption", caption);
+    formData.append("userId", userId);
+
+    // formData.append("locationId", locationId);
+
+
+    // for multiple files
+    // if ( && .length !== 0) {
+    //     for (var i = 0; i < .length; i++) {
+    //     formData.append("", [i]);
+    //     }
+    // }
+
+
     const response = await csrfFetch(`/api/photos`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'multipart/form-data'
         },
-        body: JSON.stringify(photoData)
+        // body: JSON.stringify(photoData)
+        body: formData,
     });
+
+
     if (response.ok) {
         const newPhoto = await response.json();
         dispatch(addPhoto(newPhoto))
@@ -71,7 +93,7 @@ export const uploadPhoto = (photoData) => async dispatch => {
 }
 
 export const editUserPhoto = (photoData) => async dispatch => {
-    const response = await fetch(`/api/photos/${photoData.id}`, {
+    const response = await csrfFetch(`/api/photos/${photoData.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

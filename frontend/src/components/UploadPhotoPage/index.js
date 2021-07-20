@@ -10,6 +10,7 @@ const UploadPhotoPage = () => {
     const sessionUser = useSelector(state => state.session.user)
     const history = useHistory()
     const [imgURL, setImgURL] = useState('');
+    const [imgFile, setImgFile] = useState('');
     const [title, setTitle] = useState('');
     const [caption, setCaption] = useState('');
     // const [location, setLocation] = useState('')
@@ -23,6 +24,7 @@ const UploadPhotoPage = () => {
         e.preventDefault();
 
         const newPhoto = {
+            imgFile,
             imgURL,
             title,
             caption,
@@ -34,13 +36,20 @@ const UploadPhotoPage = () => {
         if (createdPhoto) {
             history.push(`/photos/${createdPhoto.id}`)
         }
+        // await dispatch(uploadPhoto(sessionUser.id, {
+        //     caption,
+        //     title,
+        //     imgURL,
+        //     imgFile
+        // }))
+
 
     }
 
     const getFile = (e) => {
         const file = e.target.files[0];
         if (file) {
-            setImgURL(file);
+            setImgFile(file);
         }
     };
 

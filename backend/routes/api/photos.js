@@ -5,6 +5,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { requireAuth} = require('../../utils/auth');
 const { Photo, User} = require('../../db/models');
+const {singlePublicFileUpload, singleMulterUpload} = require('../../awsS3')
 
 //GET all photos
 router.get('/', asyncHandler(async(req, res) => {
@@ -31,16 +32,23 @@ router.get('/:id(\\d+)', asyncHandler(async(req,res) => {
     res.json(photo)
 }));
 
-//POST upload a picture
-router.post('/', requireAuth, asyncHandler(async(req, res) => {
-    const {userId, imgURL, title, caption, locationId} = req.body
+// POST upload a picture
+router.post('/', singleMulterUpload("imgFile"), requireAuth, asyncHandler(async(req, res) => {
+    let imgURL;
+    const {userId, title, caption, locationId} = req.body
+    let imgFile;
+    if (req.file) imgFile = await singlePublicFileUpload(req.file);
+    imgURL = req.body.imgURL || imgFile
+    console.log("IMAGE FILE         :", imgURL)
     const pictureUpload = await Photo.create({
+        imgFile,
         imgURL,
         title,
         caption,
         userId,
-        locationId
+        // locationId
     })
+
     return res.json(pictureUpload)
 }))
 

@@ -6,9 +6,8 @@ import {getComments, createComment, editComment, removeComment} from '../../stor
 const Comment = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const history = useHistory();
-
-    const [comment, setComment] = useState('')
+    const [comment, setComment] = useState('');
+    const [commentToDeleteId, setCommentToDeleteId] = useState('')
 
     const {id} = useParams()
 
@@ -44,6 +43,12 @@ const Comment = () => {
         }
     }
 
+    const handleDelete = async (e) => {
+        e.preventDefault();
+
+        await dispatch(removeComment(commentToDeleteId))
+    }
+
     return (
         <div className='comment-container'>
             <div>
@@ -51,6 +56,9 @@ const Comment = () => {
                     <>
                         <h3>Comment By: {comment.User?.username}</h3>
                         <p>{comment.comment}</p>
+                        <form onSubmit={handleDelete} hidden={comment.userId !== sessionUser.id}>
+                            <button onClick={e=> setCommentToDeleteId(comment.id)}>Delete Comment</button>
+                        </form>
                     </>
                 ))}
             </div>

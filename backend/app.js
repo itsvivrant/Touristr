@@ -4,6 +4,7 @@ const cors = require('cors');
 const csrf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
+const bodyParser = require("body-parser");
 const { environment } = require('./config');
 const isProduction = environment === 'production';
 const routes = require('./routes');
@@ -12,6 +13,7 @@ const app = express();
 
 app.use(morgan('dev'));
 app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(routes); // Connect all the routes
