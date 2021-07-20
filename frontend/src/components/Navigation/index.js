@@ -19,6 +19,7 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
+        <NavLink className='nav-link' exact to="/" hidden={!sessionUser}>Touristr</NavLink>
         <NavLink className='nav-link' to="/login">Log In</NavLink>
         <NavLink className='nav-link' to="/signup">Sign Up</NavLink>
       </>
@@ -27,11 +28,13 @@ function Navigation({ isLoaded }){
 
   return (
     <div className='nav-container'>
-      <NavLink className='nav-link' exact to="/explore-photos">Touristr</NavLink>
+      <NavLink className='nav-link' exact to="/">Touristr</NavLink>
       {isLoaded && sessionLinks}
     </div>
 
-
+// if (!sessionUser) {
+//   <NavLink className='nav-link' exact to="/">Touristr</NavLink>
+// }
 
 
   );

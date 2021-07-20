@@ -11,9 +11,8 @@ const PhotoPage = () => {
     const history = useHistory()
 
     // const [showEditButton, setShowEditButton] = useState(false)
-
     const {id} = useParams()
-    console.log('id', id)
+
 
     const sessionUser = useSelector(state => state.session.user)
     const photo = useSelector(state =>  state.photos[id]);
