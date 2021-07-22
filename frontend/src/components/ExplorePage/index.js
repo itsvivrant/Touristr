@@ -7,37 +7,42 @@ import './Explore.css'
 const ExplorePage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-
     const [photo, setPhoto] = useState()
-
-    const showPhoto = (e) => {
-        history.push(`/photos/${photo.id}`)
-        //e.preventDefault()
-    }
-
-    //grabs the current state object of photos
-    let photos = useSelector(state =>  Object.values(state.photos)); //this is the from the root reducer in store index.js
 
     useEffect(() => {
         dispatch(getPhotos()) //use the thunk action creator
     }, [dispatch])
 
+      //grabs the current state object of photos
+      let photos = useSelector(state =>  Object.values(state.photos)); //this is the from the root reducer in store index.js
+
+    const showPhoto = (e) => {
+        history.push(`/photos/${photo.id}`)
+    }
+
     if(!photos) return null
 
     return (
-        <div className='photo-container'>
-            <div className='show-pics'>
-                <div className='pics'>
-                    {photos.map((photo) => (
-                        <a href={`/photos/${photo.id}`} onClick={showPhoto}>
-                            <div key={photo.id} class='pics'>
-                                <img class='each-photo' src={photo.imgURL} />
-                            </div>
-                        </a>
-                    ))}
+        <>
+            <div className="title-container">
+                <div className="header-div">
+                    <h1>Explore</h1>
                 </div>
             </div>
-        </div>
+            <div className='gallery-page'>
+                {photos.map((photo) => (
+                    <>
+                        <a href={`/photos/${photo.id}`} onClick={showPhoto}>
+                            <img class='single-photo' src={photo.imgURL} />
+                        </a>
+                        <div class="photo-title">{photo.title}</div>
+                        <div class="photo-username">By {photo.User.username}</div>
+                            {/* <div className="image-overlay">
+                        </div> */}
+                    </>
+                ))}
+            </div>
+        </>
     )
 }
 

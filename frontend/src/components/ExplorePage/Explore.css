@@ -1,26 +1,107 @@
-.photo-container{
-  background-color: grey;
+.title-container{
+  width: auto;
+  height: 60px;
+  padding-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #F3F5F6;
 }
 
-.show-pics{
-  columns: 150px 3;
-  grid-column-gap: 1rem;
-  column-gap: 1rem;
-  width: 70%;
-  margin-top: 800px;
+
+.header-div h1{
+    font-family: helvetica;
+    font-size: 24px;
+    font-weight: 300;
+    text-decoration: none;
+    color: #202023;
+    padding-bottom: 20px;
 }
 
-  .pics {
-    position: relative;
-  }
 
-  .each-photo{
-    margin: 0 1rem 1rem 0;
-    display: inline-block;
-    width: 100%;
-    border-radius: 2px;
+.gallery-page {
+  line-height:0;
+  -webkit-column-count:4; /* split it into 5 columns */
+  -webkit-column-gap:4px; /* give it a 5px gap between columns */
+  -moz-column-count:4;
+  -moz-column-gap:4px;
+  column-count:4;
+  column-gap:5px;
+  background-color: #F3F5F6;
+  padding: 2%;
+  position: relative;
+}
+
+.gallery-page img {
+  width: 100% !important;
+  height: auto !important;
+  box-shadow: 0 1px 1px 2px rgb(0 0 0 / 15%);
+  border-radius: 2px;
+  margin-bottom:5px; /* to match column gap */
+
+}
+
+.image-wrap:hover .photo-title{
+  visibility: visible;
+  opacity: 1;
+}
+
+.photo-title {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
+}
+
+.photo-text-title {
+  width: 35px;
+  display: block;
+  -webkit-box-flex: 0;
+  flex: none;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+
+@media (max-width: 1200px) {
+  .gallery-page {
+   -moz-column-count:    4;
+   -webkit-column-count: 4;
+   column-count:         4;
   }
+}
+
+@media (max-width: 1000px) {
+  .gallery-page {
+   -moz-column-count:    3;
+   -webkit-column-count: 3;
+   column-count:         3;
+  }
+}
+
+@media (max-width: 800px) {
+  .gallery-page {
+   -moz-column-count:    2;
+   -webkit-column-count: 2;
+   column-count:         2;
+  }
+}
+
+@media (max-width: 400px) {
+  .gallery-page {
+   -moz-column-count:    1;
+   -webkit-column-count: 1;
+   column-count:         1;
+  }
+}

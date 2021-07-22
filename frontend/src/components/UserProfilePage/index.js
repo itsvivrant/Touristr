@@ -1,70 +1,76 @@
 import React, { useEffect } from 'react';
-import { useHistory, Redirect, useParams } from 'react-router-dom';
+import { useHistory, Redirect, useParams} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import './UserHomePage.css';
-import { getPhotos } from '../../store/photos'
-import 'UserProfilePage.css'
+import { getUserPhotos} from '../../store/photo'
 
+import './UserProfilePage.css';
 
 const UserProfilePage = () => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
-    const {userId} = useParams();
     const history = useHistory();
-    
+    const sessionUser = useSelector(state => state.session.user);
+    const {id} = useParams();
+
+    useEffect(() => {
+        dispatch(getUserPhotos(id))
+    }, [dispatch, id])
+
     const userPhotos = useSelector(state => {
         return Object.values(state.photos)
     })
 
-    useEffect(() => {
-        dispatch(getPhotos())
-    }, [dispatch])
-
-    // console.log(typeof Number(userId))
-    // userPhotos.map(eachItem => {
-    //  console.log(typeof eachItem.userId)
-    // })
-
-    const filtereduserPhotos = userPhotos.filter(eachItem => eachItem.userId === Number(userId))
-    // console.log(filtereduserPhotos)
-    // userPhotos.map(eachItem =>{
-    //   if (eachItem.userId === Number(userId)){
-    //     console.log('is this whate i loooking for',eachItem.imageUrl)
-    //   }
-    // })
-
-    const photos = useSelector(state => {
-    return Object.values(state.photos)
-    })
-    if (!photos) return null;
-    if (!sessionUser){
-    return(
-        <Redirect to='/login' />
-    )
+    const showPhoto = (e) => {
+        history.push(`/photos/${userPhotos.id}`)
     }
-    // const routeToSinglePhoto = (e) => {
-    //   e.preventDefault();
-    //   history.push(`/photos/${photo.id}`)
-    // }
+
+    const showPhotoStream = (e) => {
+        history.push(`/users/${id}`)
+    }
+
+
+    if (!userPhotos) return null;
+
+    if (!sessionUser){
+        return(
+            <Redirect to='/login' />
+        )
+    }
+
     return (
-    <div className='explore-page'>
-        <div className='explore-space-div'></div>
-        <div className='explore-gallery-container'>
-            {filtereduserPhotos.map((photo) => (
-                <div key={photo.id} className='photo-container'>
-                    <a href={`/photos/${photo.id}`}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        history.push(`/photos/${photo.id}`)
-                    }}>
-                    <div className='photo-card'>
-                        <img className='each-photo' src={photo.imageUrl} />
+        <>
+            <div className="user-banner-container">
+                <div className="user-info-container">
+                    <div className='user-profile-pic'>
+
                     </div>
-                    </a>
+                    <div className='user-detail-container'>
+                        <div className='user-detail'></div>
+                        <div className='user-detail'></div>
+                    </div>
                 </div>
-            ))}
-        </div>
-    </div>
+
+            </div>
+            <div className="profile-row">
+                <div className="photostream-container">
+                    <a onClick={showPhotoStream}>PhotoStream</a>
+                </div>
+                <div className="albums-container">
+                    <a>Albums</a>
+                </div>
+                <div className="favorites-container">
+                    <a>Favorites</a>
+                </div>
+
+
+            </div>
+            <div className='gallery-page'>
+                {userPhotos.map((photo) => (
+                    <a href={`/photos/${photo.id}`} onClick={showPhoto}>
+                        <img className='each-photo' src={photo.imgURL} />
+                    </a>
+                ))}
+            </div>
+        </>
     )
 }
-export default UserProfilePage
+export default UserProfilePage;

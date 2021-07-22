@@ -1,0 +1,30 @@
+.user-banner-container {
+    background-image: url('../UserProfilePage/banner1.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.user-info-container {
+    grid-template-columns: 10fr 10fr ;
+}
+
+.user-profile-pic {
+
+}
+
+.user-detail-container {
+    grid-template-rows: 1fr 1fr;
+}
+
+.profile-row {
+    height: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}

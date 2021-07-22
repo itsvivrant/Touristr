@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import LoginFormPage from "./components/LoginFormPage";
-import SignupFormPage from "./components/SignupFormPage";
+
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import SplashPage from "./components/SplashPage";
+import LoginFormPage from "./components/LoginFormPage";
+import SignupFormPage from "./components/SignupFormPage";
 import ExplorePage from "./components/ExplorePage";
 import PhotoPage from "./components/PhotoPage";
 import UploadPhotoPage from "./components/UploadPhotoPage";
 import EditPhotoForm from "./components/EditPhotoForm";
-import SplashPage from "./components/SplashPage"
+import UserProfilePage from "./components/UserProfilePage";
+// import UserProfilePage from "./components/UserProfilePage";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -51,7 +55,11 @@ function App() {
             <EditPhotoForm />
           </Route>
 
-          {/* <Route exact path={`/:username/:userId`}>
+          <Route path='/users/:id'>
+            <UserProfilePage/>
+          </Route>
+
+          {/* <Route exact path={`/:users/:userId`}>
             <UserProfilePage />
           </Route> */}
 

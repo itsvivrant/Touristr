@@ -5,7 +5,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Photo } = require('../../db/models');
 
 
 //validations for signup route that expec the body of the request to have a key of username, email,
@@ -41,23 +41,24 @@ const validateSignup = [
 ];
 
 //user sign-up
-router.post(
-    '/',
-    validateSignup,
-    asyncHandler(async (req, res) => {
-      const { email, password, firstName, lastName, username } = req.body;
-      const user = await User.signup({ email, firstName, lastName, username, password });
-
-      await setTokenCookie(res, user);
-
-      return res.json({
-        user,
-      });
-    }),
+router.post('/', validateSignup, asyncHandler(async (req, res) => {
+    const { email, password, firstName, lastName, username } = req.body;
+    const user = await User.signup({ email, firstName, lastName, username, password });
+    await setTokenCookie(res, user);
+    return res.json({user});
+  }),
 );
 
+
+//user photos and users info
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+const {id }= req.params
+  const user = await Photo.findAll({
+    where: {userId: id},
+    include: User
+  })
+  return res.json(user)
+}));
+
+
 module.exports = router;
-
-
-
-
