@@ -16,7 +16,17 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(routes); // Connect all the routes
+// Set the _csrf token and create req.csrfToken method
+app.use(
+  csrf({
+    cookie: {
+      secure: isProduction,
+      sameSite: isProduction && "Lax",
+      httpOnly: true,
+    },
+  })
+);
+
 
 // Security Middleware
 if (!isProduction) {
@@ -28,16 +38,8 @@ app.use(helmet({
   contentSecurityPolicy: false
 }));
 
-// Set the _csrf token and create req.csrfToken method
-app.use(
-  csrf({
-    cookie: {
-      secure: isProduction,
-      sameSite: isProduction && "Lax",
-      httpOnly: true,
-    },
-  })
-);
+app.use(routes); // Connect all the routes
+
 
 //phase 2 :
 //* Make sure to test the error handlers to see if it's working. Just go to an
