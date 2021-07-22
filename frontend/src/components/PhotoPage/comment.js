@@ -37,10 +37,8 @@ const Comment = () => {
             photoId: id
         }
 
-        const newComment = await dispatch(createComment(commentData))
-            if (newComment) {
-            setComment('')
-        }
+        await dispatch(createComment(commentData))
+        setComment('')
     }
 
     const handleDelete = async (e) => {
