@@ -9,8 +9,8 @@ const commentsRouter = require('./comments.js')
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/photos', photosRouter);
-router.use('/albumsRouter', albumsRouter);
-router.use('/commentsRouter', commentsRouter)
+router.use('/albums', albumsRouter);
+router.use('/comments', commentsRouter)
 
 
 router.post('/test', function(req, res) {

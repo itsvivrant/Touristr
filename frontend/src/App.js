@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import LoginFormPage from "./components/LoginFormPage";
-import SignupFormPage from "./components/SignupFormPage";
+
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import SplashPage from "./components/SplashPage";
+import LoginFormPage from "./components/LoginFormPage";
+import SignupFormPage from "./components/SignupFormPage";
 import ExplorePage from "./components/ExplorePage";
 import PhotoPage from "./components/PhotoPage";
 import UploadPhotoPage from "./components/UploadPhotoPage";
 import EditPhotoForm from "./components/EditPhotoForm";
+import UserProfilePage from "./components/UserProfilePage";
+// import UserProfilePage from "./components/UserProfilePage";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +27,10 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path='/'>
+            <SplashPage />
+          </Route>
+
           <Route path="/login">
             <LoginFormPage />
           </Route>
@@ -41,6 +50,18 @@ function App() {
           <Route path='/upload'>
             <UploadPhotoPage />
           </Route>
+
+          <Route path='/edit/:id'>
+            <EditPhotoForm />
+          </Route>
+
+          <Route path='/users/:id'>
+            <UserProfilePage/>
+          </Route>
+
+          {/* <Route exact path={`/:users/:userId`}>
+            <UserProfilePage />
+          </Route> */}
 
         </Switch>
       )}

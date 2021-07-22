@@ -1,0 +1,53 @@
+.user-banner-container {
+    background-image: url('../UserProfilePage/banner1.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.user-info-container {
+    grid-template-columns: 10fr 10fr ;
+}
+
+.user-profile-pic {
+
+}
+
+.user-detail-container {
+    grid-template-rows: 1fr 1fr;
+}
+
+.profile-row {
+    height: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+.photostream-container:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    transition: ease .3s;
+    border-bottom: 1px solid #128fdc;
+    box-shadow: inset 0px -3px 0px 0px #128fdc;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.photostream-container Link {
+    text-decoration: none;
+    font-family: helvetica neue;
+    font-size: 16px;
+    font-weight: 400;
+    color: #404040;
+    padding: 0px 25px;
+    width: 100%;
+}

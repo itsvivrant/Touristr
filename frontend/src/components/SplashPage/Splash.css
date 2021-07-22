@@ -1,0 +1,74 @@
+/* h1 {
+    color: white
+} */
+
+.splash-container {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-image: url('../SplashPage/tourist1.jpeg');
+  overflow: hidden;
+  position: relative;
+  opacity: 0.7;
+  animation: slide 30s infinite;
+  background-repeat: no-repeat;
+}
+
+/*
+.splash-container{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+
+/* .splash-container::before {
+    content: "";
+    background-size: cover;
+    background-image: url('../SplashPage/tourist1.jpeg');
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75
+} */
+
+.splash-content{
+    font-family: 'Helvetica Neue';
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 270px;
+}
+
+.demo-user-button {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    font-size: 18px;
+    border-radius: 7px;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+
+}
+
+.demo-user-button:hover {
+  color: rgb(12, 12, 12);
+  box-shadow: 0 5px 15px rgba(145,92,182,.4);
+}
+
+@keyframes slide {
+  0%{
+    background-image: url(../SplashPage/tourist1.jpeg)
+  }
+  33%{
+    background-image: url(../SplashPage/tourist2.jpeg)
+  }
+  67%{
+    background-image: url(../SplashPage/tourist-3.jpeg)
+  }
+}

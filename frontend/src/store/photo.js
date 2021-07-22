@@ -4,9 +4,9 @@ const LOAD_PHOTOS = 'photos/LOAD_PHOTOS';
 const LOAD_SINGLE_PHOTO = 'photos/LOAD_SINGLE_PHOTO';
 const ADD_PHOTO = 'photos/ADD_PHOTO';
 const EDIT_PHOTO = 'photos/EDIT_PHOTO';
-const DELETE_PHOTO = 'photos/DELETE_PHOTO'
+const DELETE_PHOTO = 'photos/DELETE_PHOTO';
+const SHOWUSER_PHOTO = 'photos/SHOWUSER_PHOTO'
 
-// action creator
 const loadPhotos = photos => ({
     type: LOAD_PHOTOS,
     photos
@@ -33,7 +33,11 @@ const deletePhoto = photo => ({
     photo
 })
 
-//thunk action creator
+const showUserPhotos = photos => ({
+    type: SHOWUSER_PHOTO,
+    photos
+})
+
 export const getPhotos = () => async dispatch => {
     const response = await csrfFetch('/api/photos');
 
@@ -50,18 +54,28 @@ export const getSinglePhoto = (photoId) => async dispatch => {
     if (response.ok) {
         const photo = await response.json();
         dispatch(loadSinglePhoto(photo))
+        return photo
     }
 }
 
 
-export const uploadPhoto = (photoData) => async dispatch => {
+export const uploadPhoto = (photo) => async dispatch => {
+    const { imgFile, imgURL, title, caption, userId, locationId} = photo;
+    const formData = new FormData();
+    formData.append("imgFile", imgFile);
+    formData.append("imgURL", imgURL);
+    formData.append("title", title);
+    formData.append("caption", caption);
+    formData.append("userId", userId);
+    // formData.append("locationId", locationId);
+
     const response = await csrfFetch(`/api/photos`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(photoData)
+        headers: {'Content-Type': 'multipart/form-data'},
+        body: formData,
     });
+
+
     if (response.ok) {
         const newPhoto = await response.json();
         dispatch(addPhoto(newPhoto))
@@ -70,11 +84,9 @@ export const uploadPhoto = (photoData) => async dispatch => {
 }
 
 export const editUserPhoto = (photoData) => async dispatch => {
-    const response = await fetch(`/api/photos/${photoData.id}`, {
+    const response = await csrfFetch(`/api/photos/${photoData.id}`, {
         method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(photoData)
     })
     if (response.ok){
@@ -93,7 +105,14 @@ export const deleteUserPhoto = (photoId) => async dispatch => {
     }
 }
 
-//reducer
+export const getUserPhotos = (id) => async dispatch => {
+    const response = await csrfFetch(`/api/users/${id}`);
+    if (response.ok) {
+        const userPhotos = await response.json();
+        dispatch(showUserPhotos(userPhotos));
+    }
+}
+
 const initialState = {}
 
 const photoReducer = (state = initialState, action) => {
@@ -122,10 +141,8 @@ const photoReducer = (state = initialState, action) => {
         }
 
         case EDIT_PHOTO: {
-            const editPhoto = {
-                ...state,
-                [action.photo.id]: action.photo
-            }
+            const editPhoto = {...state}
+            editPhoto[action.photo.id] = action.photo
             return editPhoto
         }
 
@@ -133,6 +150,14 @@ const photoReducer = (state = initialState, action) => {
             const deletePhoto = {...state}
             delete deletePhoto[action.photo]
             return deletePhoto
+        }
+
+        case SHOWUSER_PHOTO: {
+            const allUserPhotos = {};
+            action.photos.forEach(photo => {
+                allUserPhotos[photo.id] = photo
+            });
+            return allUserPhotos
         }
 
         default:

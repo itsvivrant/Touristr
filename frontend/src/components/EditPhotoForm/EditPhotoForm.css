@@ -1,0 +1,26 @@
+.edit-page-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.photo-edit-form{
+    margin-top: 150px;
+    width:300px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    height: 200px;
+}
+
+.edit-photo-container{
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+.edit-photo{
+    max-height: 400px;
+    width: quto;
+    box-shadow: 0px 0px 3px 0px grey;
+    margin-top: 50px;
+}
