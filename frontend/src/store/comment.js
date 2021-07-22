@@ -83,8 +83,7 @@ const commentReducer = (state = initialState, action) => {
                 newAllComments[comment.id] = comment
             });
             return {
-                ...newAllComments,
-                ...state
+                ...newAllComments, ...state
             }
         }
 

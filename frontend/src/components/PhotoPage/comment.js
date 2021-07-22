@@ -1,13 +1,13 @@
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams, useHistory, Redirect} from 'react-router-dom';
-import {getComments, createComment, editComment, removeComment} from '../../store/comment';
+import {getComments, createComment, updateComment, removeComment} from '../../store/comment';
 
 const Comment = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [comment, setComment] = useState('');
-    const [commentToDeleteId, setCommentToDeleteId] = useState('')
+    const [commentToDeleteId, setCommentToDeleteId] = useState('');
 
     const {id} = useParams()
 
@@ -45,9 +45,13 @@ const Comment = () => {
 
     const handleDelete = async (e) => {
         e.preventDefault();
-
         await dispatch(removeComment(commentToDeleteId))
     }
+
+    // const handleEdit = async(e) => {
+    //     e.preventDefault();
+    //     await dispatch(updateComment(CommentToEditId))
+    // }
 
     return (
         <div className='comment-container'>

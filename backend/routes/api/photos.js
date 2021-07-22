@@ -68,10 +68,10 @@ router.put('/:id', requireAuth, asyncHandler(async(req, res) => {
 
 
 //DELETE delete photo
-router.delete('/:id', requireAuth, asyncHandler(async(req, res) => {
+router.delete('/:id', asyncHandler(async(req, res) => {
     const photoId = parseInt(req.params.id, 10)
     const photo = await Photo.findOne({
-        where: {photoId},
+        where: {id: photoId},
     });
     await photo.destroy();
     res.status(204).end();
