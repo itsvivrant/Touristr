@@ -31,11 +31,10 @@ router.post('/:id', requireAuth, asyncHandler(async(req, res) => {
 }));
 
 router.put('/:id', requireAuth, asyncHandler(async(req, res) => {
+    const {content} = req.body;
     const {id} = req.params;
-    const comment = await Comment.findOne({
-        where: {photoId: id}
-    });
-    await comment.update({comment});
+    const comment = await Comment.findByPk(id);
+    await comment.update({comment: content});
     return res.json(comment)
 }));
 
