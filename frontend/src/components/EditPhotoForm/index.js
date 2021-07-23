@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory, useParams, Redirect} from 'react-router-dom'
-import {editUserPhoto, getPhotos, deleteUserPhoto} from '../../store/photo';
+import {editUserPhoto, getPhotos} from '../../store/photo';
 import './EditPhotoForm.css'
 
 
@@ -78,7 +78,7 @@ const EditPhotoForm = () => {
               </div>
             </div>
             <div className='edit-photo-container'>
-                <img className='edit-photo'src={photo.imgURL}></img>
+                <img className='edit-photo'src={photo.imgURL} alt=""></img>
             </div>
 
 

@@ -1,33 +1,28 @@
 import React, { useEffect } from 'react';
 import { useHistory, Redirect, useParams, Link} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { getUserAlbums } from '../../store/album';
 import { getUserPhotos} from '../../store/photo'
 
-import './UserProfilePage.css';
+import './UserAlbumsPage.css'
 
-const UserProfilePage = () => {
+const UserAlbumsPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const {id} = useParams();
     const sessionUser = useSelector(state => state.session.user);
     const photo = useSelector(state => state.photos[id])
-    // const album= useSelector(state => state.albums[id])
-    // console.log("CONSOLE LOGGGGGGGGGG    :", album)
+    const album = useSelector(state => state.albums[id])
 
     useEffect(() => {
-        dispatch(getUserPhotos(id))
+        dispatch(getUserAlbums(id))
     }, [dispatch, id])
 
-    const userPhotos = useSelector(state => {
-        return Object.values(state.photos)
+    const userAlbums = useSelector(state => {
+        return Object.values(state.albums)
     })
-    // console.log("CONSOLE LOG USERPHOTOS ", userPhotos)
+    console.log("CONSOLE LOGGGGGGGGGG    :", userAlbums)
 
-
-    //double check for the back button part
-    const showPhoto = (e) => {
-        history.push(`/users/${photo.id}`)
-    }
 
     const showPhotoStream = (e) => {
         e.preventDefault();
@@ -39,8 +34,7 @@ const UserProfilePage = () => {
         history.push(`/albums/user/${id}`)
     }
 
-
-    if (!userPhotos) return null;
+    if (!userAlbums) return null;
 
     if (!sessionUser){
         return(
@@ -75,14 +69,12 @@ const UserProfilePage = () => {
                 </div>
             </div>
 
-            <div className='gallery-page'>
-                {userPhotos.map((photo) => (
-                    <Link to={`/photos/${photo.id}`} onClick={showPhoto} key={photo.id}>
-                        <img className='each-photo' src={photo.imgURL} />
-                    </Link>
-                ))}
+            <div className='album-page'>
+                {}
+
             </div>
         </>
     )
 }
-export default UserProfilePage;
+
+export default UserAlbumsPage;

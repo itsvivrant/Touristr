@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       photoId: {
+        allowNull:false, 
         type: Sequelize.INTEGER,
         references: {model: 'Photos'}
       },
       albumId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {model: 'Albums'}
       },

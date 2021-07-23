@@ -1,6 +1,7 @@
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams, useHistory, Redirect} from 'react-router-dom';
+import {Modal} from '../../context/Modal'
 import {getComments, createComment, updateComment, removeComment} from '../../store/comment';
 
 const Comment = () => {
@@ -8,15 +9,17 @@ const Comment = () => {
     const sessionUser = useSelector(state => state.session.user);
     const [comment, setComment] = useState('');
     const [commentToDeleteId, setCommentToDeleteId] = useState('');
+    const [commentToUpdateId, setCommentUpdateId] = useState('');
+    const [showModal, setShowModal] = useState(false);
 
     const {id} = useParams()
+
 
     const comments = useSelector(state=>{
         return Object.values(state.comments)
     })
 
     const usersComments = comments.filter(comment => comment.photoId === Number(id))
-
 
     useEffect(() => {
         dispatch(getComments(id))
@@ -46,10 +49,10 @@ const Comment = () => {
         await dispatch(removeComment(commentToDeleteId))
     }
 
-    // const handleEdit = async(e) => {
-    //     e.preventDefault();
-    //     await dispatch(updateComment(CommentToEditId))
-    // }
+    const handleEdit = async(e) => {
+        e.preventDefault();
+        await dispatch(updateComment(commentToUpdateId))
+    }
 
     return (
         <div className='comment-container'>
@@ -61,13 +64,25 @@ const Comment = () => {
                         <form onSubmit={handleDelete} hidden={comment.userId !== sessionUser.id}>
                             <button onClick={e=> setCommentToDeleteId(comment.id)}>Delete Comment</button>
                         </form>
+
+                        <button onClick={() => setShowModal(true)} hidden={comment.userId !== sessionUser.id}>Edit Comment</button>
+                        {showModal && (
+                            <Modal onClose={() => setShowModal(false)}>
+                                <form onSubmit={handleEdit}>
+                                    <label>Comment
+                                        <textarea className="txt-area" type="textarea" value={comment} onChange={(e) => setComment(e.target.value)}/>
+                                    </label>
+                                    <button onClick={e=> setCommentUpdateId(comment.id)}>Update Comment</button>
+                                </form>
+                            </Modal>
+                        )}
                     </>
                 ))}
             </div>
             <div>
                 <form onSubmit={handleSubmit}>
                     <input placeholder='Add a comment' value={comment} onChange={(e) => setComment(e.target.value)} required></input>
-                    <button onClick={handleSubmit}>Comment</button>
+                    <button onClick={handleSubmit}>Post Comment</button>
                 </form>
             </div>
         </div>
