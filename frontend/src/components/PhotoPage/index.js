@@ -36,7 +36,7 @@ const PhotoPage = () => {
     const handleDeletePhoto = async (e) => {
         e.preventDefault()
         dispatch(deleteUserPhoto(photo.id))
-        history.push('/explore-photos')
+        history.push(`/users/${sessionUser.id}`)
     }
 
     if(photo.userId !== sessionUser.id)
