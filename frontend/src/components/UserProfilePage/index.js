@@ -10,7 +10,7 @@ const UserProfilePage = () => {
     const history = useHistory();
     const {id} = useParams();
     const sessionUser = useSelector(state => state.session.user);
-    const photo = useSelector(state => state.photos[id])
+
     // const album= useSelector(state => state.albums[id])
     // console.log("CONSOLE LOGGGGGGGGGG    :", album)
 
@@ -21,13 +21,8 @@ const UserProfilePage = () => {
     const userPhotos = useSelector(state => {
         return Object.values(state.photos)
     })
-    // console.log("CONSOLE LOG USERPHOTOS ", userPhotos)
+    console.log("CONSOLE LOG USERPHOTOS ", userPhotos)
 
-
-    //double check for the back button part
-    const showPhoto = (e) => {
-        history.push(`/users/${photo.id}`)
-    }
 
     const showPhotoStream = (e) => {
         e.preventDefault();
@@ -77,7 +72,7 @@ const UserProfilePage = () => {
 
             <div className='gallery-page'>
                 {userPhotos.map((photo) => (
-                    <Link to={`/photos/${photo.id}`} onClick={showPhoto} key={photo.id}>
+                    <Link to={`/photos/${photo.id}`} key={photo.id}>
                         <img className='each-photo' src={photo.imgURL} />
                     </Link>
                 ))}
