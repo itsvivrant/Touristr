@@ -10,6 +10,7 @@ const Comment = () => {
     const [comment, setComment] = useState('');
     const [commentToDeleteId, setCommentToDeleteId] = useState('');
     const [commentToUpdateId, setCommentUpdateId] = useState('');
+    const [editedComment, setEditedComment] = useState('');
     const [showModal, setShowModal] = useState(false);
 
     const {id} = useParams()
@@ -18,6 +19,7 @@ const Comment = () => {
     const comments = useSelector(state=>{
         return Object.values(state.comments)
     })
+    console.log("CONSOLE LOG COMMENTS" , comment)
 
     const usersComments = comments.filter(comment => comment.photoId === Number(id))
 
@@ -51,7 +53,10 @@ const Comment = () => {
 
     const handleEdit = async(e) => {
         e.preventDefault();
-        await dispatch(updateComment(commentToUpdateId))
+        const data = {id: commentToUpdateId, content: editedComment}
+        await dispatch(updateComment(data))
+
+        setShowModal(false)
     }
 
     return (
@@ -65,12 +70,12 @@ const Comment = () => {
                             <button onClick={e=> setCommentToDeleteId(comment.id)}>Delete Comment</button>
                         </form>
 
-                        <button onClick={() => setShowModal(true)} hidden={comment.userId !== sessionUser.id}>Edit Comment</button>
+                        <button onClick={() => {setShowModal(true)}} hidden={comment.userId !== sessionUser.id}>Edit Comment</button>
                         {showModal && (
-                            <Modal onClose={() => setShowModal(false)}>
+                            <Modal>
                                 <form onSubmit={handleEdit}>
                                     <label>Comment
-                                        <textarea className="txt-area" type="textarea" value={comment} onChange={(e) => setComment(e.target.value)}/>
+                                        <textarea className="txt-area" type="textarea" value={editedComment.comment} onChange={(e) =>setEditedComment(e.target.value)}/>
                                     </label>
                                     <button onClick={e=> setCommentUpdateId(comment.id)}>Update Comment</button>
                                 </form>
