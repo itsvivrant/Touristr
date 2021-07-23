@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     }
     Photo.belongsToMany(models.Album, columnMapping)
     Photo.hasMany(models.AlbumPhoto, {foreignKey: 'photoId'})
-    Photo.hasMany(models.Comment, {foreignKey: 'photoId'})
+    Photo.hasMany(models.Comment, {foreignKey: 'photoId', onDelete: "cascade", hooks: true})
     Photo.hasMany(models.Favorite, {foreignKey: 'photoId'})
     Photo.belongsTo(models.Location, {foreignKey: 'locationId'})
   };
