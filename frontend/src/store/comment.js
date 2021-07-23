@@ -27,7 +27,7 @@ const deleteComment = comment => ({
 })
 
 export const getComments = (id) => async dispatch => {
-    const response = await csrfFetch(`/api/comments/photos/${id}`);
+    const response = await csrfFetch(`/api/comments/${id}`);
     if (response.ok) {
         const comments = await response.json();
         dispatch(loadComments(comments))
@@ -35,7 +35,7 @@ export const getComments = (id) => async dispatch => {
 };
 
 export const createComment = (comment) => async dispatch => {
-    const response = await csrfFetch(`/api/comments/photos/${comment.photoId}`, {
+    const response = await csrfFetch(`/api/comments/${comment.photoId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -50,12 +50,12 @@ export const createComment = (comment) => async dispatch => {
 };
 
 export const updateComment = (comment) => async dispatch => {
-    const response = await csrfFetch(`api/comments/photos/${comment.photoId}`, {
+    const response = await csrfFetch(`api/comments/${comment.photoId}`, {
         method: 'PUT',
-        body: JSON.stringify(comment),
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify(comment),
     });
     if (response.ok) {
         const editedComment = await response.json();

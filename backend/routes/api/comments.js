@@ -5,7 +5,7 @@ const { check } = require('express-validator');
 const {requireAuth} = require('../../utils/auth')
 const { Photo, User, Comment} = require('../../db/models');
 
-router.get('/photos/:id', asyncHandler(async(req, res) => {
+router.get('/:id', asyncHandler(async(req, res) => {
     const {id} = req.params
     const comments = await Comment.findAll({
         where: {photoId: id},
@@ -14,7 +14,7 @@ router.get('/photos/:id', asyncHandler(async(req, res) => {
     return res.json(comments)
 }));
 
-router.post('/photos/:id', requireAuth, asyncHandler(async(req, res) => {
+router.post('/:id', requireAuth, asyncHandler(async(req, res) => {
     const {id} = req.params
     const {comment, userId} = req.body;
     const createComment = await Comment.create({
@@ -30,7 +30,7 @@ router.post('/photos/:id', requireAuth, asyncHandler(async(req, res) => {
 
 }));
 
-router.put('/photos/:id', requireAuth, asyncHandler(async(req, res) => {
+router.put('/:id', requireAuth, asyncHandler(async(req, res) => {
     const {id} = req.params;
     const comment = await Comment.findOne({
         where: {photoId: id}

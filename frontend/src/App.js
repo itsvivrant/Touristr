@@ -12,6 +12,7 @@ import PhotoPage from "./components/PhotoPage";
 import UploadPhotoPage from "./components/UploadPhotoPage";
 import EditPhotoForm from "./components/EditPhotoForm";
 import UserProfilePage from "./components/UserProfilePage";
+import UserAlbumsPage from "./components/UserAlbumsPage";
 // import UserProfilePage from "./components/UserProfilePage";
 
 
@@ -59,9 +60,9 @@ function App() {
             <UserProfilePage/>
           </Route>
 
-          {/* <Route exact path={`/:users/:userId`}>
-            <UserProfilePage />
-          </Route> */}
+          <Route path='/albums/user/:id'>
+            <UserAlbumsPage/>
+          </Route>
 
         </Switch>
       )}

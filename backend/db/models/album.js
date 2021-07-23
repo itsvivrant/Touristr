@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Album = sequelize.define('Album', {
-    tite: {
+    title: {
       allowNull: false,
       type: DataTypes.STRING,
     },
@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Album.associate = function(models) {
     Album.belongsTo(models.User, {foreignKey: 'userId'})
-    
+
     const columnMapping = {
       through: 'AlbumPhoto',
-      otherKey: 'albumId',
-      foriegnKey: 'photoId'
+      otherKey: 'photoId',
+      foreignKey: 'albumId'
     }
     Album.belongsToMany(models.Photo, columnMapping)
 

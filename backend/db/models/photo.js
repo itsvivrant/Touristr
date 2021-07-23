@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     const columnMapping = {
       through: 'AlbumPhoto',
       otherKey: 'albumId',
-      foriegnKey: 'photoId'
+      foreignKey: 'photoId'
     }
     Photo.belongsToMany(models.Album, columnMapping)
     Photo.hasMany(models.AlbumPhoto, {foreignKey: 'photoId'})
