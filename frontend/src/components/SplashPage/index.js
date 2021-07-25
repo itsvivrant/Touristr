@@ -28,7 +28,7 @@ const SplashPage = () =>  {
             <div className='splash-container'>
                 <div className='splash-content'>
                     {/* <img className='tourist' src={tourist1} alt='img'/> */}
-                    <h1>Find your inner Tourist or see through the lense of others.</h1>
+                    <h1>Find your inner Tourist.</h1>
                     <form onSubmit={handleSubmit} >
                         <button class='demo-user-button'>Demo User</button>
                     </form>
