@@ -33,15 +33,15 @@ const ExplorePage = () => {
                 {photos.map((photo) => (
                     <>
                         <div class="gallery-box">
-                            <div class="img-box">
-                                <a href={`/photos/${photo.id}`} onClick={showPhoto}>
+                            <a href={`/photos/${photo.id}`} onClick={showPhoto}>
+                                <div class="img-box">
                                     <img class='single-photo' src={photo.imgURL} alt=""/>
-                                </a>
-                                <div class="photo-content">
-                                    <p>{photo.title}</p>
-                                    <p>By {photo.User.username}</p>
+                                    <div class="photo-content">
+                                        <p>{photo.title}</p>
+                                        <p>By {photo.User.username}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="space-div"></div>
                     </>

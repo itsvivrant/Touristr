@@ -10,13 +10,11 @@ const PhotoPage = () => {
     const dispatch = useDispatch();
     const history = useHistory()
     const {id} = useParams()
-
-
     const sessionUser = useSelector(state => state.session.user)
     const photo = useSelector(state =>  state.photos[id]);
 
     useEffect(() => {
-        dispatch(getSinglePhoto(id)) //use the thunk action creator
+        dispatch(getSinglePhoto(id))
     }, [dispatch])
 
     if(!sessionUser) {
@@ -52,15 +50,6 @@ const PhotoPage = () => {
                         <h3>Photo by: {photo.User?.username}</h3>
                         <p>{photo?.caption}</p>
                     </div>
-                    <div>
-                    </div>
-                    {/* {showEditButton && ( //if showeditbutton is true, then render
-                        <button onClick={directToEditPage}>Edit Photo</button>
-                    )} */}
-                    {/* {photo.User.id === sessionUser.id ? (<button onClick={directToEditPage}>Edit Photo</button>):(null)} */}
-                    {/* <button onClick={directToEditPage}>Edit Photo</button>
-                    <button onClick={handleDeletePhoto}>Delete Photo</button> */}
-
                     <div>
                         <Comment />
                     </div>
