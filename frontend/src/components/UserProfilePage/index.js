@@ -81,7 +81,7 @@ const UserProfilePage = () => {
                                 <a href={`/photos/${photo.id}`} key={photo.id}>
                                     <img class='single-photo' src={photo.imgURL} alt=""/>
                                 </a>
-                                <div class="photo-details">
+                                <div class="photo-content">
                                     <p>{photo.title}</p>
                                     <p>By {photo.User.username}</p>
                                 </div>

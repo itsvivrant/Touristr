@@ -46,36 +46,3 @@
 }
 
 
-/* .photostream-container Link {
-    text-decoration: none;
-    font-family: helvetica neue;
-    font-size: 16px;
-    font-weight: 500;
-    color: #404040;
-    padding: 0px 25px;
-    width: 100%;
-
-}
-
-.albums-container:hover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 40px;
-    transition: ease .3s;
-    border-bottom: 1px solid #128fdc;
-    box-shadow: inset 0px -3px 0px 0px #128fdc;
-    flex-direction: row;
-    cursor: pointer;
-}
-
-.albums-container Link {
-    text-decoration: none;
-    font-family: helvetica neue;
-    font-size: 16px;
-    font-weight: 400;
-    color: #404040;
-    padding: 0px 25px;
-    width: 100%;
-} */
