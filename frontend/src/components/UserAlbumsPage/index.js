@@ -47,7 +47,6 @@ const UserAlbumsPage = () => {
             <div className="user-banner-container">
                 <div className="user-info-container">
                     <div className='user-profile-pic'>
-
                     </div>
                     <div className='user-detail-container'>
                         <div className='user-detail'></div>
@@ -58,14 +57,14 @@ const UserAlbumsPage = () => {
             </div>
 
             <div className="profile-row">
-                <div className="photostream-container">
-                    <Link onClick={showPhotoStream}>PhotoStream</Link>
+                <div >
+                    <Link className="photostream-container" onClick={showPhotoStream}>PhotoStream</Link>
                 </div>
-                <div className="albums-container">
-                    <Link onClick={showAlbums}>Albums</Link>
+                <div >
+                    <Link  className="albums-container" id="photostream-border" onClick={showAlbums}>Albums</Link>
                 </div>
-                <div className="favorites-container">
-                    <a>Favorites</a>
+                <div >
+                    <a className="favorites-container">Favorites</a>
                 </div>
             </div>
 
