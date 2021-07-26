@@ -20,7 +20,8 @@
   background-color: white;
 
   width: 400px;
-  height: 480px;
+  /* height: 480px; */
+  height: auto;
 }
 
 .logo-img {
@@ -67,6 +68,7 @@
   color: white;
   background-color: rgb(171, 170, 170);
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .login-label button:hover {

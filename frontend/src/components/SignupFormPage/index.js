@@ -36,52 +36,44 @@ function SignupFormPage() {
   </div>
 
   return (
-    <div className='signup-form-page'>
-      <div className='signup-form-container'>
-        <form className='signup-form' onSubmit={handleSubmit}>
-          <div className='signup-label'>
-            <ul>
+    <div className='login-form-container'>
+      <div className='login-form-page'>
+        <form className='form-info' onSubmit={handleSubmit}>
+          <div className='login-label'>
+            <ul className="login-validation">
               {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
           </div>
-
-          <div className='signup-label'>
-            <label> Email
-              <input className='signup-input' type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </label>
+          <div className="logo-img"></div>
+          <h1>Sign up to Touristr</h1>
+          <div className='login-label'>
+              <input className='login-input' type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
 
-          <div className='signup-label'>
-            <label> Username
-              <input className='signup-input' type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
-            </label>
+          <div className='login-label'>
+
+              <input className='login-input' type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
           </div>
 
-          <div className='signup-label'>
-            <label> First Name
-              <input className='signup-input' type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
-            </label>
+          <div className='login-label'>
+
+              <input className='login-input' type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
           </div>
 
-          <div className='signup-label'>
-            <label> Last Name
-              <input className='signup-input' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
-            </label>
+          <div className='login-label'>
+
+              <input className='login-input' type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
           </div>
 
-          <div className='signup-label'>
-            <label> Password
-              <input className='signup-input' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            </label>
+          <div className='login-label'>
+              <input className='login-input' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </div>
 
-          <div className='signup-label'>
-            <label> Confirm Password
-              <input className='signup-input' type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-            </label>
+          <div className='login-label'>
+              <input className='login-input' type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
           </div>
 
-          <div className='signup-label'>
+          <div className='login-label'>
             <button type="submit">Sign Up</button>
           </div>
 
