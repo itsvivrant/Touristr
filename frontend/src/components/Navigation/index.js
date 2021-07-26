@@ -20,7 +20,7 @@ function Navigation({ isLoaded }){
             {/* <NavLink className='fas fa-upload' to='/upload' title="Upload a picture"></NavLink> */}
             <UploadPhotoModal />
           </div>
-          <div className="profile-button">
+          <div className="profile-button-container">
             <ProfileButton user={sessionUser} />
           </div>
         </div>

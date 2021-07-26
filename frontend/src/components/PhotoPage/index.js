@@ -68,7 +68,7 @@ const PhotoPage = () => {
                 <div className='photo-info-card'>
                     <div className='photo-header-container'>
                         <h1 className='photo-title'>{photo?.title}</h1>
-                        <h3 className='photo-user'>Photo by: {photo.User?.username}</h3>
+                        <h2 className='photo-user'>Photo by: {photo.User?.username}</h2>
                         <p className="photo-caption">{photo?.caption}</p>
                     </div>
                     <div>
@@ -77,8 +77,8 @@ const PhotoPage = () => {
                         <button onClick={handleDeletePhoto}>Delete Photo</button>
                     </div>
                 </div>
-                <div className='photo-comments-two'>
-                        <Comment />
+                <div className='photo-comments'>
+                    <Comment />
                 </div>
             </div>
 

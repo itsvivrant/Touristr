@@ -86,7 +86,7 @@ const Comment = () => {
                                     <button className="far fa-edit" text="Edit Comment" onClick={() => {setShowModal(true)}}></button>
                                     {showModal && (
                                         <Modal>
-                                            <form className="edit-form" onSubmit={handleEditComment}>
+                                            {/* <form className="edit-form" onSubmit={handleEditComment}> */}
                                                 <h1>Update Comment</h1>
                                                 <div className="update-textarea">
                                                     <textarea placeholder="Comment" className="comment-txt-area" type="textarea" value={editedComment.comment} onChange={(e) =>setEditedComment(e.target.value)}/>
@@ -97,7 +97,7 @@ const Comment = () => {
                                                 <div className="update-bttn">
                                                     <button onClick={handleCancelEdit}>Cancel</button>
                                                 </div>
-                                            </form>
+                                            {/* </form> */}
                                         </Modal>
                                     )}
                                 </form>

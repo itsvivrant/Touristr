@@ -33,8 +33,11 @@
 /* justify: for horizonatal left/right */
 
 
-.upload-button, .profile-button {
+.upload-button, #profile-button{
     padding: 10px;
+    background: none;
+    border: none;
+    position: relative;
 }
 
 
@@ -57,9 +60,6 @@
   text-shadow: 0 0 3px white;
 }
 
-#profile-button {
-    position: absolute;
-}
 
 .profile-dropdown {
     background-color: white;
@@ -67,27 +67,25 @@
     box-shadow: 0 6px 5px -5px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
     text-decoration: none;
     color: black;
     font-size: 17px;
-    margin-top: 120px;
-
-
+    position: absolute;
+    width: auto;
+    border-radius: 2px;
 }
 
-
-.dropdown-div {
-    display: flex;
-    justify-content: center;
-    width: 100px;
+.dropdown-p p {
+    margin: 5px 0 5px 0;
     font-weight: 500;
-    padding: 0
+    font-family: Helvetica;
 }
 
-.dropdown-div p {
-    font-weight: 600;
+
+.dropdown-div:hover div {
+    margin-bottom: 4px;
 }
 
 .dropdown-div:hover {

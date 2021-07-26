@@ -41,24 +41,22 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <div>
-        <i id="profile-bttn" className="far fa-user-circle" onClick={openMenu} text="Profile"/>
-      </div>
-      <div>
-        {showMenu && (
-          <div className="profile-dropdown">
-              <div className="dropdown-div">
-                <p>Hi , {user.username}</p>
-              </div>
-              <div className="dropdown-div">
-                <Link className="profile-link" href={`/users/${sessionUser.id}`} onClick={routeToProfile}>Profile</Link>
-              </div>
-              <div className="dropdown-div">
-                <Link className='logout-bttn' onClick={logout}>Logout</Link>
-              </div>
-          </div>
-        )}
-      </div>
+      <button id="profile-button" onClick={openMenu} text="Profile">
+        <i className="far fa-user-circle"/>
+      </button>
+      {showMenu && (
+        <div className="profile-dropdown">
+            <div className="dropdown-p">
+              <p>Hi, {user.username}</p>
+            </div>
+            <div className="dropdown-div">
+              <Link className="profile-link" href={`/users/${sessionUser.id}`} onClick={routeToProfile}>Profile</Link>
+            </div>
+            <div className="dropdown-div">
+              <Link className='logout-bttn' onClick={logout}>Logout</Link>
+            </div>
+        </div>
+      )}
     </>
   );
 }
