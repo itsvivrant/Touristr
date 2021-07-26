@@ -23,23 +23,20 @@ const SplashPage = () =>  {
         history.push('/explore-photos')
     }
 
-  if (!sessionUser) {
-      return (
-            <div className='splash-container'>
-                <div className='splash-content'>
-                    {/* <img className='tourist' src={tourist1} alt='img'/> */}
-                    <h1>Find your inner Tourist.</h1>
-                    <form onSubmit={handleSubmit} >
-                        <button class='demo-user-button'>Demo User</button>
-                    </form>
-                </div>
-            </div>
-      )
-    }
 
     return (
-        <Redirect to='explore-photos' />
+        <div className='splash-container'>
+            <div className='splash-content'>
+                <h1>Find your inner Tourist.</h1>
+                <form onSubmit={handleSubmit} >
+                    <button class='demo-user-button'>Demo User</button>
+                </form>
+            </div>
+        </div>
     )
+
+
+
 }
 
 export default SplashPage

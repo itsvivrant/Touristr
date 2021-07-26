@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -27,29 +28,31 @@ function LoginFormPage() {
   }
 
   return (
-    <div className='login-form-page'>
-      <div className='login-form-container'>
-        <form className='basic-login-form' onSubmit={handleSubmit}>
-          <div>
-
-            <ul>
+    <div className='login-form-container'>
+      <div className='login-form-page'>
+        <form onSubmit={handleSubmit}>
+          <div className="form-info">
+            <ul classNamee="login-validations">
               {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
+            <div className="logo-img"></div>
+            <h1>Login to Touristr</h1>
             <div className='login-label'>
-              <label> Username or Email
-                <input className='login-input' type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />
-              </label>
+              <input className='login-input' type="text" placeholder="Username or Email" value={credential} onChange={(e) => setCredential(e.target.value)} required />
+              {/* <label>Username or Email</label> */}
             </div>
 
             <div className='login-label'>
-              <label> Password
-                <input className='login-input' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-              </label>
+              <input className='login-input' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+              {/* <label>Password</label> */}
             </div>
 
             <div className='login-label'>
               <button type="submit">Log In</button>
             </div>
+            <p>Not a member?
+              <Link href='/signup' className='session-link'>Sign up here</Link>
+            </p>
           </div>
 
 

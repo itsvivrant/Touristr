@@ -1,29 +1,101 @@
-.upload-form-page{
-    display: flex;
-    width:100%;
-    justify-content: center;
-  }
-
-  .photo-form-containers{
-    display: flex;
-    justify-content: center;
-  }
-  .upload-form{
-    margin-top: 100px;
-    width: 300px;
-    padding: 10px;
-    /* border: 1px solid black; */
-    background-color: white;
-    box-shadow: 0px 0px 3px 0px grey;
-    border-radius: 5px;
-  }
-
-image-preview {
-  width: 100%;
-  height: 100%
+.fas.fa-upload {
+  cursor: pointer;
 }
 
-image-preview .img {
+.fas.fa-upload:hover {
+  color: white;
+  text-shadow: 0 0 3px white;
+}
+
+.photo-form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 500px;
+  width: 200px
+}
+
+.upload-form{
+  display: grid;
+  /* width: 700px; */
+  height: 550px;
+  grid-template-rows: 10fr 3fr 3fr 3fr;
+  /* border: 1px solid black; */
+  background-color: white;
+  box-shadow: 0px 0px 3px 0px grey;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.upload-photo-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-style: dotted;
+  padding: 70px;
+}
+.upload-photo-box p {
+  margin-right: 20px;
+}
+
+.upload-or {
+  text-align: center;
+  margin-right: 40px;
+  margin: 0 0;
+}
+.upload-imgURL-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-imgURL-box input {
+  width: 600px;
+}
+
+.photo-input-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100%
+}
+.photo-input-container input {
+  padding: 0;
+  width: 100%;
+}
+.photo-input-container textarea {
+  width: 100%;
+  height: 50px
+}
+
+.photo-input-container p {
+  text-align: center;
+  margin: 4px auto 4px 0;
+  font-weight: 700;
+}
+
+.upload-buttons {
+  display: flex;
+  flex-direction: column;
+}
+.upload-buttons div{
+  display:flex;
+  justify-content: center;
+  padding: 5px;
+}
+.upload-buttons button{
+  width: 100%;
+  height:32px;
+  font-size: 14px;
+  background-color: rgb(195, 188, 188);
+  color: white;
+  cursor: pointer;
+  font-family: Helvetica;
+  border-radius: 5px;
+}
+
+.upload-buttons button:hover {
+  background-color: black;
 }

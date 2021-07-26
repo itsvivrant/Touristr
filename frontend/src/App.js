@@ -52,9 +52,9 @@ function App() {
             <UploadPhotoPage />
           </Route> */}
 
-          <Route path='/edit/:id'>
+          {/* <Route path='/edit/:id'>
             <EditPhotoForm />
-          </Route>
+          </Route> */}
 
           <Route path='/users/:id'>
             <UserProfilePage/>

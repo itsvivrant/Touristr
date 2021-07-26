@@ -30,16 +30,124 @@
     text-align: center;
 }
 
+
+/* *************COMMENTS *****************************/
+/*
 .photo-comments{
     overflow: auto;
     max-height: 100vh;
     width: 100%
+} */
+
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #F3F5F6;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.comments-container {
+    overflow: auto;
+    max-height: 100vh;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.comments-container:hover {
+    background-color: white;
+
+}
+
+.user-comment-info{
+    display: flex;
+    justify-content: space-between;
 }
 
 
+.user-comment-delete-edit {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 30px;
+}
 
-.comments-container {
-    overflow: scroll
+.fas.fa-times, .far.fa-edit {
+    text-decoration: none;
+    padding: 0;
+    border: none !important;
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.fas.fa-times {
+    font-size:22px;
+}
+
+.far.fa-edit {
+    font-size: 20px;
+}
+
+.fas.fa-times:hover, .far.fa-edit:hover {
+    color: grey;
+}
+
+
+.edit-form {
+    height: auto;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 40px;
+}
+
+.update-textarea textarea{
+    width: 400px;
+    height: 50px;
+}
+
+.update-bttn button {
+  width: 405px;
+  height: 30px;
+  color: white;
+  background-color: rgb(171, 170, 170);
+  cursor: pointer;
+  margin-bottom: 5px;
+
+}
+
+.update-bttn button:hover {
+    background-color: black;
+    text-shadow: 0 0 1px white;
+}
+
+.comment-p p {
+    margin: 5px 0;
+    padding: 0;
+    font-family: Helvetica;
+    font-size: 15px;
+}
+
+.comment-form-container {
+    margin-top: 20px;
+}
+
+.comment-textarea textarea{
+    width: 600px;
+    height: 80px;
+}
+
+.comment-textarea textarea::placeholder {
+    padding: 10px;
+    color: gray;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 @media screen and (max-width: 599px) {
