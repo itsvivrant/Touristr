@@ -2,14 +2,13 @@ import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import {Modal} from '../../context/Modal'
-
+import UploadPhotoModal from '../UploadPhotoPage/UploadPhotoModal';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
-  const [showModal, setShowModal] = useState(false);
 
   const sessionUser = useSelector(state => state.session.user);
+
 
   let sessionLinks;
   if (sessionUser) {
@@ -18,7 +17,8 @@ function Navigation({ isLoaded }){
         <NavLink className='nav-link' to='/explore-photos'>Explore</NavLink>
         <div className="upload-profile-nav">
           <div className="upload-button">
-            <NavLink className='fas fa-upload' to='/upload' title="Upload a picture"></NavLink>
+            {/* <NavLink className='fas fa-upload' to='/upload' title="Upload a picture"></NavLink> */}
+            <UploadPhotoModal />
           </div>
           <div className="profile-button">
             <ProfileButton user={sessionUser} />

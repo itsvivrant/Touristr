@@ -49,7 +49,7 @@ const UploadPhotoPage = () => {
         e.preventDefault();
         history.push(`/explore-photos`)
       };
-
+    
 
     return (
         <div className='upload-form-page'>
