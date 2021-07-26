@@ -44,6 +44,9 @@ const UploadPhotoModal = () => {
 
     }
 
+
+
+
     const getFile = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -66,22 +69,27 @@ const UploadPhotoModal = () => {
                 <div className='upload-form-page'>
                     <div className='photo-form-container'>
                         <form className='upload-form' onSubmit={handleSubmit}>
-                            <div>
-                                <div className='upload-photo-box'>
-                                    <p>Click to select a file to upload</p>
-                                    <input type='file' accept="image/*" onChange={getFile}></input>
-                                </div>
-                                <span>Or</span>
-                                <div className='upload-imgURL-box'>
-                                    <input type='text' placeholder='Image URL' onChange={updateImgURL}></input>
-                                </div>
+                            <div className='upload-photo-box'>
+                                <p>Click to select a file to upload</p>
+                                <input type='file' accept="image/*" onChange={getFile}></input>
+                            </div>
+                            <span>Or</span>
+                            <div className='upload-imgURL-box'>
+                                <input type='text' placeholder='Image URL' onChange={updateImgURL}></input>
                             </div>
                             <div className='photo-input-container'>
                                 <input type='text' placeholder='title' onChange={updateTitle}></input>
                                 <input type='text' placeholder='caption' onChange={updateCaption}></input>
                             </div>
-                            <button type="submit">Upload Photo</button>
-                            <button type="button" onClick={handleCancelClick}>Cancel</button>
+                            <div className="image-preview">
+                                {imgURL === '' ? null :
+                                    <img src={setImgURL}></img>
+                                }
+                            </div>
+                            <div className="upload-buttons">
+                                <button type="submit">Upload Photo</button>
+                                <button type="button" onClick={handleCancelClick}>Cancel</button>
+                            </div>
                         </form>
                     </div>
                 </div>
