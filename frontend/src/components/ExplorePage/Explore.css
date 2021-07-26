@@ -3,8 +3,8 @@
   height: 60px;
   padding-top: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   flex-direction: column;
   background-color: #F3F5F6;
 }
@@ -16,6 +16,9 @@
     text-decoration: none;
     color: #202023;
     padding-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 30px;
 }
 
 .gallery-page {

@@ -26,7 +26,7 @@ const ExplorePage = () => {
         <>
             <div className="title-container">
                 <div className="header-div">
-                    <h1>Explore</h1>
+                    <h1>All Photos</h1>
                 </div>
             </div>
             <div className='gallery-page'>

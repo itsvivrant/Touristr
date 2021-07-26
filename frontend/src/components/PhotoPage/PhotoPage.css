@@ -123,7 +123,7 @@
 }
 
 .update-bttn button:hover {
-    background-color: black;
+    background-color: rgba(21,21,23,.95);
     text-shadow: 0 0 1px white;
 }
 

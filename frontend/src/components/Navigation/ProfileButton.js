@@ -47,13 +47,13 @@ function ProfileButton({ user }) {
       {showMenu && (
         <div className="profile-dropdown">
             <div className="dropdown-p">
-              <p>Hi, {user.username}</p>
+              <p>Hello, {user.username}!</p>
             </div>
             <div className="dropdown-div">
               <Link className="profile-link" href={`/users/${sessionUser.id}`} onClick={routeToProfile}>Profile</Link>
             </div>
             <div className="dropdown-div">
-              <Link className='logout-bttn' onClick={logout}>Logout</Link>
+              <Link className='logout-bttn' onClick={logout}>Log Out</Link>
             </div>
         </div>
       )}
