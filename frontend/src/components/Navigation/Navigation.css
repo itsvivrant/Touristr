@@ -1,15 +1,3 @@
-.nav-container {
-    background-color: rgb(19, 17, 17);
-    display: flex;
-    justify-content: space-around;
-    height: 50px;
-    align-items: center;
-    position: relative;
-    width:100%;
-}
-/* align-tem :for vertical and up /down*/
-/* justify: for horizonatal left/right */
-
 .nav-link {
     /* take away underline */
     text-decoration: none;
@@ -18,6 +6,80 @@
     font-weight: 700;
 }
 
-.profile-dropdown {
+
+.nav-container {
+    background-color: rgb(19, 17, 17);
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    align-items: center;
+    position: relative;
+    width:100%;
+
+}
+
+.upload-profile-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+/* align-tem :for vertical and up /down*/
+/* justify: for horizonatal left/right */
+
+
+.upload-button, .profile-button {
+    padding: 10px;
+}
+
+
+.fas.fa-upload {
+    font-size: 25px;
     color: white;
+}
+
+/*************PROFILE BUTTON************** */
+
+.far.fa-user-circle {
+    font-size: 30px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+#profile-button {
+    position: absolute;
+}
+
+.profile-dropdown {
+    background-color: white;
+    border: 1px solid grey;
+    box-shadow: 0 6px 5px -5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    margin-top: 120px;
+
+
+}
+
+
+.dropdown-div {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    font-weight: 500;
+    padding: 0
+}
+
+.dropdown-div p {
+    font-weight: 600;
+}
+
+.dropdown-div:hover {
+    background-color: #f1f1f1;
+    text-decoration: none;
 }

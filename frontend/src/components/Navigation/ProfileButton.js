@@ -4,7 +4,6 @@ import {Link, Redirect, useHistory} from 'react-router-dom'
 import * as sessionActions from '../../store/session';
 import UserProfilePage from "../UserProfilePage";
 import './Navigation.css'
-import './ProfileButton.css'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -42,25 +41,24 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
-      {showMenu && (
-        <div>
-          <div  className='dropdown'>
-            <ul className="profile-dropdown">
-              <li>Hi , {user.username}</li>
-              <li>
-                <a className="profile-link" href={`/users/${sessionUser.id}`} onClick={routeToProfile}>Profile</a>
-              </li>
-              <li>
-                <button className='logout-bttn' onClick={logout}>Logout</button>
-              </li>
-            </ul>
+      <div>
+        <i id="profile-bttn" className="far fa-user-circle" onClick={openMenu} text="Profile"/>
+      </div>
+      <div>
+        {showMenu && (
+          <div className="profile-dropdown">
+              <div className="dropdown-div">
+                <p>Hi , {user.username}</p>
+              </div>
+              <div className="dropdown-div">
+                <Link className="profile-link" href={`/users/${sessionUser.id}`} onClick={routeToProfile}>Profile</Link>
+              </div>
+              <div className="dropdown-div">
+                <Link className='logout-bttn' onClick={logout}>Logout</Link>
+              </div>
           </div>
-        </div>
-
-      )}
+        )}
+      </div>
     </>
   );
 }

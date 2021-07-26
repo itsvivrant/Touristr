@@ -1,19 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import UploadPhotoModal from '../UploadPhotoPage/UploadPhotoModal';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
+
   const sessionUser = useSelector(state => state.session.user);
+
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <>
         <NavLink className='nav-link' to='/explore-photos'>Explore</NavLink>
-        <NavLink className='nav-link' to='/upload'>Upload Photo</NavLink>
-        <ProfileButton user={sessionUser} />
+        <div className="upload-profile-nav">
+          <div className="upload-button">
+            {/* <NavLink className='fas fa-upload' to='/upload' title="Upload a picture"></NavLink> */}
+            <UploadPhotoModal />
+          </div>
+          <div className="profile-button">
+            <ProfileButton user={sessionUser} />
+          </div>
+        </div>
       </>
     );
   } else {

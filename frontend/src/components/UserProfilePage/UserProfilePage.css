@@ -21,56 +21,28 @@
 }
 
 .profile-row {
-    height: 30px;
-    padding: 20px;
+    height: 50px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    flex-direction: row;
+    /* flex-direction: row; */
 }
 
-.photostream-container:hover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 40px;
-    transition: ease .3s;
-    border-bottom: 1px solid #128fdc;
-    box-shadow: inset 0px -3px 0px 0px #128fdc;
-    flex-direction: row;
-    cursor: pointer;
-}
 
-.photostream-container Link {
+.photostream-container, .albums-container, .favorites-container {
     text-decoration: none;
     font-family: helvetica neue;
-    font-size: 16px;
-    font-weight: 400;
-    color: #404040;
-    padding: 0px 25px;
-    width: 100%;
+    padding: 10px;
+    height: 50px;
 }
 
-.albums-container:hover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 40px;
-    transition: ease .3s;
-    border-bottom: 1px solid #128fdc;
-    box-shadow: inset 0px -3px 0px 0px #128fdc;
-    flex-direction: row;
-    cursor: pointer;
-}
-
-.albums-container Link {
+.photostream-container:hover, .albums-container:hover {
     text-decoration: none;
-    font-family: helvetica neue;
-    font-size: 16px;
-    font-weight: 400;
-    color: #404040;
-    padding: 0px 25px;
-    width: 100%;
+    border-bottom: 5px solid #128fdc;
 }
+
+#photostream-border {
+    border-bottom: 5px solid #128fdc;
+}
+
+

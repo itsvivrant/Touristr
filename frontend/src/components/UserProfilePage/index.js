@@ -59,22 +59,36 @@ const UserProfilePage = () => {
             </div>
 
             <div className="profile-row">
-                <div className="photostream-container">
-                    <Link onClick={showPhotoStream}>PhotoStream</Link>
+                <div  >
+                    <Link className="photostream-container" id="photostream-border" onClick={showPhotoStream}>PhotoStream</Link>
                 </div>
-                <div className="albums-container">
-                    <Link onClick={showAlbums}>Albums</Link>
+                <div >
+                    <Link className="albums-container" onClick={showAlbums}>Albums</Link>
                 </div>
-                <div className="favorites-container">
-                    <a>Favorites</a>
+                <div >
+                    <a className="favorites-container">Favorites</a>
                 </div>
             </div>
 
             <div className='gallery-page'>
                 {userPhotos.map((photo) => (
-                    <Link to={`/photos/${photo.id}`} key={photo.id}>
-                        <img className='each-photo' src={photo.imgURL} />
-                    </Link>
+                    // <Link to={`/photos/${photo.id}`} key={photo.id}>
+                    //     <img className='each-photo' src={photo.imgURL} />
+                    // </Link>
+                    <>
+                        <div class="gallery-box">
+                            <a href={`/photos/${photo.id}`} key={photo.id}>
+                                <div class="img-box">
+                                    <img class='single-photo' src={photo.imgURL} alt=""/>
+                                    <div class="photo-content">
+                                        <p>{photo.title}</p>
+                                        <p>By {photo.User?.username}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="space-div"></div>
+                    </>
                 ))}
             </div>
         </>
