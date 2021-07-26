@@ -45,15 +45,15 @@ const PhotoPage = () => {
             </div>
             <div className='photo-info'>
                 <div className='photo-info-card'>
-                    <div className='title-container'>
-                        <h1>{photo?.title}</h1>
-                        <h3>Photo by: {photo.User?.username}</h3>
-                        <p>{photo?.caption}</p>
+                    <div className='photo-header-container'>
+                        <h1 className='photo-title'>{photo?.title}</h1>
+                        <h3 className='photo-user'>Photo by: {photo.User?.username}</h3>
+                        <p className="photo-caption">{photo?.caption}</p>
                     </div>
-                    <div>
-                        <Comment />
-                    </div>
-                 </div>
+                </div>
+                <div className='photo-comments'>
+                    <Comment />
+                </div>
             </div>
 
         </div>
@@ -66,17 +66,17 @@ const PhotoPage = () => {
             </div>
             <div className='photo-info'>
                 <div className='photo-info-card'>
-                    <div className='title-container'>
-                        <h1>{photo?.title}</h1>
-                        <h3>Photo by: {photo.User?.username}</h3>
-                        <p>{photo?.caption}</p>
+                    <div className='photo-header-container'>
+                        <h1 className='photo-title'>{photo?.title}</h1>
+                        <h3 className='photo-user'>Photo by: {photo.User?.username}</h3>
+                        <p className="photo-caption">{photo?.caption}</p>
                     </div>
                     <div>
                         <button onClick={directToEditPage}>Edit Photo</button>
                         <button onClick={handleDeletePhoto}>Delete Photo</button>
                     </div>
-
-                    <div>
+                    
+                    <div className='photo-comments-two'>
                         <Comment />
                     </div>
                 </div>

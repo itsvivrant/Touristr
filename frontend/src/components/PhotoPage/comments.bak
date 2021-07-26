@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useParams, Redirect} from 'react-router-dom';
+import {useParams, useHistory, Redirect} from 'react-router-dom';
 import {Modal} from '../../context/Modal'
 import {getComments, createComment, updateComment, removeComment} from '../../store/comment';
 
@@ -46,12 +46,12 @@ const Comment = () => {
         setComment('')
     }
 
-    const handleDeleteComment = async (e) => {
+    const handleDelete = async (e) => {
         e.preventDefault();
         await dispatch(removeComment(commentToDeleteId))
     }
 
-    const handleEditComment = async(e) => {
+    const handleEdit = async(e) => {
         e.preventDefault();
         const data = {id: commentToUpdateId, content: editedComment}
         await dispatch(updateComment(data))
@@ -66,14 +66,14 @@ const Comment = () => {
                     <div class="comments-container">
                         <h3>{comment.User?.username}</h3>
                         <p>{comment.comment}</p>
-                        <form onSubmit={handleDeleteComment} hidden={comment.userId !== sessionUser.id}>
+                        <form onSubmit={handleDelete} hidden={comment.userId !== sessionUser.id}>
                             <button onClick={e=> setCommentToDeleteId(comment.id)}>Delete Comment</button>
                         </form>
 
                         <button onClick={() => {setShowModal(true)}} hidden={comment.userId !== sessionUser.id}>Edit Comment</button>
                         {showModal && (
                             <Modal>
-                                <form onSubmit={handleEditComment}>
+                                <form onSubmit={handleEdit}>
                                     <label>Comment
                                         <textarea className="txt-area" type="textarea" value={editedComment.comment} onChange={(e) =>setEditedComment(e.target.value)}/>
                                     </label>

@@ -3,6 +3,11 @@ body {
     margin: 0px;
 }
 
-a {
+* a, * Link {
     text-decoration: none;
-    }
+}
+
+a:visited {
+    text-decoration: none;
+    color: none;
+}

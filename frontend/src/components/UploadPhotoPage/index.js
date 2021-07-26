@@ -36,14 +36,6 @@ const UploadPhotoPage = () => {
         if (createdPhoto) {
             history.push(`/photos/${createdPhoto.id}`)
         }
-        // await dispatch(uploadPhoto(sessionUser.id, {
-        //     caption,
-        //     title,
-        //     imgURL,
-        //     imgFile
-        // }))
-
-
     }
 
     const getFile = (e) => {

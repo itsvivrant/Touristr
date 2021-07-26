@@ -1,42 +1,58 @@
 /* flex works on the direct children only of a parent container*/
+.photo-page {
+    display: grid;
+    grid-template-columns: 10fr 5fr;
+    align-items: center;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+}
+
 .photo-container {
+    background-color: #151617;
+}
+
+.photo-container img{
+    object-fit: contain;
+    width: 100%;
+    height: 100vh;
+}
+
+.photo-info-card {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #292b2c;
-    width: 100%;
-    height: 700px;
-    padding: 30px;
+    opacity: 1;
+    padding: 20px;
 }
 
-.img {
-    display: block;
-    max-height: 100%;
-    max-width: 100%;
-    /* margin: 0px ; */
+.photo-header-container {
+    text-align: center;
 }
 
-.title-container{
-    padding-top: 20px;
+.photo-comments{
+    overflow: auto;
+    max-height: 100vh;
+    width: 100%
 }
 
 
 
-.photo-info{
-    background-color: white;
-    width: 100%;
-    height: 500px;
-   display: flex;
-   justify-content: center;
-
+.comments-container {
+    overflow: scroll
 }
 
-.photo-info-card{
-    width: 300px;
+@media screen and (max-width: 599px) {
+    .photo-page{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .photo-container img{
+        object-fit: contain;
+        width: 95%;
+        height: 100vh;
+        margin-left: 13px;
+    }
 
-}
-
-.comment-container{
-    margin-top: 50px;
-    border-top: .2px solid rgb(110, 109, 109);
 }
