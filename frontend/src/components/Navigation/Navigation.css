@@ -4,6 +4,12 @@
     color: white;
     font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
     font-weight: 700;
+    font-size: 20px
+}
+
+.nav-link:hover {
+    color: white;
+  text-shadow: 0 0 3px white;
 }
 
 
@@ -44,6 +50,11 @@
     color: white;
     background-color: black;
     cursor: pointer;
+}
+
+.far.fa-user-circle:hover {
+    color: white;
+  text-shadow: 0 0 3px white;
 }
 
 #profile-button {

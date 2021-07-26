@@ -46,7 +46,6 @@ const UploadPhotoModal = () => {
 
 
 
-
     const getFile = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -66,33 +65,44 @@ const UploadPhotoModal = () => {
             <i onClick={() => setShowModal(true)} className='fas fa-upload' title="Upload a picture"></i>
             {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-                <div className='upload-form-page'>
-                    <div className='photo-form-container'>
-                        <form className='upload-form' onSubmit={handleSubmit}>
-                            <div className='upload-photo-box'>
-                                <p>Click to select a file to upload</p>
-                                <input type='file' accept="image/*" onChange={getFile}></input>
-                            </div>
-                            <span>Or</span>
-                            <div className='upload-imgURL-box'>
-                                <input type='text' placeholder='Image URL' onChange={updateImgURL}></input>
-                            </div>
-                            <div className='photo-input-container'>
+                {/* <div className='photo-form-container'> */}
+                    <form className='upload-form' onSubmit={handleSubmit}>
+                        <div className='upload-photo-box'>
+                            <p>Click to select a file to upload</p>
+                            <input type='file' accept="image/*" onChange={getFile}></input>
+                        </div>
+                        <div className='upload-or'>
+                            <p>Or</p>
+                        </div>
+                        <div className='upload-imgURL-box'>
+                            <input type='text' placeholder='Image URL' onChange={updateImgURL}></input>
+                        </div>
+                        <div className='photo-input-container'>
+                            <div>
+                                <p>Title</p>
                                 <input type='text' placeholder='title' onChange={updateTitle}></input>
-                                <input type='text' placeholder='caption' onChange={updateCaption}></input>
                             </div>
-                            <div className="image-preview">
-                                {imgURL === '' ? null :
-                                    <img src={setImgURL}></img>
-                                }
+                            <div>
+                                <p>Caption</p>
+                                <textarea type='text' placeholder='caption' onChange={updateCaption}></textarea>
                             </div>
-                            <div className="upload-buttons">
+                        </div>
+                        {/* <div className="image-preview">
+                            {imgURL === '' ? null :
+                                <img src={setImgURL(e.target.value)}></img>
+                            }
+                        </div> */}
+                        <div className="upload-buttons">
+                            <div>
                                 <button type="submit">Upload Photo</button>
+                            </div>
+                            <div>
                                 <button type="button" onClick={handleCancelClick}>Cancel</button>
                             </div>
-                        </form>
-                    </div>
-                </div>
+                        </div>
+                    </form>
+                {/* </div> */}
+
             </Modal>
             )}
         </>
