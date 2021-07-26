@@ -11,14 +11,14 @@
 
 .header-div h1{
     font-family: helvetica;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 300;
     text-decoration: none;
     color: #202023;
     padding-bottom: 20px;
     display: flex;
     justify-content: flex-start;
-    margin-left: 30px;
+    margin-left: 45px;
 }
 
 .gallery-page {
