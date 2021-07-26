@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -49,6 +50,9 @@ function LoginFormPage() {
             <div className='login-label'>
               <button type="submit">Log In</button>
             </div>
+            <p>Not a member?
+              <Link href='/signup' className='session-link'>Sign up here</Link>
+            </p>
           </div>
 
 

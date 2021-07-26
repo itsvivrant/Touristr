@@ -51,11 +51,10 @@ const PhotoPage = () => {
                         <p className="photo-caption">{photo?.caption}</p>
                     </div>
                 </div>
-                <div className='photo-comments'>
-                    <Comment />
-                </div>
             </div>
-
+            <div className='photo-comments'>
+                    <Comment />
+            </div>
         </div>
     )
     else
@@ -75,10 +74,9 @@ const PhotoPage = () => {
                         <button onClick={directToEditPage}>Edit Photo</button>
                         <button onClick={handleDeletePhoto}>Delete Photo</button>
                     </div>
-                    
-                    <div className='photo-comments-two'>
+                </div>
+                <div className='photo-comments-two'>
                         <Comment />
-                    </div>
                 </div>
             </div>
 

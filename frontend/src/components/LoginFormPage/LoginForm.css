@@ -75,3 +75,7 @@
   background-color: black;
   text-shadow: 0 0 1px white;
 }
+
+.session-link {
+  margin-left: 5px;
+}
