@@ -29,21 +29,21 @@ function LoginFormPage() {
   return (
     <div className='login-form-container'>
       <div className='login-form-page'>
-        <form className='basic-login-form' onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="form-info">
-            <ul>
+            <ul classNamee="login-validations">
               {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
+            <div className="logo-img"></div>
+            <h1>Login to Touristr</h1>
             <div className='login-label'>
-              <label> Username or Email
-                <input className='login-input' type="text" value={credential} onChange={(e) => setCredential(e.target.value)} required />
-              </label>
+              <input className='login-input' type="text" placeholder="Username or Email" value={credential} onChange={(e) => setCredential(e.target.value)} required />
+              {/* <label>Username or Email</label> */}
             </div>
 
             <div className='login-label'>
-              <label> Password
-                <input className='login-input' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-              </label>
+              <input className='login-input' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+              {/* <label>Password</label> */}
             </div>
 
             <div className='login-label'>

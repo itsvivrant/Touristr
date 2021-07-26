@@ -10,3 +10,66 @@
   align-items: center;
 }
 
+.login-validations {
+  text-decoration: none;
+}
+
+.login-form-page {
+  box-shadow: 0px 2px 10px -4px black;
+  border-radius: 3px;
+  background-color: white;
+
+  width: 400px;
+  height: 480px;
+}
+
+.logo-img {
+  background-image: url(Lovepik_com-400174223-vector-camera.png);
+  background-size: cover;
+  width: 80px;
+  height: 70px;
+  position: relative;
+  background-color: white;
+
+}
+
+.form-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.login-label {
+  padding: 8px;
+}
+
+.login-input {
+  width: 300px;
+  height:40px;
+  border-radius: 4px;
+}
+
+.logn-label .login-input label {
+  position: absolute;
+  top: 10px;
+}
+
+.login-input::placeholder {
+  color: grey;
+  padding: 20px;
+}
+
+.login-label button {
+  width: 310px;
+  height: 40px;
+  color: white;
+  background-color: rgb(171, 170, 170);
+  cursor: pointer;
+}
+
+.login-label button:hover {
+  background-color: black;
+  text-shadow: 0 0 1px white;
+}
