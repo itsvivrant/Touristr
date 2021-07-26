@@ -61,14 +61,20 @@
   flex-direction: column;
   width: 100%;
 }
+
 .photo-input-container input {
-  padding: 0;
   width: 100%;
 }
 .photo-input-container textarea {
   width: 100%;
   height: 50px
 }
+
+.photo-input-container input::placeholder, .photo-input-container textarea::placeholder, .upload-imgURL-box input::placeholder{
+  font-family: helvetica;
+  padding: 2px;
+}
+
 
 .photo-input-container p {
   text-align: center;
@@ -86,14 +92,14 @@
   padding: 5px;
 }
 .upload-buttons button{
-  width: 100%;
+  width: 200px;
   height:32px;
   font-size: 14px;
   background-color: rgb(195, 188, 188);
   color: white;
   cursor: pointer;
   font-family: Helvetica;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .upload-buttons button:hover {
