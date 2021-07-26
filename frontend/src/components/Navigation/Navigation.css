@@ -3,7 +3,7 @@
     text-decoration: none;
     color: white;
     font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 20px
 }
 
@@ -14,15 +14,38 @@
 
 
 .nav-container {
-    background-color: rgb(19, 17, 17);
+    background-color: rgba(21,21,23,.95);
     display: flex;
     justify-content: space-around;
     height: 50px;
     align-items: center;
     position: relative;
     width:100%;
-
 }
+
+.logo-you-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo-you-nav div {
+    padding: 20px;
+}
+
+.you-link {
+    display: flex;
+    color: white;
+    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    align-items: center;
+    font-size: 18px
+}
+
+.you-lin:hover {
+    color: white;
+    text-shadow: 0 0 3px white;
+}
+
 
 .upload-profile-nav {
     display: flex;
@@ -38,6 +61,7 @@
     background: none;
     border: none;
     position: relative;
+
 }
 
 
@@ -48,10 +72,11 @@
 
 /*************PROFILE BUTTON************** */
 
+
 .far.fa-user-circle {
     font-size: 30px;
     color: white;
-    background-color: black;
+    background-color: rgba(21,21,23,.95);
     cursor: pointer;
 }
 
@@ -73,20 +98,32 @@
     color: black;
     font-size: 17px;
     position: absolute;
-    width: auto;
+    width:195px;
+    height: 163px;
     border-radius: 2px;
+    z-index: 6;
+}
+
+.dropdown-p {
+    padding: 18px;
+    border-bottom: 1px solid lightgray;
 }
 
 .dropdown-p p {
     margin: 5px 0 5px 0;
-    font-weight: 500;
+    font-weight: 550;
     font-family: Helvetica;
+    letter-spacing: 0.2px;
 }
 
+.dropdown-div {
+    padding: 15px;
+    border-bottom: 1px solid lightgray;
+}
 
-.dropdown-div:hover div {
+/* .dropdown-div:hover div {
     margin-bottom: 4px;
-}
+} */
 
 .dropdown-div:hover {
     background-color: #f1f1f1;

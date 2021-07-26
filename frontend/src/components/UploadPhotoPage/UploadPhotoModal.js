@@ -80,11 +80,11 @@ const UploadPhotoModal = () => {
                         <div className='photo-input-container'>
                             <div>
                                 <p>Title</p>
-                                <input type='text' placeholder='title' onChange={updateTitle}></input>
+                                <input type='text' placeholder='Title' onChange={updateTitle}></input>
                             </div>
                             <div>
                                 <p>Caption</p>
-                                <textarea type='text' placeholder='caption' onChange={updateCaption}></textarea>
+                                <textarea type='text' placeholder='Caption' onChange={updateCaption}></textarea>
                             </div>
                         </div>
                         {/* <div className="image-preview">

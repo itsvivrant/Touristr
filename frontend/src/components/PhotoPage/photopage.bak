@@ -38,7 +38,27 @@ const PhotoPage = () => {
         history.push(`/users/${sessionUser.id}`)
     }
 
-    
+    if(photo.userId !== sessionUser.id)
+    return (
+        <div className='photo-page'>
+            <div className='photo-container'>
+                <img className='img' src={photo.imgURL}></img>
+            </div>
+            <div className='photo-info'>
+                <div className='photo-info-card'>
+                    <div className='photo-header-container'>
+                        <h1 className='photo-title'>{photo?.title}</h1>
+                        <h3 className='photo-user'>Photo by: {photo.User?.username}</h3>
+                        <p className="photo-caption">{photo?.caption}</p>
+                    </div>
+                </div>
+            </div>
+            <div className='photo-comments'>
+                    <Comment />
+            </div>
+        </div>
+    )
+    else
     return (
         <div className='photo-page'>
             <div className='photo-container'>
@@ -51,7 +71,7 @@ const PhotoPage = () => {
                         <h2 className='photo-user'>Photo by: {photo.User?.username}</h2>
                         <p className="photo-caption">{photo?.caption}</p>
                     </div>
-                    <div hidden={photo.userId !== sessionUser.id}>
+                    <div>
                         {/* <button onClick={directToEditPage}>Edit Photo</button> */}
                         <EditPhotoFormModal />
                         <button onClick={handleDeletePhoto}>Delete Photo</button>

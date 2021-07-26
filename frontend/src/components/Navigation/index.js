@@ -14,10 +14,19 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <>
+        <div className="logo-you-nav">
+          <div>
+            <NavLink className='nav-link' exact to="/explore-photos">Touristr</NavLink>
+          </div>
+          <div>
+            <NavLink className='you-link' to={`/users/${sessionUser.id}`}>You</NavLink>
+          </div>
+        </div>
+
         <NavLink className='nav-link' to='/explore-photos'>Explore</NavLink>
+
         <div className="upload-profile-nav">
           <div className="upload-button">
-            {/* <NavLink className='fas fa-upload' to='/upload' title="Upload a picture"></NavLink> */}
             <UploadPhotoModal />
           </div>
           <div className="profile-button-container">
@@ -29,7 +38,7 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <NavLink className='nav-link' exact to="/" hidden={!sessionUser}>Touristr</NavLink>
+        <NavLink className='nav-link' exact to="/">Touristr</NavLink>
         <NavLink className='nav-link' to="/login">Log In</NavLink>
         <NavLink className='nav-link' to="/signup">Sign Up</NavLink>
       </>
@@ -38,7 +47,7 @@ function Navigation({ isLoaded }){
 
   return (
     <div className='nav-container'>
-      <NavLink className='nav-link' exact to="/">Touristr</NavLink>
+      {/* <NavLink className='nav-link' exact to="/">Touristr</NavLink> */}
       {isLoaded && sessionLinks}
     </div>
 

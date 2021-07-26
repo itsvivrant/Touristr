@@ -50,10 +50,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .upload-imgURL-box input {
-  width: 600px;
+  width: 100%;
+  height: 28px;
 }
 
 .photo-input-container {
@@ -61,8 +63,8 @@
   flex-direction: column;
   width: 100%;
 }
+
 .photo-input-container input {
-  padding: 0;
   width: 100%;
 }
 .photo-input-container textarea {
@@ -70,10 +72,17 @@
   height: 50px
 }
 
+.photo-input-container input::placeholder, .photo-input-container textarea::placeholder, .upload-imgURL-box input::placeholder{
+  font-family: helvetica;
+  padding: 2px;
+}
+
+
 .photo-input-container p {
   text-align: center;
   margin: 4px auto 4px 0;
   font-weight: 700;
+  width: 100%;
 }
 
 .upload-buttons {
@@ -86,16 +95,16 @@
   padding: 5px;
 }
 .upload-buttons button{
-  width: 100%;
+  width: 200px;
   height:32px;
   font-size: 14px;
   background-color: rgb(195, 188, 188);
   color: white;
   cursor: pointer;
   font-family: Helvetica;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .upload-buttons button:hover {
-  background-color: black;
+  background-color: rgba(21,21,23,.95);
 }
