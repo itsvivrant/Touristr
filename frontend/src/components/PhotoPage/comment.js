@@ -1,21 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useParams, Redirect, useHistory} from 'react-router-dom';
-import {Modal} from '../../context/Modal';
+import {useParams, Redirect} from 'react-router-dom';
 import EditCommentModal from './EditCommentModal';
-import {getComments, createComment, updateComment, removeComment} from '../../store/comment';
+import {getComments, createComment,removeComment} from '../../store/comment';
 
 import './PhotoPage.css'
 
 const Comment = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [comment, setComment] = useState('');
     const [commentToDeleteId, setCommentToDeleteId] = useState('');
-    const [commentToUpdateId, setCommentUpdateId] = useState('');
-    const [editedComment, setEditedComment] = useState('');
-    const [showModal, setShowModal] = useState(false);
+
 
     const {id} = useParams()
 
@@ -53,19 +49,6 @@ const Comment = () => {
         await dispatch(removeComment(commentToDeleteId))
     }
 
-    const handleEditComment = async(e) => {
-        e.preventDefault();
-        const data = {id: commentToUpdateId, content: editedComment}
-        await dispatch(updateComment(data))
-
-        setShowModal(false)
-    }
-
-    const handleCancelEdit = (e) => {
-        e.preventDefault();
-        history.push(`/photos/${id}`)
-        setShowModal(false)
-    };
 
     return (
         <div className='comment-container'>
@@ -83,7 +66,7 @@ const Comment = () => {
                                 </form>
                             </div>
                             <div hidden={comment.userId !== sessionUser.id} className="edit-comment">
-                                <EditCommentModal usersComment={usersComments}/>
+                                <EditCommentModal />
                             </div>
                         </div>
                     </div>

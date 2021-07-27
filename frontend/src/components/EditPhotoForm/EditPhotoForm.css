@@ -3,50 +3,116 @@
     flex-direction: row-reverse;
     width: 100%;
     justify-content: center;
+    border-radius: 10px;
 }
 
 .photo-edit-form{
-    margin-top: 80px;
+    margin-top: 20px;
     width:500px;
     padding: 35px;
     background-color: white;
-    border-radius: 5px;
+
     height: 200px;
 }
 
 .photo-input-container {
-    padding: 1px;
-    /* margin: 20px; */
+    margin-top: 50px;
+    width: auto;
 }
 
-.photo-input-container input{
+.photo-input-container input, .photo-input-container textarea{
+    margin: 2px 0 2px 0;
     height: 28px;
+    text-decoration-style: none;
+    width: 100%
 }
 
-.photo-input-container input::placeholder{
+.photo-input-container textarea {
+    margin: 2px 0 2px 0;
+    height: 40px;
+    width: 100%;
+}
+
+.photo-input-container input::placeholder, .photo-input-container textarea::placeholder{
     padding: 10px;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
+.edit-form-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
 .update-photo-button {
-   margin-left: 90px;
+    padding: 1px;
 }
 
 .update-photo-button button {
-    width: 400px;
-    height: 24px;
+    width: 500px;
+    height: 25px;
+    font-family: Helvetica;
     cursor: pointer;
+
 }
 
 .edit-photo-container{
-    margin-top: 80px;
-    margin-left: 50px;
+    margin-top: 20px;
+    margin-left: 20px;
     padding: 30px;
+    border-right: 1px solid lightgrey;
 }
 
 .edit-photo{
     max-height: 400px;
-    width: quto;
+    width: auto;
     box-shadow: 0px 0px 3px 0px grey;
 
+}
+
+@media screen and (max-width: 599px) {
+    .photo-edit-form{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .photo-input-container div input{
+        width: 300px;
+        margin: 0px;
+    }
+
+    .edit-page-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .edit-form-buttons {
+        margin: 0;
+        width: 100%;
+    }
+    .update-photo-button button {
+        margin: 0;
+        width:  100%;
+    }
+
+    .photo-details {
+        margin: 0;
+        padding: 0;
+        height: 3px;
+        width: auto;
+    }
+
+    .edit-photo-container {
+        visibility: hidden;
+
+    }
+    .edit-photo-container img {
+        visibility: hidden;
+
+    }
 }

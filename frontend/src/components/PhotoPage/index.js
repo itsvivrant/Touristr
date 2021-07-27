@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams , Redirect} from 'react-router-dom'
 import { getSinglePhoto, deleteUserPhoto } from '../../store/photo';
@@ -16,7 +16,7 @@ const PhotoPage = () => {
 
     useEffect(() => {
         dispatch(getSinglePhoto(id))
-    }, [dispatch])
+    }, [dispatch, id])
 
     if(!sessionUser) {
         return (
@@ -38,11 +38,11 @@ const PhotoPage = () => {
         history.push(`/users/${sessionUser.id}`)
     }
 
-    
+
     return (
         <div className='photo-page'>
             <div className='photo-container'>
-                <img className='img' src={photo.imgURL}></img>
+                <img className='img' src={photo.imgURL} alt=""></img>
             </div>
             <div className='photo-info'>
                 <div className='photo-info-card'>
