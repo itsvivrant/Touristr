@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -47,14 +47,8 @@ function Navigation({ isLoaded }){
 
   return (
     <div className='nav-container'>
-      {/* <NavLink className='nav-link' exact to="/">Touristr</NavLink> */}
       {isLoaded && sessionLinks}
     </div>
-
-// if (!sessionUser) {
-//   <NavLink className='nav-link' exact to="/">Touristr</NavLink>
-// }
-
 
   );
 }

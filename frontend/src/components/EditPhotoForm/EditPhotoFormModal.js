@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory, useParams, Redirect} from 'react-router-dom'
-import {editUserPhoto, getPhotos} from '../../store/photo';
+import {editUserPhoto, getPhotos,getSinglePhoto} from '../../store/photo';
 import {Modal} from '../../context/Modal'
 
 import './EditPhotoForm.css'
@@ -21,8 +21,9 @@ const EditPhotoFormModal = () => {
     const photo = useSelector(state => state.photos[id])
 
     useEffect(() => {
+        dispatch(getSinglePhoto(id))
         dispatch(getPhotos())
-    }, [dispatch])
+    }, [dispatch,id, sessionUser.id, title, caption])
 
     const updateTitle = (e) => setTitle(e.target.value)
     const updateCaption = (e) => setCaption(e.target.value)
@@ -55,11 +56,11 @@ const EditPhotoFormModal = () => {
 
     }
 
-    // const handleCancelClick = (e) => {
-    //     e.preventDefault();
-    //     history.push(`/photos/${photo.id}`)
-    //     setShowModal(false)
-    // };
+    const handleCancelClick = (e) => {
+        e.preventDefault();
+        history.push(`/photos/${photo.id}`)
+        setShowModal(false)
+    };
 
     const redirectToHomePage = () =>{
         history.push(`/photos/${photo.id}`)
@@ -73,27 +74,30 @@ const EditPhotoFormModal = () => {
             <Modal onClose={() => setShowModal(false)}>
                 <div className='edit-page-container'>
                     <div className='photo-edit-form'>
-                        <button className='edit-page-button'onClick={redirectToHomePage}>Redirect to Photo Page</button>
-                        <form onSubmit={handleSubmit}>
-                            <div className='photo-input-container'>
-                                <div>
-                                    <input type='text' placeholder='Title..' value={title} onChange={updateTitle}></input>
-                                </div>
-                                <div>
-                                    <input type='text' placeholder='Caption..' value={caption} onChange={updateCaption}></input>
-                                </div>
-                            </div>
-                            <div className="update-photo-button">
-                                <button type="submit">Update Photo</button>
-                            </div>
-                            {/* <button type="button" onClick={handleCancelClick}>Cancel</button> */}
-                        </form>
-                        <div>
+                        <div >
                             <h3>Title: </h3>
                             <p>{photo.title}</p>
                             <h3>Caption: </h3>
                             <p>{photo.caption}</p>
                         </div>
+                        <form className="photo-details" onSubmit={handleSubmit}>
+                            <div className='photo-input-container'>
+                                <div>
+                                    <input type='text' placeholder='Title' value={title} onChange={updateTitle}></input>
+                                </div>
+                                <div>
+                                    <textarea type='textarea' placeholder='Caption' value={caption} onChange={updateCaption}></textarea>
+                                </div>
+                            </div>
+                            <div className="edit-form-buttons">
+                                <div className="update-photo-button">
+                                    <button type="submit">Update Photo</button>
+                                </div>
+                                <div className="update-photo-button">
+                                    <button type="button" onClick={handleCancelClick}>Cancel</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div className='edit-photo-container'>
                         <img className='edit-photo'src={photo.imgURL} alt=""></img>

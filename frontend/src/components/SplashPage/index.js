@@ -1,5 +1,4 @@
-import { Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import {login} from '../../store/session'
 
@@ -7,7 +6,6 @@ import './Splash.css'
 
 
 const SplashPage = () =>  {
-    const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
     const dispatch = useDispatch();
 

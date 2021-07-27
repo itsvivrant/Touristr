@@ -7,15 +7,13 @@ import {getComments, updateComment} from '../../store/comment';
 import './PhotoPage.css'
 
 
-function EditCommentModal ({}) {
+function EditCommentModal () {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const [comment, setComment] = useState('');
     const [commentToUpdateId, setCommentUpdateId] = useState('');
     const [editedComment, setEditedComment] = useState('');
     const [showModal, setShowModal] = useState(false);
-
     const {id} = useParams()
 
     const comments = useSelector(state=>{
@@ -25,8 +23,9 @@ function EditCommentModal ({}) {
     const usersComments = comments.filter(comment => comment.photoId === Number(id))
 
     useEffect(() => {
+        dispatch(updateComment(id))
         dispatch(getComments(id))
-    }, [dispatch, id])
+    }, [dispatch, id, sessionUser.id, editedComment])
 
     if(!comments) return null;
 
@@ -34,9 +33,8 @@ function EditCommentModal ({}) {
         return <Redirect to='/login' />
     };
 
-
-
     const handleEditComment = async(e) => {
+
         const data = {id: commentToUpdateId, content: editedComment}
         await dispatch(updateComment(data))
         history.push(`/photos/${id}`)

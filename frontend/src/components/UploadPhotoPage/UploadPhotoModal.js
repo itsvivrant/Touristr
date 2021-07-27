@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams , Redirect} from 'react-router-dom'
+import { useHistory} from 'react-router-dom'
 import {Modal} from '../../context/Modal'
 
 import { uploadPhoto} from '../../store/photo';

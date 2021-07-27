@@ -61,10 +61,8 @@ const EditPhotoForm = () => {
 
       return (
         <div className='edit-page-container'>
-            <div className='photo-edit-form'>
-             <button className='edit-page-button'onClick={redirectToHomePage}>Redirect to Photo Page</button>
+            <div className='photo-edit-form-container'>
                 <form onSubmit={handleSubmit}>
-
                     <div className='photo-input-container'>
                         <input type='text' placeholder='title' value={title} onChange={updateTitle}></input>
                         <input type='text' placeholder='caption' value={caption} onChange={updateCaption}></input>

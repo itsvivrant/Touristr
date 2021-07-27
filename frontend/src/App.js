@@ -9,8 +9,6 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import ExplorePage from "./components/ExplorePage";
 import PhotoPage from "./components/PhotoPage";
-import UploadPhotoPage from "./components/UploadPhotoPage";
-import EditPhotoForm from "./components/EditPhotoForm";
 import UserProfilePage from "./components/UserProfilePage";
 import UserAlbumsPage from "./components/UserAlbumsPage";
 // import UserProfilePage from "./components/UserProfilePage";
@@ -47,14 +45,6 @@ function App() {
           <Route path='/photos/:id'>
             <PhotoPage />
           </Route>
-
-          {/* <Route path='/upload'>
-            <UploadPhotoPage />
-          </Route> */}
-
-          {/* <Route path='/edit/:id'>
-            <EditPhotoForm />
-          </Route> */}
 
           <Route path='/users/:id'>
             <UserProfilePage/>
