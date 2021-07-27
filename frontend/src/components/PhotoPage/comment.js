@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams, Redirect, useHistory} from 'react-router-dom';
-import {Modal} from '../../context/Modal'
+import {Modal} from '../../context/Modal';
+import EditCommentModal from './EditCommentModal';
 import {getComments, createComment, updateComment, removeComment} from '../../store/comment';
 
 import './PhotoPage.css'
@@ -81,26 +82,8 @@ const Comment = () => {
                                     <button className="fas fa-times" text="Delete Comment" onClick={e=> setCommentToDeleteId(comment.id)}></button>
                                 </form>
                             </div>
-                            <div className="edit-comment">
-                                <div hidden={comment.userId !== sessionUser.id}>
-                                    <button className="far fa-edit" text="Edit Comment" onClick={() => {setShowModal(true)}}></button>
-                                    {showModal && (
-                                        <Modal>
-                                            <form className="edit-form" onSubmit={handleEditComment}>
-                                                <h1>Update Comment</h1>
-                                                <div className="update-textarea">
-                                                    <textarea placeholder="Comment" className="comment-txt-area" type="textarea" value={editedComment.comment} onChange={(e) =>setEditedComment(e.target.value)}/>
-                                                </div>
-                                                <div className="update-bttn">
-                                                    <button onClick={e=> setCommentUpdateId(comment.id)}>Update Comment</button>
-                                                </div>
-                                                <div className="update-bttn">
-                                                    <button onClick={handleCancelEdit}>Cancel</button>
-                                                </div>
-                                            </form>
-                                        </Modal>
-                                    )}
-                                </div>
+                            <div hidden={comment.userId !== sessionUser.id} className="edit-comment">
+                                <EditCommentModal usersComment={usersComments}/>
                             </div>
                         </div>
                     </div>
