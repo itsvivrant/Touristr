@@ -21,7 +21,6 @@ const UploadPhotoPage = () => {
     // const updateLocation = (e) => setLocation(e.target.value)
 
     const handleSubmit = async e => {
-        e.preventDefault();
 
         const newPhoto = {
             imgFile,
