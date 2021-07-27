@@ -56,7 +56,7 @@
 /* justify: for horizonatal left/right */
 
 
-.upload-button, #profile-button{
+.upload-button, .profile-button{
     padding: 10px;
     background: none;
     border: none;
