@@ -67,9 +67,9 @@ const UserAlbumsPage = () => {
             </div>
 
             <div className='album-page'>
-                {/* {userAlbums.map((album) => (
-
-                ))} */}
+                {userAlbums?.map((album) => (
+                    <h1>{album.title}</h1>
+                ))}
 
             </div>
         </>
