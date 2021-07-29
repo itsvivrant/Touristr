@@ -33,7 +33,7 @@
 
 /* *************COMMENTS *****************************/
 .photo-comments{
-    padding: 30px;
+    padding: 20px;
 }
 
 .comment-container {
@@ -45,13 +45,11 @@
     justify-content: center;
     align-items: center;
     width: auto;
-    padding: 30px;
+    padding: 20px;
 }
 
 .comments-container {
-
     width: 100%;
-    padding: 10px;
 }
 
 .comments-container:hover {
@@ -140,6 +138,7 @@
 
 .comment-form-container {
     margin-top: 20px;
+    width: auto;
 }
 
 .comment-textarea textarea{
@@ -165,6 +164,11 @@
         width: 95%;
         height: 100vh;
         margin-left: 13px;
+    }
+
+    .comment-textarea textarea{
+        width: 450px;
+        height: 80px;
     }
 
 }
