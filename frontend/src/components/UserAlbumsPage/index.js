@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useHistory, Redirect, useParams, Link} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserAlbums } from '../../store/album';
-import { getUserPhotos} from '../../store/photo'
 
 import './UserAlbumsPage.css'
 
@@ -11,7 +10,6 @@ const UserAlbumsPage = () => {
     const history = useHistory();
     const {id} = useParams();
     const sessionUser = useSelector(state => state.session.user);
-    const photo = useSelector(state => state.photos[id])
     const album = useSelector(state => state.albums[id])
 
     useEffect(() => {
@@ -21,8 +19,8 @@ const UserAlbumsPage = () => {
     const userAlbums = useSelector(state => {
         return Object.values(state.albums)
     })
-    console.log("CONSOLE LOGGGGGGGGGG    :", userAlbums)
 
+    console.log("     ALBUM                  ", userAlbums)
 
     const showPhotoStream = (e) => {
         e.preventDefault();
@@ -69,7 +67,9 @@ const UserAlbumsPage = () => {
             </div>
 
             <div className='album-page'>
-                {}
+                {/* {userAlbums.map((album) => (
+
+                ))} */}
 
             </div>
         </>

@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory, useParams, Redirect} from 'react-router-dom'
-import {editUserPhoto, getPhotos,getSinglePhoto} from '../../store/photo';
-import {Modal} from '../../context/Modal'
+import {editUserPhoto, getPhotos,getSinglePhoto} from '../../../store/photo';
+import {Modal} from '../../../context/Modal'
 
 import './EditPhotoForm.css'
 
