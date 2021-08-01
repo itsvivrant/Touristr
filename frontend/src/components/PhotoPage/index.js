@@ -2,7 +2,7 @@ import { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams , Redirect} from 'react-router-dom'
 import { getSinglePhoto, deleteUserPhoto } from '../../store/photo';
-import Comment from './comment';
+import Comment from './Comment/comment';
 import EditPhotoFormModal from './EditPhotoForm/EditPhotoFormModal';
 import './PhotoPage.css'
 

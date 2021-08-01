@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams, Redirect, useHistory} from 'react-router-dom';
-import {Modal} from '../../context/Modal';
-import {getComments, updateComment} from '../../store/comment';
+import {Modal} from '../../../context/Modal';
+import {getComments, updateComment} from '../../../store/comment';
 
-import './PhotoPage.css'
+import '../../PhotoPage/PhotoPage.css'
 
 
 function EditCommentModal () {
