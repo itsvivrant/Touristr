@@ -11,8 +11,7 @@ import ExplorePage from "./components/ExplorePage";
 import PhotoPage from "./components/PhotoPage";
 import UserProfilePage from "./components/UserProfilePage";
 import UserAlbumsPage from "./components/UserAlbumsPage";
-// import UserProfilePage from "./components/UserProfilePage";
-
+import AlbumPhotosPage from "./components/AlbumPhotosPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -52,6 +51,10 @@ function App() {
 
           <Route path='/albums/user/:id'>
             <UserAlbumsPage/>
+          </Route>
+
+          <Route path='/albums/:id'>
+            <AlbumPhotosPage />
           </Route>
 
         </Switch>

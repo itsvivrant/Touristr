@@ -2,8 +2,8 @@ import { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams , Redirect} from 'react-router-dom'
 import { getSinglePhoto, deleteUserPhoto } from '../../store/photo';
-import Comment from './comment';
-import EditPhotoFormModal from '../EditPhotoForm/EditPhotoFormModal';
+import Comment from './Comment/comment';
+import EditPhotoFormModal from './EditPhotoForm/EditPhotoFormModal';
 import './PhotoPage.css'
 
 
@@ -28,9 +28,6 @@ const PhotoPage = () => {
         return null
     }
 
-    // const directToEditPage = () => {
-    //     history.push(`/edit/${photo.id}`)
-    // }
 
     const handleDeletePhoto = async (e) => {
         e.preventDefault()
@@ -52,7 +49,6 @@ const PhotoPage = () => {
                         <p className="photo-caption">{photo?.caption}</p>
                     </div>
                     <div hidden={photo.userId !== sessionUser.id}>
-                        {/* <button onClick={directToEditPage}>Edit Photo</button> */}
                         <EditPhotoFormModal />
                         <button onClick={handleDeletePhoto}>Delete Photo</button>
                     </div>

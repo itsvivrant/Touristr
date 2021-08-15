@@ -44,8 +44,6 @@ const UploadPhotoModal = () => {
 
     }
 
-
-
     const getFile = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -70,6 +68,9 @@ const UploadPhotoModal = () => {
                         <div className='upload-photo-box'>
                             <p>Click to select a file to upload</p>
                             <input type='file' accept="image/*" onChange={getFile}></input>
+                            {/* {(imgURL.length > 0) && (
+                                <img className="img-preview" src={imgURL} alt="preview"></img>
+                            )} */}
                         </div>
                         <div className='upload-or'>
                             <p>Or</p>
@@ -88,9 +89,7 @@ const UploadPhotoModal = () => {
                             </div>
                         </div>
                         {/* <div className="image-preview">
-                            {imgURL === '' ? null :
-                                <img src={setImgURL(e.target.value)}></img>
-                            }
+
                         </div> */}
                         <div className="upload-buttons">
                             <div>

@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams, Redirect} from 'react-router-dom';
 import EditCommentModal from './EditCommentModal';
-import {getComments, createComment,removeComment} from '../../store/comment';
+import {getComments, createComment,removeComment} from '../../../store/comment';
 
-import './PhotoPage.css'
+import '../../PhotoPage/PhotoPage.css'
 
 const Comment = () => {
     const dispatch = useDispatch();

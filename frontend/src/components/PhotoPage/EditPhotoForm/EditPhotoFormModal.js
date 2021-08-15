@@ -1,24 +1,24 @@
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory, useParams, Redirect} from 'react-router-dom'
-import {editUserPhoto, getPhotos,getSinglePhoto} from '../../store/photo';
-import {Modal} from '../../context/Modal'
+import {editUserPhoto, getPhotos,getSinglePhoto} from '../../../store/photo';
+import {Modal} from '../../../context/Modal'
 
 import './EditPhotoForm.css'
 
 
 const EditPhotoFormModal = () => {
+    const {id} = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
-    const [title, setTitle] = useState('');
-    const [caption, setCaption] = useState('');
+    const photo = useSelector(state => state.photos[id])
+    const [title, setTitle] = useState(photo.title || "");
+    const [caption, setCaption] = useState(photo.caption || "");
     // const [location, setLocation] = useState('')
     const [showModal, setShowModal] = useState(false);
 
 
-    const {id} = useParams();
-    const photo = useSelector(state => state.photos[id])
 
     useEffect(() => {
         dispatch(getSinglePhoto(id))
