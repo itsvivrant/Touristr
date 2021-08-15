@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useParams, Redirect} from 'react-router-dom';
+import {useParams, Redirect, Link} from 'react-router-dom';
 import EditCommentModal from './EditCommentModal';
 import {getComments, createComment,removeComment} from '../../../store/comment';
 
@@ -54,7 +54,7 @@ const Comment = () => {
         <div className='comment-container'>
             {usersComments?.map((comment)=>(
                 <div class="comments-container">
-                    <h3>{comment.User?.username}</h3>
+                    <h3><Link className="link-comment-user" to={`/users/${comment.userId}`}>{comment.User?.username}</Link></h3>
                     <div className="user-comment-info">
                         <div className="comment-p">
                             <p>{comment.comment}</p>

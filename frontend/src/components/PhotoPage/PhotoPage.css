@@ -28,10 +28,29 @@
 
 .photo-header-container {
     text-align: center;
+    color: black
+}
+
+.link-user{
+    color: #48D1CC;
+}
+
+.link-user:hover{
+    color:rgb(171, 170, 170)
 }
 
 
 /* *************COMMENTS *****************************/
+.link-comment-user:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.link-comment-user:hover {
+    color: #48D1CC;
+
+}
+
 .photo-comments{
     padding: 20px;
 }

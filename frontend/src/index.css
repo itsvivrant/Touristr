@@ -11,3 +11,7 @@ a:visited {
     text-decoration: none;
     color: none;
 }
+
+Link:visited {
+    text-decoration: none;
+}

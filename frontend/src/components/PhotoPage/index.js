@@ -1,6 +1,6 @@
 import { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams , Redirect} from 'react-router-dom'
+import { useHistory, useParams , Redirect, Link} from 'react-router-dom'
 import { getSinglePhoto, deleteUserPhoto } from '../../store/photo';
 import Comment from './Comment/comment';
 import EditPhotoFormModal from './EditPhotoForm/EditPhotoFormModal';
@@ -13,6 +13,7 @@ const PhotoPage = () => {
     const {id} = useParams()
     const sessionUser = useSelector(state => state.session.user)
     const photo = useSelector(state =>  state.photos[id]);
+    console.log(photo)
 
     useEffect(() => {
         dispatch(getSinglePhoto(id))
@@ -45,7 +46,7 @@ const PhotoPage = () => {
                 <div className='photo-info-card'>
                     <div className='photo-header-container'>
                         <h1 className='photo-title'>{photo?.title}</h1>
-                        <h2 className='photo-user'>Photo by: {photo.User?.username}</h2>
+                        <h2 className='photo-user'>Photo by: <Link className="link-user" to={`/users/${photo.userId}`}>{photo.User?.username}</Link></h2>
                         <p className="photo-caption">{photo?.caption}</p>
                     </div>
                     <div hidden={photo.userId !== sessionUser.id}>

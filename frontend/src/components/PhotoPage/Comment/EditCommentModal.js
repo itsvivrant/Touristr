@@ -8,19 +8,20 @@ import '../../PhotoPage/PhotoPage.css'
 
 
 function EditCommentModal () {
+    const {id} = useParams()
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const [commentToUpdateId, setCommentUpdateId] = useState('');
-    const [editedComment, setEditedComment] = useState('');
-    const [showModal, setShowModal] = useState(false);
-    const {id} = useParams()
 
     const comments = useSelector(state=>{
         return Object.values(state.comments)
     })
 
     const usersComments = comments.filter(comment => comment.photoId === Number(id))
+
+    const [commentToUpdateId, setCommentUpdateId] = useState('');
+    const [editedComment, setEditedComment] = useState('');
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         dispatch(updateComment(id))
@@ -49,15 +50,15 @@ function EditCommentModal () {
 
     return (
         <>
+        <button className="far fa-edit" text="Edit Comment" onClick={() => {setShowModal(true)}}></button>
         {usersComments?.map((comment)=>(
             <div hidden={comment.userId !== sessionUser.id}>
-                <button className="far fa-edit" text="Edit Comment" onClick={() => {setShowModal(true)}}></button>
                 {showModal && (
                     <Modal>
                         <form className="edit-form" onSubmit={handleEditComment}>
                             <h1>Update Comment</h1>
                             <div className="update-textarea">
-                                <textarea placeholder="Comment" className="comment-txt-area" type="textarea" value={editedComment.comment} onChange={(e) =>setEditedComment(e.target.value)}/>
+                                <textarea placeholder={comment.comment} className="comment-txt-area" type="textarea" value={editedComment.comment} onChange={(e) =>setEditedComment(e.target.value)}/>
                             </div>
                             <div className="update-bttn">
                                 <button onClick={e=> setCommentUpdateId(comment.id)}>Update Comment</button>

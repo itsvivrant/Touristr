@@ -10,16 +10,19 @@ const UserProfilePage = () => {
     const history = useHistory();
     const {id} = useParams();
     const sessionUser = useSelector(state => state.session.user);
+    
+    const userPhotos = useSelector(state => {
+        return Object.values(state.photos)
+    })
 
 
     useEffect(() => {
         dispatch(getUserPhotos(id))
     }, [dispatch, id])
 
-    const userPhotos = useSelector(state => {
-        return Object.values(state.photos)
-    })
-    console.log("CONSOLE LOG USERPHOTOS ", userPhotos)
+
+
+    console.log(userPhotos)
 
 
     const showPhotoStream = (e) => {
