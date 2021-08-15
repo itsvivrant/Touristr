@@ -11,8 +11,6 @@ const UserProfilePage = () => {
     const {id} = useParams();
     const sessionUser = useSelector(state => state.session.user);
 
-    // const album= useSelector(state => state.albums[id])
-    // console.log("CONSOLE LOGGGGGGGGGG    :", album)
 
     useEffect(() => {
         dispatch(getUserPhotos(id))

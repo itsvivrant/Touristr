@@ -10,7 +10,6 @@ const UserAlbumsPage = () => {
     const history = useHistory();
     const {id} = useParams();
     const sessionUser = useSelector(state => state.session.user);
-    const album = useSelector(state => state.albums[id])
 
     useEffect(() => {
         dispatch(getUserAlbums(id))
