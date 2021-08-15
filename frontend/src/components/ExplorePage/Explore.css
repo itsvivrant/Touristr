@@ -36,7 +36,8 @@
   box-sizing: border-box;
   display: inline-block;
   position: relative;
-  padding: 1%
+  margin: 1.2% .5% 1.2% .5%
+  /* margin: top right bottom left */
 }
 
 .gallery-page .gallery-box .img-box {
