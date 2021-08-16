@@ -2,14 +2,16 @@
 Touristr is a full-stack photo sharing application, inspired by Flickr. Users can upload photos of places they've been to as well as view photos, comment, and create their own photo albums.
 
 ### Live Link: [*Find your inner tourist*](https://touristr-lens.herokuapp.com/)
-![image](./readme-touristr/touristr-homepage.png)
+![image](https://user-images.githubusercontent.com/73407516/129507988-fb0e7ff1-4454-4044-97cc-19f28d54c5f1.png)
 <p>
 
 # Walkthrough
 ### View Photos
-![image](./readme-touristr/touristr-explore-page.png)
+![image](https://user-images.githubusercontent.com/73407516/129508013-ba7a44aa-cd12-4df8-b4de-c59f5fc5cb9e.png)
 
 
+### Upload Photos 
+ 
 # Technologies
 ### Front End
 * Javascript
