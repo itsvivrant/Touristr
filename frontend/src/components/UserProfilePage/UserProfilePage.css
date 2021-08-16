@@ -9,14 +9,22 @@
 }
 
 .user-info-container {
+    display: grid;
     grid-template-columns: 10fr 10fr ;
 }
 
-.user-profile-pic {
-
-}
+/* .user-profile-pic {
+    background-image: url('../UserProfilePage/profile-pic.jpeg');
+    background-position: center;
+    background-size:cover;
+    height: 50%;
+    width: 100%;
+    margin-left: 200%;
+    z-index: 7;
+} */
 
 .user-detail-container {
+    display: grid;
     grid-template-rows: 1fr 1fr;
 }
 
@@ -44,5 +52,3 @@
 #photostream-border {
     border-bottom: 5px solid #128fdc;
 }
-
-
