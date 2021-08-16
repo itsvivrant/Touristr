@@ -55,10 +55,12 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const {id }= req.params
   const user = await Photo.findAll({
     where: {userId: id},
-    include: User
+    include: {model: User}
   })
   return res.json(user)
 }));
+
+
 
 
 

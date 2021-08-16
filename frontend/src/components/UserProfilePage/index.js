@@ -10,19 +10,16 @@ const UserProfilePage = () => {
     const history = useHistory();
     const {id} = useParams();
     const sessionUser = useSelector(state => state.session.user);
-    
+
     const userPhotos = useSelector(state => {
         return Object.values(state.photos)
     })
 
 
+
     useEffect(() => {
         dispatch(getUserPhotos(id))
     }, [dispatch, id])
-
-
-
-    console.log(userPhotos)
 
 
     const showPhotoStream = (e) => {
@@ -48,17 +45,13 @@ const UserProfilePage = () => {
         <>
             <div className="user-banner-container">
                 <div className="user-info-container">
-                    <div className='user-profile-pic'>
-
-                    </div>
+                    <div className='user-profile-pic'></div>
                     <div className='user-detail-container'>
                         <div className='user-detail'></div>
                         <div className='user-detail'></div>
                     </div>
                 </div>
-
             </div>
-
             <div className="profile-row">
                 <div  >
                     <Link className="photostream-container" id="photostream-border" onClick={showPhotoStream}>PhotoStream</Link>
