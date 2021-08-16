@@ -39,6 +39,7 @@
 
 .photostream-container, .albums-container, .favorites-container {
     text-decoration: none;
+    color: black;
     font-family: helvetica neue;
     padding: 10px;
     height: 50px;
@@ -46,6 +47,7 @@
 
 .photostream-container:hover, .albums-container:hover {
     text-decoration: none;
+    color: black;
     border-bottom: 5px solid #128fdc;
 }
 

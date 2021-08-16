@@ -131,3 +131,13 @@
     background-color: #f1f1f1;
     text-decoration: none;
 }
+
+.profile-link{
+    text-decoration: none;
+    color: black;
+}
+
+.logout-bttn {
+    text-decoration: none;
+    color: black;
+}
