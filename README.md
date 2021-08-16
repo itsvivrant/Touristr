@@ -6,11 +6,16 @@ Touristr is a full-stack photo sharing application, inspired by Flickr. Users ca
 <p>
 
 # Walkthrough
-### View Photos
+### View photos
 ![image](https://user-images.githubusercontent.com/73407516/129508013-ba7a44aa-cd12-4df8-b4de-c59f5fc5cb9e.png)
 
+### View specific photo 
+![image](https://user-images.githubusercontent.com/73407516/129508728-ce7623c3-3875-4dbb-8ec8-37828beb731c.png)
 
-### Upload Photos 
+### Upload photo
+<img width="1440" alt="touristr-upload-photo" src="https://user-images.githubusercontent.com/73407516/129508806-c550e971-d985-413d-b306-24c95b9fe2c9.png">
+
+### User profile page
  
 # Technologies
 ### Front End
@@ -19,13 +24,13 @@ Touristr is a full-stack photo sharing application, inspired by Flickr. Users ca
 * CSS
 * React
 * Redux
+* AJAX
 * Hosted on Heroku
 
 ### Back End
 * PostgresSQL
 * Express.js
 * Sequelize.js
-* AJAX
 * CSURF Library
 * Express Validator Library
 * AWS
