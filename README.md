@@ -9,6 +9,7 @@ Touristr is a full-stack photo sharing application, inspired by Flickr. Users ca
 ### View Photos
 ![image](https://user-images.githubusercontent.com/73407516/129508013-ba7a44aa-cd12-4df8-b4de-c59f5fc5cb9e.png)
 
+
 ### Upload Photos 
  
 # Technologies
