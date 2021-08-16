@@ -41,7 +41,7 @@
 
 
 /* *************COMMENTS *****************************/
-.link-comment-user:visited {
+.link-comment-user{
     text-decoration: none;
     color: black;
 }
