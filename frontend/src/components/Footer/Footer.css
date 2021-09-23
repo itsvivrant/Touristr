@@ -1,0 +1,43 @@
+.footer-container {
+    background-color: black ;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+}
+
+.top-content {
+    margin: 20px 0 0 35px;;
+    width: 80%;
+}
+
+.linkedin-github {
+    margin-left: 40%;
+}
+
+
+.fab.fa-github, .fab.fa-linkedin, .fab.fa-angellist {
+    font-size: 30px;
+    margin-left: 30px;
+}
+
+.fab.fa-github:hover, .fab.fa-linkedin:hover, .fab.fa-angellist:hover {
+    color: grey;
+}
+
+.footer-links {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-links:visited {
+    text-decoration: none;
+    color: white;
+}
+
+ .footer-user {
+     color: white;
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 12px;
+     margin-top: 5px;
+ }

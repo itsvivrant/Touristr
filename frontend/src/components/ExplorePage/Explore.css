@@ -20,7 +20,7 @@
     margin-left: 3.5%;
 }
 
-.gallery-page {
+.gallery-page {  
   line-height: 0;
   -webkit-column-count:5; /* split it into 5 columns */
   -webkit-column-gap:5px; /* give it a 5px gap between columns */

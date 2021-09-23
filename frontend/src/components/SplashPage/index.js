@@ -1,6 +1,7 @@
 import { useDispatch} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import {login} from '../../store/session'
+import Footer from '../Footer/Footer'
 
 import './Splash.css'
 
@@ -23,6 +24,7 @@ const SplashPage = () =>  {
 
 
     return (
+        <>
         <div className='splash-container'>
             <div className='splash-content'>
                 <h1>Find your inner Tourist.</h1>
@@ -31,6 +33,8 @@ const SplashPage = () =>  {
                 </form>
             </div>
         </div>
+        <Footer />
+        </>
     )
 
 
