@@ -75,7 +75,7 @@ const UserProfilePage = () => {
                                 <div class="img-box">
                                     <img class='single-photo' src={photo.imgURL} alt=""/>
                                     <div class="photo-content">
-                                        <p>{photo.title}</p>
+                                        <p className='photo-title'>{photo.title}</p>
                                     </div>
                                 </div>
                             </a>
