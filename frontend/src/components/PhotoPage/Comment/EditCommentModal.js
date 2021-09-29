@@ -55,18 +55,20 @@ function EditCommentModal () {
             <div hidden={comment.userId !== sessionUser.id}>
                 {showModal && (
                     <Modal>
-                        <form className="edit-form" onSubmit={handleEditComment}>
-                            <h1>Update Comment</h1>
-                            <div className="update-textarea">
-                                <textarea placeholder={comment.comment} className="comment-txt-area" type="textarea" value={editedComment.comment} onChange={(e) =>setEditedComment(e.target.value)}/>
-                            </div>
-                            <div className="update-bttn">
-                                <button onClick={e=> setCommentUpdateId(comment.id)}>Update Comment</button>
-                            </div>
-                            <div className="update-bttn">
-                                <button onClick={handleCancelEdit}>Cancel</button>
-                            </div>
-                        </form>
+                        <div className='edit-form-container'>
+                            <form className="edit-form" onSubmit={handleEditComment}>
+                                <h1>Update Comment</h1>
+                                <div className="update-textarea">
+                                    <textarea placeholder={comment.comment} className="comment-txt-area" type="textarea" value={editedComment.comment} onChange={(e) =>setEditedComment(e.target.value)}/>
+                                </div>
+                                <div className="update-bttn">
+                                    <button onClick={e=> setCommentUpdateId(comment.id)}>Update Comment</button>
+                                </div>
+                                <div className="update-bttn">
+                                    <button onClick={handleCancelEdit}>Cancel</button>
+                                </div>
+                            </form>
+                        </div>
                     </Modal>
                 )}
             </div>
