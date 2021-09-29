@@ -1,18 +1,94 @@
 /* flex works on the direct children only of a parent container*/
 .photo-page {
-    display: grid;
-    grid-template-columns: 10fr 5fr;
-    align-items: center;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
 
 }
 
 .photo-container {
-    background-color: #151617;
+    background-color: #202023;
+    width: 100%;
+    height: 630px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.photo-box {
+    margin-top: 80px;
 }
 
 .photo-container img{
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 2px 8px -4px #000;
+}
+.img-modal-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    /* transition: all 1s ease-in; */
+
+}
+
+.img-modal-box {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+
+}
+
+.img-modal {
+    width: 100%;
+    height: 100%;
+
+}
+
+
+
+.fas.fa-compress-alt{
+    position: absolute;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    top: 0;
+    z-index: 7;
+    margin-top: 3%;
+    right: 0;
+    /* float: right; */
+    /* transition: all 1s ease-out; */
+
+}
+
+
+
+
+.photo-page-edit-delete {
+    background-color: #202023;
+    display: flex;
+    justify-content: flex-end;
+    height: 40px;
+}
+
+.photo-page-edit-delete i {
+    color: white;
+    font-size: 20px;
+    margin: 0 20px 10px 10px;
+    cursor: pointer;
+}
+
+.photo-page-edit-delete i:hover {
+    color: rgb(189, 189, 189);
+}
+
+.photo-info {
+    display: flex;
+    flex-direction: row;
     width: 100%;
     height: 100vh;
 }
@@ -20,16 +96,32 @@
 .photo-info-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    padding: 20px;
+    width: 30%;
+    padding: 2em 4em 0 18em;
 }
 
 .photo-header-container {
-    text-align: center;
-    color: black
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(240, 240, 240);
 }
+
+.photopage-user {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 0 0 0;
+}
+
+.photopage-title {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 0 10px 0;
+}
+
+.photopage-caption {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
+}
+
 
 .link-user{
     color: #48D1CC;
@@ -51,9 +143,6 @@
 
 }
 
-.photo-comments{
-    padding: 20px;
-}
 
 .comment-container {
     overflow: hidden;
@@ -137,6 +226,7 @@
   width: 405px;
   height: 30px;
   color: white;
+  border: 0;
   background-color: rgb(171, 170, 170);
   cursor: pointer;
   margin-bottom: 5px;
@@ -151,7 +241,7 @@
 .comment-p p {
     margin: 5px 0;
     padding: 0;
-    font-family: Helvetica;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
 
@@ -171,6 +261,77 @@
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ***************** photo details ************** */
+.photo-info-card-two{
+    padding: 2em 4em 0;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+}
+
+.photo-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(226, 226, 226);
+
+}
+
+.photo-stats-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.photo-stats {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2em;
+    align-items: center;
+}
+
+.stats-count {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.stats-label {
+    font-size: 15px;
+    color: rgb(182, 181, 181);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.photo-created {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3em;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    margin-bottom: 2em;
+
+
+
+}
+
+
+
+.far.fa-copyright {
+    font-size: 20px;
+    margin-top: 0.5em;
+}
+
+.copyright {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #006dac;
+    margin-left: 0.5em;
+    font-size: 15px;
+}
+
 
 @media screen and (max-width: 599px) {
     .photo-page{

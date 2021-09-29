@@ -80,7 +80,7 @@
 }
 
 .photo-input-container input::placeholder, .photo-input-container textarea::placeholder, .upload-imgURL-box input::placeholder{
-  font-family: helvetica;
+  font-family: Arial, Helvetica, sans-serif;
   padding: 2px;
 }
 
@@ -108,7 +108,7 @@
   background-color: rgb(195, 188, 188);
   color: white;
   cursor: pointer;
-  font-family: Helvetica;
+  font-family: Arial, Helvetica, sans-serif;
   border-radius: 3px;
 }
 
