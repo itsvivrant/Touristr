@@ -9,7 +9,7 @@
 .edit-page-container{
     display: flex;
     flex-direction: row-reverse;
-    width: 100%;
+    width: auto;
     justify-content: center;
     border-radius: 10px;
     background-color: white;
@@ -25,7 +25,7 @@
 }
 
 .photo-input-container {
-    margin-top: 50px;
+    margin-top: 5px;
     width: auto;
 }
 
@@ -33,7 +33,10 @@
     margin: 2px 0 2px 0;
     height: 28px;
     text-decoration-style: none;
-    width: 100%
+    width: 100%;
+    border:1px solid rgb(202, 202, 202);
+    border-radius: 4px;
+    padding: 5px;
 }
 
 .photo-input-container textarea {
@@ -60,11 +63,21 @@
 }
 
 .update-photo-button button {
-    width: 500px;
-    height: 25px;
+    width: 15em;
+    height: 30px;
+    text-align: center;
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
+    border: 0;
+    background-color: #48D1CC;
+    color: white;
+    border-radius: 14px;
+    margin-top: 5px;
+}
 
+.update-photo-button button:hover {
+    opacity: 0.7;
 }
 
 .edit-photo-container{

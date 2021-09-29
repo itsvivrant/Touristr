@@ -58,6 +58,8 @@ const EditPhotoFormModal = () => {
 
     const handleCancelClick = (e) => {
         e.preventDefault();
+        setCaption(photo.caption)
+        setTitle(photo.title)
         history.push(`/photos/${photo.id}`)
         setShowModal(false)
     };
@@ -75,20 +77,20 @@ const EditPhotoFormModal = () => {
                 <div className='edit-page-container'>
                     <div className='photo-edit-form'>
                         <div >
-                            <h3>Title: </h3>
-                            <p>{photo.title}</p>
-                            <h3>Caption: </h3>
-                            <p>{photo.caption}</p>
+                            <form className="photo-details" onSubmit={handleSubmit}>
+                                <h3>Title: </h3>
+                                <p>{photo.title}</p>
+                                <div className='photo-input-container'>
+                                        <input type='text' placeholder='Title' value={title} onChange={updateTitle}></input>
+                                </div>
+                                <h3>Caption: </h3>
+                                <p>{photo.caption}</p>
+                                <div className='photo-input-container'>
+                                        <textarea type='textarea' placeholder='Caption' value={caption} onChange={updateCaption}></textarea>
+                                </div>
+                            </form>
                         </div>
                         <form className="photo-details" onSubmit={handleSubmit}>
-                            <div className='photo-input-container'>
-                                <div>
-                                    <input type='text' placeholder='Title' value={title} onChange={updateTitle}></input>
-                                </div>
-                                <div>
-                                    <textarea type='textarea' placeholder='Caption' value={caption} onChange={updateCaption}></textarea>
-                                </div>
-                            </div>
                             <div className="edit-form-buttons">
                                 <div className="update-photo-button">
                                     <button type="submit">Update Photo</button>
