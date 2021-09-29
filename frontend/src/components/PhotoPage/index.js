@@ -6,6 +6,7 @@ import { Modal } from '../../context/Modal'
 import Comment from './Comment/comment';
 import EditPhotoFormModal from './EditPhotoForm/EditPhotoFormModal';
 import Footer from '../Footer/Footer'
+import Navigation from '../Navigation/index'
 
 import './PhotoPage.css'
 
