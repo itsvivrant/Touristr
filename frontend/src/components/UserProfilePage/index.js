@@ -15,7 +15,7 @@ const UserProfilePage = () => {
         return Object.values(state.photos)
     })
 
-
+    console.log('lksdjfklsdfj', userPhotos)
 
     useEffect(() => {
         dispatch(getUserPhotos(id))
@@ -47,8 +47,12 @@ const UserProfilePage = () => {
                 <div className="user-info-container">
                     <div className='user-profile-pic'></div>
                     <div className='user-detail-container'>
-                        <div className='user-detail'></div>
-                        <div className='user-detail'></div>
+                        <div className='user-detail'>
+                            <h2>{sessionUser.username}</h2>
+                        </div>
+                        <div className='user-detail'>
+                            <p>{sessionUser.email}</p>
+                        </div>
                     </div>
                 </div>
             </div>

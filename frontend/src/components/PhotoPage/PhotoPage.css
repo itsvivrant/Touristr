@@ -198,6 +198,13 @@
     color: rgb(199, 199, 199);
 }
 
+.edit-form-container {
+    background-color: white;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    border-radius: 10px;
+}
 
 .edit-form {
     height: 100%;
@@ -210,6 +217,11 @@
     padding: 40px;
 }
 
+.edit-form  h1{
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
 .update-textarea textarea{
     width: 400px;
     height: 50px;
@@ -217,19 +229,22 @@
 }
 
 .update-bttn button {
-  width: 405px;
-  height: 30px;
-  color: white;
-  border: 0;
-  background-color: rgb(171, 170, 170);
-  cursor: pointer;
-  margin-bottom: 5px;
+    width: 15em;
+    height: 30px;
+    text-align: center;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    border: 0;
+    background-color: #48D1CC;
+    color: white;
+    border-radius: 14px;
+    margin-top: 5px;
 
 }
 
 .update-bttn button:hover {
-    background-color: rgba(21,21,23,.95);
-    text-shadow: 0 0 1px white;
+    opacity: 0.7
 }
 
 .comment-p p {
