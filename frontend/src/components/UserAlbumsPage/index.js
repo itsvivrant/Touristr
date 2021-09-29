@@ -43,8 +43,7 @@ const UserAlbumsPage = () => {
         <>
             <div className="user-banner-container">
                 <div className="user-info-container">
-                    <div className='user-profile-pic'>
-                    </div>
+                    <div className='user-profile-pic'></div>
                     <div className='user-detail-container'>
                         <div className='user-detail'></div>
                         <div className='user-detail'></div>
