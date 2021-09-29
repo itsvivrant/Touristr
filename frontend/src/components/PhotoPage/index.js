@@ -5,6 +5,8 @@ import { getSinglePhoto, deleteUserPhoto } from '../../store/photo';
 import { Modal } from '../../context/Modal'
 import Comment from './Comment/comment';
 import EditPhotoFormModal from './EditPhotoForm/EditPhotoFormModal';
+import Footer from '../Footer/Footer'
+
 import './PhotoPage.css'
 
 
@@ -14,8 +16,13 @@ const PhotoPage = () => {
     const {id} = useParams()
     const sessionUser = useSelector(state => state.session.user)
     const photo = useSelector(state =>  state.photos[id]);
+    const comments = useSelector(state=>{
+        return Object.values(state.comments)
+    })
     const [expand, setExpand] = useState(false)
     const [showModal, setShowModal] = useState(false)
+
+    console.log("lksdfjlksdfjklsdf", photo)
 
     useEffect(() => {
         dispatch(getSinglePhoto(id))
@@ -49,6 +56,7 @@ const PhotoPage = () => {
 
 
     return (
+        <>
         <div className='photo-page'>
             <div className='photo-container'>
                 <div className='photo-box'>
@@ -86,12 +94,34 @@ const PhotoPage = () => {
                         <p className="photopage-caption">{photo?.caption}</p>
                     </div>
                     <div className='photo-comments'>
-                    <Comment />
+                        <Comment />
+                    </div>
                 </div>
+                <div className='photo-info-card-two'>
+                    <div className='photo-details-container'>
+                        <div className='photo-stats-container'>
+                            <div className='photo-stats'>
+                                <span className='stats-count'>{comments?.length}</span>
+                                <span className='stats-label'>comments</span>
+                            </div>
+                            <div className='photo-stats'>
+                                <span className='stats-count'>0</span>
+                                <span className='stats-label'>favs</span>
+                            </div>
+                        </div>
+                        <div className='photo-created'>
+                            <div>Taken on {photo.createdAt.slice(0,10)}</div>
+                            <i className="far fa-copyright"><span className='copyright'>All rights reserved</span></i>
+                        </div>
+                    </div>
+
+
                 </div>
 
             </div>
         </div>
+        <Footer />
+        </>
     )
 
 }

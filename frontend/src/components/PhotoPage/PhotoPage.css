@@ -17,8 +17,6 @@
 }
 
 .photo-box {
-    /* padding: 20px 40px 55px;
-     */
     margin-top: 80px;
 }
 
@@ -89,36 +87,38 @@
 }
 
 .photo-info {
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .photo-info-card {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 30%;
     padding: 2em 4em 0 18em;
 }
 
 .photo-header-container {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgb(240, 240, 240);;
+    border-bottom: 1px solid rgb(240, 240, 240);
 }
 
 .photopage-user {
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 0.5%;
+    margin: 0 0 0 0;
 }
 
 .photopage-title {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0.5em 0 0 0;
+    margin: 0 0 10px 0;
 }
 
 .photopage-caption {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 1em 0 2em 0;
+
     font-size: 15px;
 }
 
@@ -143,10 +143,6 @@
 
 }
 
-.photo-comments{
-    /* padding: 2em 4em 0 25em; */
-
-}
 
 .comment-container {
     overflow: hidden;
@@ -265,6 +261,77 @@
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ***************** photo details ************** */
+.photo-info-card-two{
+    padding: 2em 4em 0;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+}
+
+.photo-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(226, 226, 226);
+
+}
+
+.photo-stats-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.photo-stats {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2em;
+    align-items: center;
+}
+
+.stats-count {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.stats-label {
+    font-size: 15px;
+    color: rgb(182, 181, 181);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.photo-created {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3em;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    margin-bottom: 2em;
+
+
+
+}
+
+
+
+.far.fa-copyright {
+    font-size: 20px;
+    margin-top: 0.5em;
+}
+
+.copyright {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #006dac;
+    margin-left: 0.5em;
+    font-size: 15px;
+}
+
 
 @media screen and (max-width: 599px) {
     .photo-page{
