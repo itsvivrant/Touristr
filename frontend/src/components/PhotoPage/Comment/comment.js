@@ -54,7 +54,7 @@ const Comment = () => {
         <div className='comment-container'>
             {usersComments?.map((comment)=>(
                 <div class="comments-container">
-                    <h3><Link className="link-comment-user" to={`/users/${comment.userId}`}>{comment.User?.username}</Link></h3>
+                    <h4><Link className="link-comment-user" to={`/users/${comment.userId}`}>{comment.User?.username}</Link></h4>
                     <div className="user-comment-info">
                         <div className="comment-p">
                             <p>{comment.comment}</p>
