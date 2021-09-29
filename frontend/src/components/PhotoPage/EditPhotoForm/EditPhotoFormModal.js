@@ -69,7 +69,7 @@ const EditPhotoFormModal = () => {
 
       return (
         <>
-            <button onClick={() => setShowModal(true)}>Edit Photo</button>
+            <i className='fas fa-edit' onClick={() => setShowModal(true)}></i>
             {showModal && (
             <Modal onClose={() => setShowModal(false)}>
                 <div className='edit-page-container'>

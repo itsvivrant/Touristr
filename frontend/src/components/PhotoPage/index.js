@@ -1,7 +1,8 @@
-import { useEffect} from 'react';
+import { useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams , Redirect, Link} from 'react-router-dom'
 import { getSinglePhoto, deleteUserPhoto } from '../../store/photo';
+import { Modal } from '../../context/Modal'
 import Comment from './Comment/comment';
 import EditPhotoFormModal from './EditPhotoForm/EditPhotoFormModal';
 import './PhotoPage.css'
@@ -13,7 +14,8 @@ const PhotoPage = () => {
     const {id} = useParams()
     const sessionUser = useSelector(state => state.session.user)
     const photo = useSelector(state =>  state.photos[id]);
-    console.log(photo)
+    const [expand, setExpand] = useState(false)
+    const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
         dispatch(getSinglePhoto(id))
@@ -29,6 +31,15 @@ const PhotoPage = () => {
         return null
     }
 
+    const expandPicture = () => {
+        setExpand(true)
+        setShowModal(true)
+    }
+
+    const compressPicture =() => {
+        setShowModal(false)
+    }
+
 
     const handleDeletePhoto = async (e) => {
         e.preventDefault()
@@ -40,25 +51,46 @@ const PhotoPage = () => {
     return (
         <div className='photo-page'>
             <div className='photo-container'>
-                <img className='img' src={photo.imgURL} alt=""></img>
+                <div className='photo-box'>
+
+                    <img className='img' src={photo.imgURL} alt={photo.title}></img>
+                </div>
+
+            </div>
+            <div className='photo-page-edit-delete' hidden={photo.userId !== sessionUser.id}>
+                <EditPhotoFormModal />
+                <i className='far fa-trash-alt' onClick={handleDeletePhoto}></i>
+                <i className='fas fa-expand-alt' onClick={expandPicture}></i>
+
+                {expand ?
+                showModal && (
+                    <Modal>
+
+                    <div className='img-modal-container'>
+                        <div className='img-modal-box'>
+
+                            <img className='img-modal' src={photo.imgURL} alt={photo.title}></img>
+                        </div>
+                        <i onClick={compressPicture} className='fas fa-compress-alt'></i>
+                    </div>
+
+
+                    </Modal>
+                ) : ''}
             </div>
             <div className='photo-info'>
                 <div className='photo-info-card'>
                     <div className='photo-header-container'>
-                        <h1 className='photo-title'>{photo?.title}</h1>
-                        <h2 className='photo-user'>Photo by: <Link className="link-user" to={`/users/${photo.userId}`}>{photo.User?.username}</Link></h2>
-                        <p className="photo-caption">{photo?.caption}</p>
+                        <h2 className='photopage-user'><Link className="link-user" to={`/users/${photo.userId}`}>{photo.User?.username}</Link></h2>
+                        <h3 className='photopage-title'>{photo?.title}</h3>
+                        <p className="photopage-caption">{photo?.caption}</p>
                     </div>
-                    <div hidden={photo.userId !== sessionUser.id}>
-                        <EditPhotoFormModal />
-                        <button onClick={handleDeletePhoto}>Delete Photo</button>
-                    </div>
-                </div>
-                <div className='photo-comments'>
+                    <div className='photo-comments'>
                     <Comment />
                 </div>
-            </div>
+                </div>
 
+            </div>
         </div>
     )
 

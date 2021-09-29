@@ -15,11 +15,17 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.9);
   }
 
   #modal-content {
     position: absolute;
-    background-color:white;
+    /* background-color:white; */
     border-radius: 4px;
+    z-index: 7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
   }
