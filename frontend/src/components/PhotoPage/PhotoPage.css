@@ -100,7 +100,8 @@
 .photo-header-container {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgb(240, 240, 240);
+    margin-bottom: 1em;
+    border-bottom: 1px solid rgb(226, 226, 226);
 }
 
 .photopage-user {
@@ -142,7 +143,7 @@
 
 .comments-container {
     width: 100%;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 
 .comments-container h4{
@@ -165,9 +166,6 @@
     justify-content: space-between;
 }
 
-.comment-p p {
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 .user-comment-delete-edit {
     display: flex;
@@ -204,7 +202,7 @@
 
 
 .edit-form {
-    height: auto;
+    height: 100%;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -217,6 +215,7 @@
 .update-textarea textarea{
     width: 400px;
     height: 50px;
+
 }
 
 .update-bttn button {
@@ -236,27 +235,55 @@
 }
 
 .comment-p p {
-    margin: 5px 0;
+    margin: 5px 0 0 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
 
 .comment-form-container {
+    border-top: 1px solid rgb(226, 226, 226);
     margin-top: 20px;
-    width: auto;
+    width: 100%;
 }
 
 .comment-textarea textarea{
-    width: 600px;
-    height: 80px;
+    width:  100%;
+    height: 2em;
+    margin-top: 2em;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+}
+
+.comment-textarea textarea:focus{
+    outline: none;
 }
 
 .comment-textarea textarea::placeholder {
-    padding: 10px;
-    color: gray;
-    font-size: 16px;
+    color: rgb(197, 197, 197);
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.post-comment-bttn {
+    width: 100%;
+    border: 0;
+    margin-top: 0.5em;
+    height: 35px;
+    border-radius: 4px;
+    background-color: #48D1CC;
+    color: white;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+
+}
+
+.post-comment-bttn:hover {
+    transition: 0.5s ;
+    opacity: 0.7;
 }
 
 /* ***************** photo details ************** */

@@ -75,10 +75,10 @@ const Comment = () => {
             <div className="comment-form-container">
                 <form className="comment-form" onSubmit={handleSubmit}>
                     <div className="comment-textarea">
-                        <textarea placeholder='Add a comment....' value={comment} onChange={(e) => setComment(e.target.value)} required></textarea>
+                        <textarea placeholder='Add a comment' value={comment} onChange={(e) => setComment(e.target.value)} required></textarea>
                     </div>
                     <div>
-                        <button onClick={handleSubmit}>Post Comment</button>
+                        <button className='post-comment-bttn' onClick={handleSubmit}>Post Comment</button>
                     </div>
                 </form>
             </div>
