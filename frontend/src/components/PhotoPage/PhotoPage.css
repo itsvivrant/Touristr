@@ -4,6 +4,7 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
+    /* background: #f3f5f6; */
 
 }
 
@@ -50,7 +51,6 @@
 }
 
 
-
 .fas.fa-compress-alt{
     position: absolute;
     color: white;
@@ -60,9 +60,6 @@
     z-index: 7;
     margin-top: 3%;
     right: 0;
-    /* float: right; */
-    /* transition: all 1s ease-out; */
-
 }
 
 
@@ -103,7 +100,8 @@
 .photo-header-container {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgb(240, 240, 240);
+    margin-bottom: 1em;
+    border-bottom: 1px solid rgb(226, 226, 226);
 }
 
 .photopage-user {
@@ -118,13 +116,14 @@
 
 .photopage-caption {
     font-family: Arial, Helvetica, sans-serif;
-
     font-size: 15px;
 }
 
 
 .link-user{
     color: #48D1CC;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .link-user:hover{
@@ -133,36 +132,33 @@
 
 
 /* *************COMMENTS *****************************/
-.link-comment-user{
-    text-decoration: none;
-    color: black;
-}
-
-.link-comment-user:hover {
-    color: #48D1CC;
-
-}
-
-
 .comment-container {
-    overflow: hidden;
     max-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #F3F5F6;
     justify-content: center;
     align-items: center;
-    width: auto;
-    padding: 20px;
 }
 
 .comments-container {
     width: 100%;
+    margin-bottom: 0.5em;
 }
 
-.comments-container:hover {
-    background-color: white;
+.comments-container h4{
+    margin: 1em 0 2px 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
+.link-comment-user{
+    text-decoration: none;
+    color: #48D1CC;
+}
+
+.link-comment-user:hover {
+    color:rgb(171, 170, 170)
 }
 
 .user-comment-info{
@@ -175,10 +171,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 30px;
 }
 
 .fas.fa-times, .far.fa-edit {
+    text-align: center;
     text-decoration: none;
     padding: 0;
     border: none !important;
@@ -189,11 +185,11 @@
 }
 
 .fas.fa-times {
-    font-size:22px;
+    font-size:20px;
 }
 
 .far.fa-edit {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .fas.fa-times, .far.fa-edit {
@@ -201,13 +197,12 @@
 }
 
 .fas.fa-times:hover, .far.fa-edit:hover {
-    color: grey;
-    text-shadow: 0 0 1px grey;
+    color: rgb(199, 199, 199);
 }
 
 
 .edit-form {
-    height: auto;
+    height: 100%;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -220,6 +215,7 @@
 .update-textarea textarea{
     width: 400px;
     height: 50px;
+
 }
 
 .update-bttn button {
@@ -239,27 +235,55 @@
 }
 
 .comment-p p {
-    margin: 5px 0;
+    margin: 5px 0 0 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
 
 .comment-form-container {
+    border-top: 1px solid rgb(226, 226, 226);
     margin-top: 20px;
-    width: auto;
+    width: 100%;
 }
 
 .comment-textarea textarea{
-    width: 600px;
-    height: 80px;
+    width:  100%;
+    height: 2em;
+    margin-top: 2em;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+}
+
+.comment-textarea textarea:focus{
+    outline: none;
 }
 
 .comment-textarea textarea::placeholder {
-    padding: 10px;
-    color: gray;
-    font-size: 16px;
+    color: rgb(197, 197, 197);
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.post-comment-bttn {
+    width: 100%;
+    border: 0;
+    margin-top: 0.5em;
+    height: 35px;
+    border-radius: 4px;
+    background-color: #48D1CC;
+    color: white;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+
+}
+
+.post-comment-bttn:hover {
+    transition: 0.5s ;
+    opacity: 0.7;
 }
 
 /* ***************** photo details ************** */
@@ -268,6 +292,7 @@
     display: flex;
     flex-direction: column;
     width: 30%;
+
 
 }
 
