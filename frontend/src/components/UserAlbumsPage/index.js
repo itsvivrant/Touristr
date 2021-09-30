@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUserAlbums,createAlbum} from '../../store/album';
 import {Modal} from '../../context/Modal'
 import AlbumDelete from '../UserAlbumsPage/AlbumDelete'
+import Footer from '../Footer/Footer'
 
 import './UserAlbumsPage.css'
 
@@ -150,6 +151,7 @@ const UserAlbumsPage = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

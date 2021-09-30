@@ -16,9 +16,9 @@
 .create-album-div button {
     border: 0;
     height: 40px;
-    width: 10em;
-    margin-right: 18.5%;
-    margin-top: 1%;
+    width: 9em;
+    margin-right: 19.5%;
+    margin-top: 2%;
     border-radius: 6px;
     background-color: rgb(194, 194, 194);
     font-family: Arial, Helvetica, sans-serif;
@@ -43,7 +43,7 @@
     flex-flow: row wrap;
     justify-content: flex-start;
     width: 70%;
-    height: 100vh;
+    height: 100%;
     margin-top: 2%;
     margin-left: 9%;
 }
@@ -54,7 +54,7 @@
     width: 27%;
     height: 17em;
     margin-left: 20px;
-    /* margin-bottom: 20px; */
+    margin-bottom: 1em;
     display: flex;
     box-shadow: 0px 0px 2px 1px #9e9d9d;
     background-size: cover;
