@@ -30,7 +30,7 @@ router.post('/create', requireAuth, asyncHandler(async (req, res) => {
 }))
 
 //add onto album
-router.post('/:id(\\d+)', asyncHandler(async(req, res) =>  {
+router.post('/:id(\\d+)', requireAuth, asyncHandler(async(req, res) =>  {
     const {photoId, albumId} = req.body;
     await AlbumPhotos.create({photoId, albumId})
 }))

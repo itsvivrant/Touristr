@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { requireAuth} = require('../../utils/auth');
-const { Photo, User} = require('../../db/models');
+const { Photo, User, Comment} = require('../../db/models');
 const {singlePublicFileUpload, singleMulterUpload} = require('../../awsS3')
 
 //GET all photos

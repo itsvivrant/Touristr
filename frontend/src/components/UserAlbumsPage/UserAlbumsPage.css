@@ -104,6 +104,7 @@
 
 .album-form label {
     margin-bottom: 0.5em;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .album-form input, textarea {

@@ -57,7 +57,10 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     where: {userId: id},
     include: {model: User}
   })
+
   return res.json(user)
+
+
 }));
 
 
