@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const {requireAuth} = require('../../utils/auth')
 const { handleValidationErrors } = require('../../utils/validation');
-const { Photo, User, Album, AlbumPhotos} = require('../../db/models');
+const { Photo, User, Album, AlbumPhoto} = require('../../db/models');
 
 //user albums
 router.get('/user/:id', asyncHandler(async(req, res) =>  {
@@ -32,7 +32,7 @@ router.post('/create', requireAuth, asyncHandler(async (req, res) => {
 //add onto album
 router.post('/:id(\\d+)', requireAuth, asyncHandler(async(req, res) =>  {
     const {photoId, albumId} = req.body;
-    await AlbumPhotos.create({photoId, albumId})
+    await AlbumPhoto.create({photoId, albumId})
 }))
 
 //update album info
