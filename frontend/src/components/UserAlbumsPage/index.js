@@ -44,8 +44,12 @@ const UserAlbumsPage = () => {
 
     }
 
-    const handleDeleteAlbum = async e => {
+    const handleCancel=  (e) => {
         e.preventDefault()
+        setShowModal(false)
+        setTitle('')
+        setDescription('')
+        history.push(`/albums/user/${id}`)
     }
 
     const showPhotoStream = (e) => {
@@ -99,11 +103,18 @@ const UserAlbumsPage = () => {
                     {showModal && (
                         <Modal>
                             <div className='create-album-container'>
+
                                 <form className='album-form' onSubmit={handleCreateAlbum}>
-                                    <input value={title} onChange={(e) => setTitle(e.target.value)}></input>
-                                    <textarea value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                                    <h2>Create Album</h2>
+                                    <label className='album-form-label'>Title</label>
+                                    <input className='album-form-input' value={title} onChange={(e) => setTitle(e.target.value)}></input>
+                                    <label className='album-form-label'>Description</label>
+                                    <textarea className='album-form-input' value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                                     <button type='submit'>Create Album</button>
+                                    <button type='button' onClick={handleCancel}>Cancel</button>
                                 </form>
+
+
                             </div>
                         </Modal>
                     )}
