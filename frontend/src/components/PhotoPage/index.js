@@ -5,8 +5,10 @@ import { getSinglePhoto, deleteUserPhoto } from '../../store/photo';
 import { Modal } from '../../context/Modal'
 import Comment from './Comment/comment';
 import EditPhotoFormModal from './EditPhotoForm/EditPhotoFormModal';
+import AddToAlbum from './AddToAlbum';
 import Footer from '../Footer/Footer'
-import Navigation from '../Navigation/index'
+
+
 
 import './PhotoPage.css'
 
@@ -23,7 +25,6 @@ const PhotoPage = () => {
     const [expand, setExpand] = useState(false)
     const [showModal, setShowModal] = useState(false)
 
-    console.log("lksdfjlksdfjklsdf", photo)
 
     useEffect(() => {
         dispatch(getSinglePhoto(id))
@@ -93,6 +94,9 @@ const PhotoPage = () => {
                         <h2 className='photopage-user'><Link className="link-user" to={`/users/${photo.userId}`}>{photo.User?.username}</Link></h2>
                         <h3 className='photopage-title'>{photo?.title}</h3>
                         <p className="photopage-caption">{photo?.caption}</p>
+                        <div hidden={photo.userId !== sessionUser.id}>
+                            <AddToAlbum photo={photo}/>
+                        </div>
                     </div>
                     <div className='photo-comments'>
                         <Comment />

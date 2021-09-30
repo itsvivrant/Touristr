@@ -48,7 +48,7 @@ export const createAlbum = (data) => async dispatch => {
 }
 
 export const addPhotoToAlbum = (data) => async dispatch => {
-    const res = await csrfFetch(`/api/albums/${data.albumId}`, {
+    const response = await csrfFetch(`/api/albums/${data.albumId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -56,8 +56,8 @@ export const addPhotoToAlbum = (data) => async dispatch => {
         body: JSON.stringify(data),
       });
 
-      if (res.ok) {
-        const album = await res.json();
+      if (response.ok) {
+        const album = await response.json();
         dispatch(addToAlbum(album));
       }
 }
