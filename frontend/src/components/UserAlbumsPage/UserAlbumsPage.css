@@ -1,3 +1,104 @@
-.albums-container {
+.albums-gallery {
+    background-color: #F3F5F6;
+    height: 100%;
+    width: 100%;
+}
+.create-album-div {
+    display: flex;
+    justify-content: flex-end;
+    height: 10%;
+    width: 100%;
+    padding: 0;
+
+
+}
+
+.create-album-div button {
+    border: 0;
+    height: 40px;
+    width: 10em;
+    margin-right: 18.5%;
+    margin-top: 1%;
+    border-radius: 6px;
+    background-color: rgb(194, 194, 194);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: white;
+    cursor:pointer;
+}
+
+.create-album-div button:hover {
+    opacity: 0.7
+}
+
+.album-gallery-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+
+
+}
+
+.album-gallery-page {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    margin-top: 2%;
+    margin-left: 9%;
+    /* padding: 30px; */
+}
+
+.album-box {
+    border-radius: 3px;
+    position: relative;
+    width: 20%;
+    height: 12em;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    display: flex;
+
+    border: 1px solid black;
+}
+
+.album-content {
+
+    color: black;
+    margin-top: 70%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    width: 100%;
     
+
+}
+
+.album-content p {
+    text-align: center;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    overflow-wrap: break-word;
+
+
+
+}
+
+/* ***** ALBUM DELETE **********  */
+.fas.fa-trash {
+    font-size: 15px;
+    cursor: pointer;
+     margin-right: 5%;
+}
+
+.album-delete-bttn {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 5%;
+
 }

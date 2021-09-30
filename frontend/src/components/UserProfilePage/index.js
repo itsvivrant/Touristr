@@ -63,9 +63,9 @@ const UserProfilePage = () => {
                 <div >
                     <Link className="albums-container" onClick={showAlbums}>Albums</Link>
                 </div>
-                <div >
+                {/* <div >
                     <a className="favorites-container">Favorites</a>
-                </div>
+                </div> */}
             </div>
 
             <div className='gallery-page'>

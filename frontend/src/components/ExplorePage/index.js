@@ -32,7 +32,7 @@ const ExplorePage = () => {
             <div className='gallery-page'>
                 {photos.map((photo) => (
                     <>
-                        <div class="gallery-box">
+                        <div className="gallery-box">
                             <a href={`/photos/${photo.id}`} onClick={showPhoto}>
                                 <div class="img-box">
                                     <img class='single-photo' src={photo.imgURL} alt=""/>
