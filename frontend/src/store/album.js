@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf"
 
 const USER_ALBUMS = 'albums/USER_ALBUMS';
 const ADD_ALBUM = 'ablums/ADD_ALBUM';
+const ADD_TO_ALBUM = 'ablums/ADD_TO_ALBUM'
 const REMOVE_ALBUM = 'albums/REMOVE_ALBUM'
 
 const userAlbums = albums => ({
@@ -11,6 +12,11 @@ const userAlbums = albums => ({
 
 const addAlbum = album => ({
     type: ADD_ALBUM,
+    album
+})
+
+const addToAlbum = album => ({
+    type: ADD_TO_ALBUM,
     album
 })
 
@@ -41,6 +47,21 @@ export const createAlbum = (data) => async dispatch => {
     }
 }
 
+export const addPhotoToAlbum = (data) => async dispatch => {
+    const res = await csrfFetch(`/api/albums/${data.albumId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        const album = await res.json();
+        dispatch(addToAlbum(album));
+      }
+}
+
 export const deleteAlbum = (albumId) => async dispatch => {
     const response = await csrfFetch(`/api/albums/${albumId}/delete`, {
         method: 'DELETE',
@@ -63,6 +84,12 @@ const albumsReducer = (state = {}, action) => {
 
         case ADD_ALBUM: {
             const newState = {...state}
+            newState[action.album.id] = action.album
+            return newState
+        }
+
+        case ADD_TO_ALBUM: {
+            const newState= {...state}
             newState[action.album.id] = action.album
             return newState
         }

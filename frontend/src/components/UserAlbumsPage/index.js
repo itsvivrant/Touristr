@@ -118,7 +118,7 @@ const UserAlbumsPage = () => {
                                     <p>{album.title}</p>
                                     {/* <p>{album.description}</p> */}
                                     <div className='album-delete-bttn'>
-                                        <AlbumDelete albumId={album.id} setRenderPage={setRenderPage}/>
+                                        <AlbumDelete albumId={album.id} setRenderPage={setRenderPage} userId={id} renderPage={renderPage}/>
                                     </div>
                                 </div>
                             </div>
