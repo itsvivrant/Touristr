@@ -127,8 +127,8 @@ const UserAlbumsPage = () => {
                             <>
                             <div className='album-box' style={{backgroundImage: `url(${album.Photos[0].imgURL})`}}>
                                 <div className='album-content'>
-                                    <p>{album.title}</p>
-                                    <p>{album.Photos.length} Photos</p>
+                                    <p className='album-content-title'>{album.title}</p>
+                                    <p className='album-content-length'>{album.Photos.length} Photos</p>
                                     <div className='album-delete-bttn'>
                                         <AlbumDelete albumId={album.id} setRenderPage={setRenderPage} userId={id} renderPage={renderPage}/>
                                     </div>
