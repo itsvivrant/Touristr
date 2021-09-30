@@ -82,7 +82,7 @@ const Comment = () => {
                     <div className="comment-textarea">
                         <textarea placeholder='Add a comment' value={comment} onChange={(e) => setComment(e.target.value)} required></textarea>
                     </div>
-                    <div>
+                    <div className='post-comment-bttn-div'>
                         <button className='post-comment-bttn' onClick={handleSubmit}>Post Comment</button>
                     </div>
                 </form>

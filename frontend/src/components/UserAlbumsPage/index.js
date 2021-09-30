@@ -12,6 +12,10 @@ const UserAlbumsPage = () => {
     const history = useHistory();
     const {id} = useParams();
     const sessionUser = useSelector(state => state.session.user);
+    const userAlbums = useSelector(state => Object.values(state.albums))
+    const albumPhotos = useSelector(state => state.albums)
+
+    console.log('dslkfjsdkljfdsklfj', albumPhotos.createdAt)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [showModal, setShowModal] = useState(false)
@@ -21,9 +25,7 @@ const UserAlbumsPage = () => {
         dispatch(getUserAlbums(id))
     }, [dispatch, id, renderPage])
 
-    const userAlbums = useSelector(state => {
-        return Object.values(state.albums)
-    })
+
 
 
     const handleCreateAlbum = async e => {
@@ -123,11 +125,10 @@ const UserAlbumsPage = () => {
                     <div className='album-gallery-page'>
                         {userAlbums?.map((album) => (
                             <>
-                            <div className='album-box'>
-                                <div className='album-photo'></div>
+                            <div className='album-box' style={{backgroundImage: `url(${album.Photos[0].imgURL})`}}>
                                 <div className='album-content'>
                                     <p>{album.title}</p>
-                                    {/* <p>{album.description}</p> */}
+                                    <p>{album.Photos.length} Photos</p>
                                     <div className='album-delete-bttn'>
                                         <AlbumDelete albumId={album.id} setRenderPage={setRenderPage} userId={id} renderPage={renderPage}/>
                                     </div>

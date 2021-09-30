@@ -11,6 +11,7 @@ function AddToAlbum({photo}) {
     const {id} = useParams()
     const sessionUser = useSelector(state => state.session.user);
     const [addPhoto, setAddPhoto] = useState('');
+    const [status, setStatus] = useState("Add")
     const userAlbums = useSelector(state => {
         return Object.values(state.albums)
     });
@@ -26,19 +27,28 @@ function AddToAlbum({photo}) {
             albumId: addPhoto
           }
           dispatch(addPhotoToAlbum(photo))
+          setStatus("Added")
+          window.alert("Photo added to album.")
     }
+
+    if (handleAddToAlbum) {
+      setTimeout(() => {
+        setStatus('Add');
+      }, 2000);
+    }
+
     return(
         <form onSubmit={handleAddToAlbum}>
             <input type="hidden" value={photo.id} />
-            <select id='dropdown-album-options' className="album" value={addPhoto} onChange={e => setAddPhoto(e.target.value)}>
-            <option value="" disabled>Add to Album</option>
+            <select className="album-select" value={addPhoto} onChange={e => setAddPhoto(e.target.value)}>
+            <option value="" >Add to Album</option>
             {userAlbums.map(album => {
               return (
                 <option className='album-options' key={album.id} value={album.id}>{album.name}</option>
               )
             })}
           </select>
-          <button type='submit'>Add</button>
+          <button className='add-photo-bttn' type='submit'>{status}</button>
         </form>
     )
 }

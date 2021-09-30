@@ -53,7 +53,7 @@ const UploadPhotoModal = () => {
 
     const handleCancelClick = (e) => {
         e.preventDefault();
-        history.push(`/explore-photos`)
+        // history.push(`/explore-photos`)
         setShowModal(false)
     };
 

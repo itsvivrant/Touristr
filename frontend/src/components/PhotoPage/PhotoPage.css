@@ -91,8 +91,8 @@
 .photo-info-card {
     display: flex;
     flex-direction: column;
-    width: 30%;
-    padding: 2em 4em 0 18em;
+    width: 40%;
+    padding: 2em 4em 0 12em;
 }
 
 .photo-header-container {
@@ -100,6 +100,13 @@
     flex-direction: column;
     margin-bottom: 1em;
     border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+.photopage-user-album {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .photopage-user {
@@ -280,11 +287,16 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.post-comment-bttn-div {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .post-comment-bttn {
-    width: 100%;
+    width: 25%;
     border: 0;
     margin-top: 0.5em;
-    height: 35px;
+    height: 40px;
     border-radius: 4px;
     background-color: #48D1CC;
     color: white;
@@ -395,4 +407,27 @@
 /* **** ADD TO ALBUMS************  */
 .album-options {
     color: white;
+}
+
+.album-select {
+    width: 13em;
+    height: 1.8em;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 4px;
+}
+
+.add-photo-bttn {
+    background-color: #cccccc;
+    color: white;
+    border: 0;
+    border-radius: 4px;
+    width: 4em;
+    height: 1.7em;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+.album-select-box {
+    width: 40%;
+
 }

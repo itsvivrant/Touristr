@@ -91,12 +91,15 @@ const PhotoPage = () => {
             <div className='photo-info'>
                 <div className='photo-info-card'>
                     <div className='photo-header-container'>
-                        <h2 className='photopage-user'><Link className="link-user" to={`/users/${photo.userId}`}>{photo.User?.username}</Link></h2>
+                        <div className='photopage-user-album'>
+                            <h2 className='photopage-user'><Link className="link-user" to={`/users/${photo.userId}`}>{photo.User?.username}</Link></h2>
+                            <div className='album-select-box' hidden={photo.userId !== sessionUser.id}>
+                                <AddToAlbum photo={photo}/>
+                            </div>
+                        </div>
                         <h3 className='photopage-title'>{photo?.title}</h3>
                         <p className="photopage-caption">{photo?.caption}</p>
-                        <div hidden={photo.userId !== sessionUser.id}>
-                            <AddToAlbum photo={photo}/>
-                        </div>
+
                     </div>
                     <div className='photo-comments'>
                         <Comment />
