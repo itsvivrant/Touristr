@@ -41,9 +41,6 @@ const UserAlbumsPage = () => {
         setDescription('')
         setShowModal(false)
         history.push(`/albums/user/${id}`)
-
-
-
     }
 
     const handleCancel=  (e) => {
@@ -125,15 +122,28 @@ const UserAlbumsPage = () => {
                     <div className='album-gallery-page'>
                         {userAlbums?.map((album) => (
                             <>
-                            <div className='album-box' style={{backgroundImage: `url(${album?.Photos[0]?.imgURL})`}}>
-                                <div className='album-content'>
-                                    <p className='album-content-title'>{album.title}</p>
-                                    <p className='album-content-length'>{album.Photos.length} Photos</p>
-                                    <div className='album-delete-bttn'>
-                                        <AlbumDelete albumId={album.id} setRenderPage={setRenderPage} userId={id} renderPage={renderPage}/>
+                            {album?.Photos?.length > 0 ?
+
+                                <div className='album-box' style={{backgroundImage: `url(${album?.Photos[0]?.imgURL})`}}>
+                                    <div className='album-content'>
+                                        <p className='album-content-title'>{album.title}</p>
+                                        <p className='album-content-length'>{album.Photos?.length} Photos</p>
+                                        <div className='album-delete-bttn'>
+                                            <AlbumDelete albumId={album.id} setRenderPage={setRenderPage} userId={id} renderPage={renderPage}/>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            :
+                                <div className='album-box' style={{backgroundColor: "#F6BB42"}}>
+                                    <div className='album-content'>
+                                        <p className='album-content-title'>{album.title}</p>
+                                        <p className='album-content-length'>{album.Photos?.length} Photos</p>
+                                        <div className='album-delete-bttn'>
+                                            <AlbumDelete albumId={album.id} setRenderPage={setRenderPage} userId={id} renderPage={renderPage}/>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                             </>
                         ))}
 
