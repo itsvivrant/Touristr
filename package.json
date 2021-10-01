@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/itsvivrant/Test/issues"
   },
-  "homepage": "https://github.com/itsvivrant/Test#readme"
+  "homepage": "https://github.com/itsvivrant/Test#readme",
+  "dependencies": {
+    "react-simple-image-slider": "^2.2.0"
+  }
 }
