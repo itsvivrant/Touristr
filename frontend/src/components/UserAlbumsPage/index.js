@@ -132,8 +132,8 @@ const UserAlbumsPage = () => {
                         {userAlbums?.map((album) => (
                             <>
                             {album?.Photos?.length > 0 ?
-                                    <div onClick={openSlideShow}>
-                                    <div className='album-box' onClick={() => setAlbumId(album.id)} style={{backgroundImage: `url(${album?.Photos[0]?.imgURL})`}}>
+                                    // <div onClick={openSlideShow}>
+                                    <div className='album-box' onClick={() => {setAlbumId(album.id); openSlideShow() }} style={{backgroundImage: `url(${album?.Photos[0]?.imgURL})`}}>
                                         <div className='album-content'>
                                             <p className='album-content-title'>{album.title}</p>
                                             <p className='album-content-length'>{album.Photos?.length} Photos</p>
@@ -142,7 +142,7 @@ const UserAlbumsPage = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
+                                    // </div>
                             :
                                 <div className='album-box' style={{backgroundColor: "#F6BB42"}}>
                                     <div className='album-content'>
