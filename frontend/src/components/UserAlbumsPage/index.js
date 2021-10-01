@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, Redirect, useParams, Link} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserAlbums,createAlbum} from '../../store/album';
-import {Modal} from '../../context/Modal'
-import AlbumDelete from '../UserAlbumsPage/AlbumDelete'
-import Footer from '../Footer/Footer'
+import {Modal} from '../../context/Modal';
+import AlbumDelete from '../UserAlbumsPage/AlbumDelete';
+import Footer from '../Footer/Footer';
+import ViewAlbumPhotos from './ViewAlbumPhotos';
 
 import './UserAlbumsPage.css'
 
@@ -14,19 +15,19 @@ const UserAlbumsPage = () => {
     const {id} = useParams();
     const sessionUser = useSelector(state => state.session.user);
     const userAlbums = useSelector(state => Object.values(state.albums))
-    const albumPhotos = useSelector(state => state.albums)
 
-    console.log('dslkfjsdkljfdsklfj', albumPhotos.createdAt)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [showModal, setShowModal] = useState(false)
     const [renderPage, setRenderPage] = useState(false)
+    const [albumId, setAlbumId] = useState('')
+    const [slideShow, setSlideShow] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+
 
     useEffect(() => {
         dispatch(getUserAlbums(id))
     }, [dispatch, id, renderPage])
-
-
 
 
     const handleCreateAlbum = async e => {
@@ -61,6 +62,13 @@ const UserAlbumsPage = () => {
         e.preventDefault();
         history.push(`/albums/user/${id}`)
     }
+
+    const openSlideShow = () => {
+        setSlideShow(true)
+        setIsOpen(true)
+
+    }
+
 
     if (!userAlbums) return null;
 
@@ -124,16 +132,17 @@ const UserAlbumsPage = () => {
                         {userAlbums?.map((album) => (
                             <>
                             {album?.Photos?.length > 0 ?
-
-                                <div className='album-box' style={{backgroundImage: `url(${album?.Photos[0]?.imgURL})`}}>
-                                    <div className='album-content'>
-                                        <p className='album-content-title'>{album.title}</p>
-                                        <p className='album-content-length'>{album.Photos?.length} Photos</p>
-                                        <div className='album-delete-bttn'>
-                                            <AlbumDelete albumId={album.id} setRenderPage={setRenderPage} userId={id} renderPage={renderPage}/>
+                                    <div onClick={openSlideShow}>
+                                    <div className='album-box' onClick={() => setAlbumId(album.id)} style={{backgroundImage: `url(${album?.Photos[0]?.imgURL})`}}>
+                                        <div className='album-content'>
+                                            <p className='album-content-title'>{album.title}</p>
+                                            <p className='album-content-length'>{album.Photos?.length} Photos</p>
+                                            <div className='album-delete-bttn'>
+                                                <AlbumDelete albumId={album.id} setRenderPage={setRenderPage} userId={id} renderPage={renderPage}/>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                    </div>
                             :
                                 <div className='album-box' style={{backgroundColor: "#F6BB42"}}>
                                     <div className='album-content'>
@@ -147,6 +156,9 @@ const UserAlbumsPage = () => {
                             }
                             </>
                         ))}
+
+                        {slideShow ? <ViewAlbumPhotos albumId={albumId} setIsOpen={setIsOpen} isOpen={isOpen}/> : ''}
+
 
                     </div>
                 </div>

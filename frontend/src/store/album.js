@@ -1,13 +1,19 @@
 import { csrfFetch } from "./csrf"
 
 const USER_ALBUMS = 'albums/USER_ALBUMS';
-const ADD_ALBUM = 'ablums/ADD_ALBUM';
-const ADD_TO_ALBUM = 'ablums/ADD_TO_ALBUM'
-const REMOVE_ALBUM = 'albums/REMOVE_ALBUM'
+const SINGLE_ALBUM = 'albums/SINGLE_ALBUM';
+const ADD_ALBUM = 'albums/ADD_ALBUM';
+const ADD_TO_ALBUM = 'albums/ADD_TO_ALBUM';
+const REMOVE_ALBUM = 'albums/REMOVE_ALBUM';
 
 const userAlbums = albums => ({
     type: USER_ALBUMS,
     albums
+})
+
+const singleAlbum = album => ({
+    type: SINGLE_ALBUM,
+    album
 })
 
 const addAlbum = album => ({
@@ -31,6 +37,14 @@ export const getUserAlbums = (id) => async dispatch => {
     if (response.ok) {
         const albums = await response.json();
         dispatch(userAlbums(albums))
+    }
+}
+
+export const getSingleAlbum = (id) => async dispatch =>  {
+    const response = await csrfFetch(`/api/albums/${id}`);
+    if (response.ok) {
+        const album = await response.json();
+        dispatch(singleAlbum(album))
     }
 }
 
@@ -80,6 +94,12 @@ const albumsReducer = (state = {}, action) => {
                 newState[album.id] = album;
             });
             return newState;
+        }
+
+        case SINGLE_ALBUM: {
+            const newState = {};
+            newState[action.album.id] = action.album
+            return newState 
         }
 
         case ADD_ALBUM: {
