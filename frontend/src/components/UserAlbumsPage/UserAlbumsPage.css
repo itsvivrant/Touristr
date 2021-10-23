@@ -133,9 +133,15 @@
 
 /* ***** ALBUM DELETE **********  */
 .fas.fa-trash {
-    font-size: 15px;
+    font-size: 18px;
     cursor: pointer;
     margin-right: 5%;
+    color: rgb(177, 177, 177);
+
+}
+
+.fas.fa-trash:hover {
+    color: rgb(247, 247, 247);
 }
 
 .album-delete-bttn {
@@ -143,6 +149,7 @@
     justify-content: flex-end;
     width: 100%;
     margin-top: 5%;
+
 
 }
 .each-slide > div {

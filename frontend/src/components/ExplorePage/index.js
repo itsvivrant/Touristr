@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getPhotos } from '../../store/photo';
+import Footer from '../Footer/Footer';
 import './Explore.css'
 
 const ExplorePage = () => {
@@ -15,6 +16,12 @@ const ExplorePage = () => {
 
     //grabs the current state object of photos
     let photos = useSelector(state =>  Object.values(state.photos)); //this is the from the root reducer in store index.js
+
+    photos.sort(function (a, b) {
+        if (a.createdAt < b.createdAt) return 1;
+        if (a.createdAt > b.createdAt) return -1;
+        return 0;
+      });
 
     const showPhoto = (e) => {
         history.push(`/photos/${photo.id}`)
@@ -47,6 +54,7 @@ const ExplorePage = () => {
                     </>
                 ))}
             </div>
+            <Footer/>
         </>
     )
 }

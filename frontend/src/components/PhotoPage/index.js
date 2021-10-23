@@ -24,11 +24,13 @@ const PhotoPage = () => {
     })
     const [expand, setExpand] = useState(false)
     const [showModal, setShowModal] = useState(false)
+    const [renderDelete, setRenderDelete] = useState(false)
 
 
     useEffect(() => {
         dispatch(getSinglePhoto(id))
-    }, [dispatch, id])
+
+    }, [dispatch, id, renderDelete])
 
     if(!sessionUser) {
         return (
@@ -53,7 +55,8 @@ const PhotoPage = () => {
     const handleDeletePhoto = async (e) => {
         e.preventDefault()
         dispatch(deleteUserPhoto(photo.id))
-        history.push(`/users/${sessionUser.id}`)
+        setRenderDelete(true)
+        history.push(`/explore-photos/`)
     }
 
 
@@ -67,9 +70,11 @@ const PhotoPage = () => {
                 </div>
 
             </div>
-            <div className='photo-page-edit-delete' hidden={photo.userId !== sessionUser.id}>
+            <div className='photo-page-edit-delete'>
+                {photo.userId === sessionUser.id ?
+                <>
                 <EditPhotoFormModal />
-                <i className='far fa-trash-alt' onClick={handleDeletePhoto}></i>
+                <i className='far fa-trash-alt' onClick={handleDeletePhoto} ></i>
                 <i className='fas fa-expand-alt' onClick={expandPicture}></i>
 
                 {expand ?
@@ -87,6 +92,9 @@ const PhotoPage = () => {
 
                     </Modal>
                 ) : ''}
+                </>
+            : <i className='fas fa-expand-alt' onClick={expandPicture}></i>
+            }
             </div>
             <div className='photo-info'>
                 <div className='photo-info-card'>

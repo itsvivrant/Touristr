@@ -132,8 +132,8 @@ const UserAlbumsPage = () => {
                         {userAlbums?.map((album) => (
                             <>
                             {album?.Photos?.length > 0 ?
-                                    // <div onClick={openSlideShow}>
-                                    <div className='album-box' onClick={() => {setAlbumId(album.id); openSlideShow() }} style={{backgroundImage: `url(${album?.Photos[0]?.imgURL})`}}>
+                                    <div className='album-box' onClick={() => {setAlbumId(album.id); openSlideShow() }} >
+                                        <div className='album-cover' style={{backgroundImage: `url(${album?.Photos[0]?.imgURL})`}}></div>
                                         <div className='album-content'>
                                             <p className='album-content-title'>{album.title}</p>
                                             <p className='album-content-length'>{album.Photos?.length} Photos</p>
@@ -141,6 +141,7 @@ const UserAlbumsPage = () => {
                                                 <AlbumDelete albumId={album.id} setRenderPage={setRenderPage} userId={id} renderPage={renderPage}/>
                                             </div>
                                         </div>
+
                                     </div>
                                     // </div>
                             :
@@ -157,7 +158,7 @@ const UserAlbumsPage = () => {
                             </>
                         ))}
 
-                        {slideShow ? <ViewAlbumPhotos albumId={albumId} setIsOpen={setIsOpen} isOpen={isOpen}/> : ''}
+                        {slideShow ? <ViewAlbumPhotos albumId={albumId} setIsOpen={setIsOpen} isOpen={isOpen} setSlideShow={setSlideShow}/> : ''}
 
 
                     </div>

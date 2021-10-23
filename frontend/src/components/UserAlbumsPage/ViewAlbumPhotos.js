@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, Redirect, useParams, Link} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getSingleAlbum} from '../../store/album';
+import { getUserAlbums, getSingleAlbum} from '../../store/album';
 import {Modal} from '../../context/Modal';
 import ReactBnbGallery from 'react-bnb-gallery';
 
@@ -17,7 +17,9 @@ import './UserAlbumsPage.css'
 
 function ViewAlbumPhotos({albumId, setIsOpen, isOpen}) {
     const dispatch  = useDispatch();
-    
+    const {id} = useParams();
+
+
     const albumPhotos = useSelector(state => state.albums[albumId])
 
     // console.log(albumPhotos.Photos)
@@ -28,9 +30,11 @@ function ViewAlbumPhotos({albumId, setIsOpen, isOpen}) {
 
 
     useEffect(() =>  {
+        dispatch(getUserAlbums(id))
         dispatch(getSingleAlbum(albumId))
 
-    }, [dispatch, albumId])
+
+    }, [dispatch, albumId, id])
 
     return (
         <>
