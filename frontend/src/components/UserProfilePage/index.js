@@ -80,6 +80,7 @@ const UserProfilePage = () => {
                                     <img class='single-photo' src={photo.imgURL} alt=""/>
                                     <div class="photo-content">
                                         <p className='photo-title'>{photo.title}</p>
+                                        <p className='photo-user'>By {photo.User?.username}</p>
                                     </div>
                                 </div>
                             </a>
