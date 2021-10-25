@@ -56,7 +56,7 @@ const PhotoPage = () => {
         e.preventDefault()
         dispatch(deleteUserPhoto(photo.id))
         setRenderDelete(true)
-        history.push(`/explore-photos/`)
+        history.push(`/users/${photo.userId}`)
     }
 
 
@@ -89,7 +89,7 @@ const PhotoPage = () => {
                             </div>
                             <i onClick={compressPicture} className='fas fa-compress-alt'></i>
                         </div>
-                  
+
                     </Modal>
                 ) : ''}
                 </>

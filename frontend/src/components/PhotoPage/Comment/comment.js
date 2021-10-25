@@ -53,10 +53,10 @@ const Comment = () => {
 
     return (
         <div className='comment-container'>
-            {usersComments.length === 0 ? <div className="empty-comment">Please be the first to comment!</div> :
+            {usersComments.length === 0 ? <div className="empty-comment">Be the first to comment!</div> :
             usersComments?.map((comment)=>(
                 <div class="comments-container">
-                    <h4><Link className="link-comment-user" to={`/users/${comment.userId}`}>{comment.User?.username}</Link></h4>
+                    <h4><Link className="link-comment-user" to={`/users/${comment.User.userId}`}>{comment.User?.username}</Link></h4>
                     <div className="user-comment-info">
                         <div className="comment-p">
                             <p>{comment.comment}</p>
