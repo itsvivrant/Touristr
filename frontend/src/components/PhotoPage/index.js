@@ -81,15 +81,15 @@ const PhotoPage = () => {
                 showModal && (
                     <Modal>
 
-                    <div className='img-modal-container'>
-                        <div className='img-modal-box'>
 
-                            <img className='img-modal' src={photo.imgURL} alt={photo.title}></img>
+                        <div className='img-modal-container'>
+                            <div className='img-modal-box'>
+
+                                <img className='img-modal' src={photo.imgURL} alt={photo.title}></img>
+                            </div>
+                            <i onClick={compressPicture} className='fas fa-compress-alt'></i>
                         </div>
-                        <i onClick={compressPicture} className='fas fa-compress-alt'></i>
-                    </div>
-
-
+                  
                     </Modal>
                 ) : ''}
                 </>

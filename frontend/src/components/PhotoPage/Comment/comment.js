@@ -53,7 +53,8 @@ const Comment = () => {
 
     return (
         <div className='comment-container'>
-            {usersComments?.map((comment)=>(
+            {usersComments.length === 0 ? <div className="empty-comment">Please be the first to comment!</div> :
+            usersComments?.map((comment)=>(
                 <div class="comments-container">
                     <h4><Link className="link-comment-user" to={`/users/${comment.userId}`}>{comment.User?.username}</Link></h4>
                     <div className="user-comment-info">
@@ -72,9 +73,9 @@ const Comment = () => {
                         </div>
                     </div>
                 </div>
-            ))}
+            ))
 
-
+            }
 
 
             <div className="comment-form-container">
