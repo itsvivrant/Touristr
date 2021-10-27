@@ -103,7 +103,7 @@
 }
 .upload-buttons button{
   width: 200px;
-  height:32px;
+  height:35px;
   font-size: 14px;
   background-color: #cccccc;
   border: 0;
@@ -112,8 +112,11 @@
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 3px;
+  transition: 0.3s;
+  color: black;
 }
 
 .upload-buttons button:hover {
   background-color: rgba(21,21,23,.95);
+  color: white;
 }

@@ -50,6 +50,7 @@
   width: 300px;
   height:40px;
   border-radius: 4px;
+  border: 1px solid rgb(204, 204, 204);
 }
 
 .logn-label .login-input label {
@@ -65,15 +66,19 @@
 .login-label button {
   width: 310px;
   height: 40px;
-  color: white;
-  background-color: rgb(171, 170, 170);
+  color: black;
+  background-color: #cccccc;
   cursor: pointer;
   margin-bottom: 30px;
+  transition: 0.3s;
+  border: 0;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 .login-label button:hover {
   background-color: black;
-  text-shadow: 0 0 1px white;
+  color: white;
 }
 
 .session-link {
