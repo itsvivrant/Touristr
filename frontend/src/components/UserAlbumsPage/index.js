@@ -128,8 +128,10 @@ const UserAlbumsPage = () => {
                     )}
                 </div>
                 <div className='album-gallery-container'>
+
                     <div className='album-gallery-page'>
                         {userAlbums?.map((album) => (
+                            
                             <>
                             {album?.Photos?.length > 0 ?
                                     <div className='album-box' onClick={() => {setAlbumId(album.id); openSlideShow() }} >
@@ -143,7 +145,6 @@ const UserAlbumsPage = () => {
                                         </div>
 
                                     </div>
-                                    // </div>
                             :
                                 <div className='album-box' style={{backgroundColor: "#F6BB42"}}>
                                     <div className='album-content'>
@@ -156,6 +157,7 @@ const UserAlbumsPage = () => {
                                 </div>
                             }
                             </>
+
                         ))}
 
                         {slideShow ? <ViewAlbumPhotos albumId={albumId} setIsOpen={setIsOpen} isOpen={isOpen} setSlideShow={setSlideShow}/> : ''}
