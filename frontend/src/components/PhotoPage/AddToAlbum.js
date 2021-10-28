@@ -44,7 +44,7 @@ function AddToAlbum({photo}) {
             <option value="" >Add to Album</option>
             {userAlbums.map(album => {
               return (
-                <option className='album-options' key={album.id} value={album.id}>{album?.name}</option>
+                <option className='album-options' key={album.id} value={album.id}>{album.name}</option>
               )
             })}
           </select>

@@ -61,6 +61,12 @@
     cursor: pointer;
 }
 
+.album-cover {
+    opacity: 0.6;
+    z-index: 7;
+    position: absolute;
+}
+
 .album-content {
     color: white;
     margin-top: 70%;

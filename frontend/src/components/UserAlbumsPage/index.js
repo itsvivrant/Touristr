@@ -136,8 +136,7 @@ const UserAlbumsPage = () => {
 
                             <>
                             {album?.Photos?.length > 0 ?
-                                    <div className='album-box' onClick={() => {setAlbumId(album.id); openSlideShow() }} >
-                                        <div className='album-cover' style={{backgroundImage: `url(${album?.Photos[0]?.imgURL})`}}></div>
+                                    <div className='album-box' style={{backgroundImage: `url(${album?.Photos[0]?.imgURL})`}} onClick={() => {setAlbumId(album.id); openSlideShow() }} >
                                         <div className='album-content'>
                                             <p className='album-content-title'>{album.title}</p>
                                             <p className='album-content-length'>{album.Photos?.length} Photos</p>
