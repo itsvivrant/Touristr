@@ -16,6 +16,8 @@ const UserAlbumsPage = () => {
     const sessionUser = useSelector(state => state.session.user);
     const userAlbums = useSelector(state => Object.values(state.albums))
 
+    console.log('sdlkfjsdklfj', userAlbums)
+
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [showModal, setShowModal] = useState(false)
@@ -131,7 +133,7 @@ const UserAlbumsPage = () => {
 
                     <div className='album-gallery-page'>
                         {userAlbums?.map((album) => (
-                            
+
                             <>
                             {album?.Photos?.length > 0 ?
                                     <div className='album-box' onClick={() => {setAlbumId(album.id); openSlideShow() }} >

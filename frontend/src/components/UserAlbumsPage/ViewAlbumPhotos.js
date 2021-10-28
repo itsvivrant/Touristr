@@ -22,8 +22,6 @@ function ViewAlbumPhotos({albumId, setIsOpen, isOpen}) {
 
     const albumPhotos = useSelector(state => state.albums[albumId])
 
-    // console.log(albumPhotos.Photos)
-
     const photos = albumPhotos.Photos?.map((photo) => photo.imgURL)
 
 
