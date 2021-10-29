@@ -16,6 +16,8 @@ function AddToAlbum({photo}) {
         return Object.values(state.albums)
     });
 
+    console.log('lkdsfjklsdjf', userAlbums)
+
     useEffect(() => {
         dispatch(getUserAlbums(sessionUser.id))
     }, [dispatch])
@@ -41,12 +43,12 @@ function AddToAlbum({photo}) {
         <form onSubmit={handleAddToAlbum}>
             <input type="hidden" value={photo.id} />
             <select className="album-select" value={addPhoto} onChange={e => setAddPhoto(e.target.value)}>
-            <option value="" >Add to Album</option>
-            {userAlbums.map(album => {
-              return (
-                <option className='album-options' key={album.id} value={album.id}>{album.name}</option>
-              )
-            })}
+              <option value="" >Add to Album</option>
+              {userAlbums.map(album => {
+                return (
+                  <option className='album-options' key={album.id} value={album.id}>{album.title}</option>
+                )
+              })}
           </select>
           <button className='add-photo-bttn' type='submit'>{status}</button>
         </form>
